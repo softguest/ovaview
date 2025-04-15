@@ -1,4 +1,4 @@
-import { SchoolModel } from "@prisma/client";
+import { User } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { db } from "@/lib/db";
 
@@ -17,33 +17,18 @@ export default async function handler(
       /**
        * Search posts
        */
-      const schools: Array<SchoolModel> = await db.schoolModel.findMany({
+      const schools: Array<User> = await db.user.findMany({
         where: {
           OR: [
             {
-              schoolName: {
+              firstName: {
                 contains: query,
-                mode: "insensitive",
-              },
-            },
-            {
-              author: {
-                firstName: {
-                  contains: query,
-                  mode: "insensitive",
-                },
+                // mode: "insensitive",
               },
             },
           ],
-        },
-        include: {
-          author: true,
-        },
+        }
       });
-
-      /**
-       * Save search
-       */
       await db.searchQuery.create({
         data: {
           query,

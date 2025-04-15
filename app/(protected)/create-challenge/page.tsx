@@ -56,7 +56,7 @@ export default function CreateSchool() {
             setIsLoading(false)
         })
     }
-	function handleChange(event:ChangeEvent<HTMLInputElement> ) {
+	function handleChange(event:ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) {
 		setState({ ...state, [event.target.name]: event.target.value});
 	}
     const setCustomValue = (id:any, value:any) => {

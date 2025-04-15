@@ -44,7 +44,7 @@ const Challenges = async ({searchParams, }: {searchParams: {[key: string]: strin
                 <p className="text-gray-600 font-bold text-center text-1xl mt-2">{challenge.title}</p>
                 <div className="flex justify-center items-center text-center mt-2">
                                 {/* <FaPhoneVolume className='text-blue-900 mr-2' size={18}/> */}
-                                <p className='text-gray-600'>{challenge.description}</p>
+                                <p className='text-gray-600'>{JSON.stringify(challenge.description)}</p>
                 </div>
                 <ul className="py-4 mt-2 text-gray-700 flex items-center justify-around">
                     <li className="flex flex-col items-center justify-around">

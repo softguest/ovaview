@@ -1,10 +1,9 @@
-import { Editor } from '@/components/Editor';
 import FormProject from '@/components/formProject/FormProject';
-import Projects from '@/components/projects/Projects';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { currentUser } from '@/lib/auth';
 import { db } from '@/lib/db';
+import Image from 'next/image';
 import React, { FC } from 'react'
 
 interface BlogDetailPageProps {
@@ -34,7 +33,7 @@ const BlogDetailedPage: FC<BlogDetailPageProps> = async ({ params }) => {
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="">
                   <center>
-                    <img src={challenge?.image as string} className='w-full rounded-lg border-4' alt="" />
+                    <Image src={challenge?.image as string} className='w-full rounded-lg border-4' alt="" />
                   </center>
                 </div>
                 <div className="mb-4 p-2 bg-slate-100 rounded-lg">
@@ -72,14 +71,6 @@ const BlogDetailedPage: FC<BlogDetailPageProps> = async ({ params }) => {
           {challenge?.authorId === user?.id ? (
               <div className="">
                 <FormProject challengeId={params.id} challengeTitle={challenge?.title?.replace(/\b\w/g, match => match.toUpperCase()) as string}/> 
-                {/* <div className="">
-                    <Editor challengeId={params.id}/>
-                    <div className='w-full flex justify-end'>
-                        <Button type='submit' className='w-full' form='subreddit-post-form'>
-                          Post
-                        </Button>
-                    </div>
-                </div>     */}
               </div>
             ) :(
                 <div></div>

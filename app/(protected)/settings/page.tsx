@@ -48,32 +48,18 @@ const SettingsPage = () => {
   const form = useForm<z.infer<typeof SettingsSchema>>({
     resolver: zodResolver(SettingsSchema),
     defaultValues: {
-      image: user?.image || undefined,
+      profileImage: user?.profileImage || undefined,
       firstName: user?.firstName || undefined,
       middleName: user?.middleName || undefined,
       lastName: user?.lastName || undefined,
       gender: user?.gender || undefined,
-      bloodGroup: user?.bloodGroup || undefined,
       dateOfBirth: user?.dateOfBirth || undefined,
       telePhone: user?.telePhone || undefined,
 
       // Address 
-      currentAddress : user?.currentAddress  || undefined,
       cityName : user?.cityName   || undefined,
       country : user?.country  || undefined,
       pinCode : user?.pinCode  || undefined,
-
-      // If account is a student accoun? then display  parent datails 
-      parentFirstName: user?.parentFirstName || undefined,
-      parentMiddleName : user?.parentMiddleName  || undefined,
-      parentLastName: user?.parentLastName || undefined,
-      parentGender: user?.parentGender || undefined,
-      parentDateOfBirth: user?.parentDateOfBirth || undefined,
-      parentBloodGroup: user?.parentBloodGroup || undefined,
-      parentTelePhone: user?.parentTelePhone || undefined,
-      parentEmail: user?.parentEmail || undefined,
-      parentEducation: user?.parentEducation || undefined,
-      parentProfession: user?.parentProfession|| undefined,
 
       // Account Information
       email: user?.email || undefined,
@@ -191,53 +177,6 @@ const SettingsPage = () => {
                 />
                 <FormField
                   control={form.control}
-                  name="bloodGroup"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Your Blood Group</FormLabel>
-                      <Select
-                        disabled={isPending}
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select Blood Group" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="O +">
-                              O +
-                          </SelectItem>
-                          <SelectItem value="O -">
-                              O -
-                          </SelectItem>
-                          <SelectItem value="A +">
-                              A +
-                          </SelectItem>
-                          <SelectItem value="A -">
-                              A -
-                          </SelectItem>
-                          <SelectItem value="B +">
-                              B +
-                          </SelectItem>
-                          <SelectItem value="B -">
-                              B -
-                          </SelectItem>
-                          <SelectItem value="AB +">
-                              AB + 
-                          </SelectItem>
-                          <SelectItem value="AB -">
-                              AB - 
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
                   name="gender"
                   render={({ field }) => (
                     <FormItem>
@@ -284,23 +223,7 @@ const SettingsPage = () => {
                 />  
 
                 {/* Address  */}
-                <FormField
-                    control={form.control}
-                    name="currentAddress"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Current Address:</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            // placeholder="+237"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
+
                 <FormField
                     control={form.control}
                     name="cityName"
@@ -412,221 +335,7 @@ const SettingsPage = () => {
                     />
                   </>
                 )}
-
               {/* If account is a student accoun? then display  parent datails  */}
-                <FormField
-                    control={form.control}
-                    name="parentFirstName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent First Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent First Name"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentMiddleName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Middle Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent Middle Name"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentLastName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Last Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent Last Name"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                <FormField
-                  control={form.control}
-                  name="parentGender"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Parent Gender</FormLabel>
-                      <Select
-                        disabled={isPending}
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a gender" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="MALE">
-                            Male
-                          </SelectItem>
-                          <SelectItem value="FEMALE">
-                            Female
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentDateOfBirth"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Date Of Birth</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="parentDateOfBirth"
-                            type="date"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                 <FormField
-                  control={form.control}
-                  name="parentBloodGroup"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Parent Blood Groups</FormLabel>
-                      <Select
-                        disabled={isPending}
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select Blood Group" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="O +">
-                              O +
-                          </SelectItem>
-                          <SelectItem value="O -">
-                              O -
-                          </SelectItem>
-                          <SelectItem value="A +">
-                              A +
-                          </SelectItem>
-                          <SelectItem value="A -">
-                              A -
-                          </SelectItem>
-                          <SelectItem value="B +">
-                              B +
-                          </SelectItem>
-                          <SelectItem value="B -">
-                              B -
-                          </SelectItem>
-                          <SelectItem value="AB +">
-                              AB + 
-                          </SelectItem>
-                          <SelectItem value="AB -">
-                              AB - 
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentTelePhone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Telephone</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent Telephone"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentEmail"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Email</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent Email"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentEducation"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Education</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent Education"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="parentProfession"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Parent Profession</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Parent Profession"
-                            disabled={isPending}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                />
                 <FormField
                   control={form.control}
                   name="typeOfIdentificationCard"

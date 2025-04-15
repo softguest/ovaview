@@ -27,30 +27,17 @@ export const settings = async (
   }
 
   if (user.isOAuth) {
-    values.image = undefined;
+    values.profileImage = undefined;
     values.firstName = undefined;
     values.middleName = undefined;
     values.lastName = undefined;
-    values.bloodGroup = undefined;
     values.dateOfBirth = undefined;
     values.telePhone = undefined;
     values.gender = undefined;
 
-    values.currentAddress = undefined;
     values.cityName = undefined;
     values.country = undefined;
     values.pinCode = undefined;
-
-    values.parentFirstName = undefined;
-    values.parentMiddleName = undefined;
-    values.parentLastName = undefined;
-    values.parentGender = undefined;
-    values.parentDateOfBirth = undefined;
-    values.parentBloodGroup = undefined;
-    values.parentTelePhone = undefined;
-    values.parentEmail = undefined;
-    values.parentEducation= undefined;
-    values.parentProfession = undefined;
 
     values.email = undefined;
     values.password = undefined;
@@ -111,26 +98,13 @@ export const settings = async (
       firstName: updatedUser.firstName as string | undefined,
       middleName: updatedUser.middleName as string | undefined,
       lastName: updatedUser.lastName as string | undefined,
-      bloodGroup: updatedUser.bloodGroup as string | undefined,
       dateOfBirth: updatedUser.dateOfBirth as string | undefined,
       telePhone:   updatedUser.telePhone as string | undefined,
       gender:      updatedUser.gender as string | undefined,
 
-      currentAddress: updatedUser.currentAddress as string | undefined,
       cityName:       updatedUser.cityName as string | undefined,
       country:        updatedUser.country as string | undefined,
       pinCode:        updatedUser.pinCode as string | undefined,
-
-      parentFirstName:    updatedUser.parentFirstName as string | undefined,
-      parentMiddleName:   updatedUser.parentMiddleName as string | undefined,
-      parentLastName:     updatedUser.parentLastName as string | undefined,
-      parentGender:       updatedUser.parentGender as string | undefined,
-      parentDateOfBirth:  updatedUser.parentDateOfBirth as string | undefined,
-      parentBloodGroup:   updatedUser.parentBloodGroup as string | undefined,
-      parentTelePhone:    updatedUser.parentTelePhone as string | undefined, 
-      parentEmail:        updatedUser.parentEmail as string | undefined,
-      parentEducation:    updatedUser.parentEducation as string | undefined,
-      parentProfession:   updatedUser.parentProfession as string | undefined,
   
       isTwoFactorEnabled: updatedUser.isTwoFactorEnabled,
 
@@ -141,7 +115,7 @@ export const settings = async (
       identificationCardNumber: updatedUser.identificationCardNumber as string | undefined,
       identificationFile: updatedUser.identificationFile as string | undefined,
 
-      image: updatedUser.image as string | undefined,
+      image: updatedUser.profileImage as string | undefined,
     }
   });
 

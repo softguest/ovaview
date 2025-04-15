@@ -69,24 +69,11 @@ export const {
             session.user.lastName         = token.lastName as string;
             session.user.gender           = token.gender as string;
             session.user.dateOfBirth      = token.dateOfBirth as string;
-            session.user.bloodGroup      = token.bloodGroup as string;
             session.user.telePhone        = token.telePhone as string;
 
-            session.user.currentAddress   = token.currentAddress as string;
             session.user.cityName         = token.cityName as string;
             session.user.country          = token.country as string;
             session.user.pinCode          = token.pinCode as string;
-
-            session.user.parentFirstName    = token.parentFirstName as string;
-            session.user.parentMiddleName   = token.parentMiddleName as string;
-            session.user.parentLastName     = token.parentLastName as string;
-            session.user.parentGender       = token.parentGender as string;
-            session.user.parentDateOfBirth  = token.parentDateOfBirth as string;
-            session.user.parentBloodGroup  = token.parentBloodGroup as string;
-            session.user.parentTelePhone    = token.parentTelePhone as string;
-            session.user.parentEmail        = token.parentEmail as string;
-            session.user.parentEducation    = token.parentEducation as string;
-            session.user.parentProfession   = token.parentProfession as string;
 
             session.user.email = token.email as string;
 
@@ -118,24 +105,11 @@ export const {
       token.lastName  = existingUser.lastName; 
       token.gender = existingUser.gender
       token.dateOfBirth = existingUser.dateOfBirth;
-      token.bloodGroup = existingUser.bloodGroup;
       token.telePhone = existingUser.telePhone;
 
-      token.currentAddress = existingUser.currentAddress;
       token.cityName = existingUser.cityName;
       token.country = existingUser.country;
       token.pinCode = existingUser.pinCode;
-
-      token.parentFirstName = existingUser.cityName;
-      token.parentMiddleName = existingUser.parentMiddleName;
-      token.parentLastName = existingUser.parentLastName;
-      token.parentGender = existingUser.parentGender;
-      token.parentDateOfBirth = existingUser.parentDateOfBirth;
-      token.parentBloodGroup = existingUser.parentBloodGroup;
-      token.parentTelePhone = existingUser.parentTelePhone;
-      token.parentEmail = existingUser.parentEmail;
-      token.parentEducation = existingUser.parentEducation;
-      token.parentProfession = existingUser.parentProfession;
 
       token.email = existingUser.email;
       token.role = existingUser.role;
@@ -145,7 +119,7 @@ export const {
       token.identificationCardNumber = existingUser.identificationCardNumber;
       token.identificationFile = existingUser.identificationFile;
 
-      token.image = existingUser.image;
+      token.image = existingUser.profileImage;
 
       return token;
     }

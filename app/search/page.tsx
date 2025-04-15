@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import Spinner from "./Spinner";
 import useSWR from "swr";
-import SchoolComponent from "@/components/schoolCon/SchoolComponent";
+
 
 const fetchPosts = async (url: string) => {
   const response = await fetch(url);
@@ -46,7 +46,6 @@ const SearchPage = () => {
         Showing results for:{" "}
         <span className="font-semibold">{searchQuery}</span>
       </span>
-      <SchoolComponent entries={data.posts} />
     </>
   );
 };
