@@ -24,16 +24,22 @@ const ChatForm = () => {
     });
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-12 text-lg">
-      <InputForm
-        input={input}
-        handleInputChange={handleInputChange}
-        handleSubmit={handleSubmit}
-        isLoading={isLoading}
-        stop={stop}
-      />
-      <Messages messages={messages} isLoading={isLoading} />
+    <div className="flex min-h-screen flex-col bg-neutral-100 dark:bg-[#0d0d0d] text-lg text-neutral-900 dark:text-neutral-100">
+      <div className="flex-1 w-full max-w-3xl mx-auto px-2 md:px-4 py-6 overflow-y-auto space-y-4 custom-scroll">
+        <Messages messages={messages} isLoading={isLoading} />
+      </div>
+
+      <div className="sticky bottom-0 w-full xl:rounded-2xl max-w-3xl mx-auto md:px-4 md:py-4 bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-lg border-t border-neutral-300 dark:border-neutral-700">
+        <InputForm
+          input={input}
+          handleInputChange={handleInputChange}
+          handleSubmit={handleSubmit}
+          isLoading={isLoading}
+          stop={stop}
+        />
+      </div>
     </div>
+
   )
 }
 

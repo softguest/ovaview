@@ -31,18 +31,14 @@ const InputForm = ({
     const imagePromises = [];
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      // Process the file
       const reader = new FileReader();
 
       imagePromises.push(
         new Promise<string>((resolve, reject) => {
-          // set onload on reader
           reader.onload = (e) => {
             const base64String = e.target?.result?.toString();
-            // const base64String = e.target?.result?.toString().split(",")[1];
             resolve(base64String as string);
           };
-          // set onerror on reader
           reader.onerror = (error) => reject(error);
           reader.readAsDataURL(file);
         })
@@ -50,15 +46,12 @@ const InputForm = ({
     }
 
     try {
-      const base64Strings = await Promise.all(imagePromises); // Wait for all conversions
-      // setImages(base64Strings as string[]);
+      const base64Strings = await Promise.all(imagePromises); 
       setImages((prevImages: string[]) => {
-        // Explicitly type the result as a string array
         const updatedImages: string[] = [
           ...prevImages,
           ...(base64Strings as string[]),
         ];
-        // const updatedImages: string[] = base64Strings as string[];
         return updatedImages;
       });
     } catch (error) {
@@ -77,13 +70,6 @@ const InputForm = ({
       }}
       className="w-full flex flex-row gap-2 items-center h-full mt-5"
     >
-      <div className="border flex flex-row relative">
-        <Plus
-          onClick={() => document.getElementById("fileInput")?.click()} // Click event handler
-          className="cursor-pointer p-3 h-10 w-10 stroke-stone-500"
-        />
-        <SelectedImages images={images} setImages={setImages} />
-      </div>
       <input
         className="hidden"
         id="fileInput"
