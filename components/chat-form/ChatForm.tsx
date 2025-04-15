@@ -1,19 +1,5 @@
 "use client";
 import { useChat } from "ai/react";
-import {
-    Bot,
-    Loader,
-    Loader2,
-    MoreHorizontal,
-    Plus,
-    Send,
-    User2,
-    X,
-  } from "lucide-react";
-import Image from "next/image";
-import Markdown from "../chat-components/markdown";
-import { ChangeEvent, useState } from "react";
-import SelectedImages from "../chat-components/selectedImages";
 import Messages from "../chat-components/messages";
 import InputForm from "../chat-components/inputForm";
 

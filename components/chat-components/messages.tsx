@@ -24,10 +24,10 @@ const Messages = ({ messages, isLoading }: Props) => {
           >
             <Markdown text={m.content} />
             {m.role === "user" ? (
-              <User2 className="absolute -left-10 top-2 border rounded-full md:p-1 shadow-lg" />
+              <User2 className="absolute -left-10 top-2 border rounded-full shadow-lg" />
             ) : (
               <Bot
-                className={`absolute top-2 -left-10 border rounded-full md:p-1 shadow-lg stroke-[#0842A0] ${
+                className={`absolute top-2 -left-10 border rounded-full shadow-lg bg-slate-700 ${
                   isLoading && index === messages.length - 1
                     ? "animate-bounce"
                     : ""
