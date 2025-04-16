@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className='bg-slate-600 py-8'>
         <div className='flex justify-between items-center px-4 md:px-32'>
-            <Link href='/' className='text-white text-2xl font-bold'>
+            <Link href='/' className='text-white text-1xl md:text-2xl font-bold'>
                 Weekly Challenge
             </Link>
             <ul className='flex justify-between items-center space-x-6'>  
