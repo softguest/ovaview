@@ -16,9 +16,8 @@ import {
 } from "@/components/ui/avatar";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { LogoutButton } from "@/components/auth/logout-button";
-import { FcLineChart, FcSettings } from "react-icons/fc";
+import { FcSettings } from "react-icons/fc";
 import Link from "next/link";
-import { FaCircleUser, FaUsersLine } from "react-icons/fa6";
 
 export const UserButton = () => {
   const user = useCurrentUser();
@@ -38,24 +37,6 @@ export const UserButton = () => {
           <Link href="/server" className="flex justify-items-center">
               <FaUser className="h-6 w-4 mr-2"/>
                My Profile
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/my-schools" className="flex justify-items-center">
-              <FaBuilding className="h-6 w-4 mr-2"/>
-                  My Schools
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/my-open-registrations" className="flex justify-items-center">
-              <FcLineChart className="h-6 w-4 mr-2"/>
-                Open Registrations
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/admition-request" className="flex justify-items-center">
-              <FaUsersLine className="h-6 w-4 mr-2"/>
-              Admition Request
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>

@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { Button } from "@/components/ui/button";
-import { LoginButton } from "@/components/auth/login-button";
 import { FaWhatsapp } from 'react-icons/fa';
-import Style from './footer.module.css'
 
 const Footer = () => {
   return (

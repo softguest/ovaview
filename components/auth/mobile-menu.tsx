@@ -37,25 +37,6 @@ export const MobileMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-80" align="center">
         <DropdownMenuItem>
-          <Link href="/schools" className="flex justify-items-center">
-              <FaUser className="h-8 w-4 mr-2"/>
-              Schools
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/registration" className="flex justify-items-center">
-              <FaUser className="h-8 w-4 mr-2"/>
-              Admitions
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/profiles" className="flex justify-items-center">
-              <FaUsersBetweenLines className="h-8 w-4 mr-2"/>
-                Profiles
-          </Link>
-        </DropdownMenuItem>
-        <hr className=""/>
-        <DropdownMenuItem>
           <Link href="/server" className="flex justify-items-center">
               <FaUser className="h-8 w-4 mr-2"/>
                My Profile
