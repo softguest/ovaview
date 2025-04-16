@@ -19,43 +19,40 @@ const HeaderTwo = () => {
             <div className="px-4 md:px-8 lg:px-32 flex flex-wrap items-center justify-between p-4">
                 <div className="flex items-start space-x-3 rtl:space-x-reverse">
                     <Link href="/dashboard">
-                        <h2 className='text-white hidden md:block font-extrabold text-2xl'>😆Weekly</h2>
+                        <h2 className='text-white block font-extrabold text-1xl'>😆Weekly</h2>
                     </Link>
-                    {session?.user?.email ? (
-                        <SearchBar />
-                        ) :(
-                            <div></div>
-                        )
-                    } 
-                </div>
-                <div className="md:hidden">
-                    <MobileMenu />
+                    {/* <SearchBar /> */}
                 </div>
                 
-                <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-                <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
-                    {session?.user
-                        ? (
-                        <div className="flex items-center gap-x-3 md:display">
-
-                            <Link href="/dashboard" className='text-white font-bold'>
-                                Home
+                <div className="" id="navbar-dropdown">
+                    <ul className="flex flex-col font-medium md:p-0 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
+                        {session?.user?.email ? (
+                            <div className="hidden md:flex items-center gap-x-3 md:display">
+                                <Link href="/dashboard" className='text-white font-bold'>
+                                    Home
+                                </Link>
+                                <Link href="/settings" className='text-white font-bold'>
+                                    Profile
+                                </Link>
+                                <UserButton />
+                            </div>
+                            ) : ( 
+                            <Link href="/register">
+                                <Button variant="secondary" size="lg">
+                                    Register
+                                </Button>
                             </Link>
-
-                            <Link href="/settings" className='text-white font-bold'>
-                                Profile
-                            </Link>
-                            <UserButton />
-                        </div>
-                    ) : ( 
-                    <Link href="/register">
-                        <Button variant="secondary" size="lg">
-                                Register
-                        </Button>
-                    </Link>
-                    )
-                    }    
-                </ul>
+                            )
+                        }    
+                    </ul>
+                </div>
+                <div className="md:hidden">
+                    {session?.user?.email ? (
+                        <MobileMenu />
+                        ) :(
+                            <></>
+                        )
+                    } 
                 </div>
             </div>
         </nav>

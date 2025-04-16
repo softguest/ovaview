@@ -48,12 +48,6 @@ export const MobileMenu = () => {
             Settings
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/admition-request" className="flex justify-items-center">
-              <FaUsersLine className="h-8 w-4 mr-2"/>
-              Admition Request
-          </Link>
-        </DropdownMenuItem>
         <LogoutButton>
           <DropdownMenuItem>
             <ExitIcon className="h-8 w-4 mr-2" />
