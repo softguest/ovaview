@@ -15,7 +15,7 @@ const ChatForm = () => {
         <Messages messages={messages} isLoading={isLoading} />
       </div>
 
-      <div className="sticky bottom-0 w-full xl:rounded-2xl max-w-3xl mx-auto md:px-4 md:py-4 bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-lg border-t border-neutral-300 dark:border-neutral-700">
+      <div className="sticky bottom-2 w-full xl:rounded-2xl max-w-3xl mx-auto md:px-4 md:py-4 bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-lg border-t border-neutral-300 dark:border-neutral-700">
         <InputForm
           input={input}
           handleInputChange={handleInputChange}
@@ -25,7 +25,6 @@ const ChatForm = () => {
         />
       </div>
     </div>
-
   )
 }
 

@@ -1,5 +1,5 @@
 "use client";
-
+import { getDeviceId } from "@/utils/getDeviceId"
 import * as z from "zod";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -37,12 +37,27 @@ export const RegisterForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+  // const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+  //   setError("");
+  //   setSuccess("");
+    
+  //   startTransition(() => {
+  //     register(values)
+  //       .then((data) => {
+  //         setError(data.error);
+  //         setSuccess(data.success);
+  //       });
+  //   });
+  // };
+
+  const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
     setError("");
     setSuccess("");
-    
+  
+    const deviceId = await getDeviceId(); 
+  
     startTransition(() => {
-      register(values)
+      register({ ...values, deviceId })
         .then((data) => {
           setError(data.error);
           setSuccess(data.success);

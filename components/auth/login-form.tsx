@@ -1,5 +1,5 @@
 "use client";
-
+import { getDeviceId } from "@/utils/getDeviceId"
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { useState, useTransition } from "react";
@@ -43,23 +43,48 @@ export const LoginForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+  // const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+  //   setError("");
+  //   setSuccess("");
+    
+  //   startTransition(() => {
+  //     login(values, callbackUrl)
+  //       .then((data) => {
+  //         if (data?.error) {
+  //           form.reset();
+  //           setError(data.error);
+  //         }
+
+  //         if (data?.success) {
+  //           form.reset();
+  //           setSuccess(data.success);
+  //         }
+
+  //         if (data?.twoFactor) {
+  //           setShowTwoFactor(true);
+  //         }
+  //       })
+  //       .catch(() => setError("Something went wrong"));
+  //   });
+  // };
+
+  const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     setError("");
     setSuccess("");
-    
+  
+    const deviceId = await getDeviceId();
+  
     startTransition(() => {
-      login(values, callbackUrl)
+      login({ ...values, deviceId }, callbackUrl)
         .then((data) => {
           if (data?.error) {
             form.reset();
             setError(data.error);
           }
-
           if (data?.success) {
             form.reset();
             setSuccess(data.success);
           }
-
           if (data?.twoFactor) {
             setShowTwoFactor(true);
           }

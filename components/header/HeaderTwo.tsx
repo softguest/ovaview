@@ -7,8 +7,6 @@ import { LoginButton } from "@/components/auth/login-button";
 import { UserButton } from "@/components/auth/user-button";
 import { MobileMenu } from "@/components/auth/mobile-menu";
 import {useSession} from 'next-auth/react'
-import SearchBar from '@/components/searchBar/SearchBar';
-import { getSession } from 'next-auth/react';
 
 const HeaderTwo = () => {
   const [showDropdown, setShowDropdown] = useState(false)

@@ -113,6 +113,7 @@ export const {
 
       token.email = existingUser.email;
       token.role = existingUser.role;
+      // token.deviceId = existingUser.deviceId;
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
 
       token.typeOfIdentificationCard = existingUser.typeOfIdentificationCard;

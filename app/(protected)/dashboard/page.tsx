@@ -6,9 +6,7 @@ import React from 'react'
 const Dashboard = () => {
   return (
     <div>
-      {/* <Challenges searchParams={{}} /> */}
       <ChatForm /> 
-      {/* <Projects/> */}
     </div>
   )
 }

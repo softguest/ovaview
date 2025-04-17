@@ -31,12 +31,16 @@ export const login = async (
     return { error: "Invalid fields!" };
   }
 
-  const { email, password, code } = validatedFields.data;
+  const { email, password, code, deviceId } = validatedFields.data;
 
   const existingUser = await getUserByEmail(email);
 
   if (!existingUser || !existingUser.email || !existingUser.password) {
     return { error: "Email does not exist!" }
+  }
+
+  if (existingUser.deviceId && existingUser.deviceId !== deviceId) {
+    return { error: "Access denied from unrecognized device." };
   }
 
   if (!existingUser.emailVerified) {

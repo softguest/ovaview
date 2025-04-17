@@ -45,6 +45,7 @@ model User {
   emailVerified           DateTime?
   password                String?
   role                    UserRole     @default(STUDENT)
+  deviceId                String?
 
   // Identification 
   typeOfIdentificationCard          String?
