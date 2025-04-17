@@ -84,7 +84,7 @@ const InputForm = ({
         value={input}
         disabled={isLoading}
         onChange={handleInputChange}
-        className="border-b border-dashed outline-none w-full py-2 text-[#0842A0] placeholder:text-[#0842A099] text-right focus:placeholder-transparent disabled:bg-transparent"
+        className="border-b border-dashed rounded-md outline-none w-full py-2 text-[#0842A0] placeholder:text-[#0842A099] text-right focus:placeholder-transparent disabled:bg-transparent"
       />
       <button
         type="submit"
