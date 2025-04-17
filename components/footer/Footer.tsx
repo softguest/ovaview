@@ -1,9 +1,12 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from 'react-icons/fa';
+import { useSession } from 'next-auth/react';
 
 const Footer = () => {
+    const {data: session} = useSession()
   return (
     <div className='bg-slate-600 py-8'>
         <div className='flex justify-between items-center px-4 md:px-32'>
@@ -20,10 +23,13 @@ const Footer = () => {
                 </li>
             </ul>
         </div>
-        {/* whatsapp click to chat button  */}
-        <Link href="https://api.whatsapp.com/send?phone=673589999&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." className="float" target="_blank">
-            <FaWhatsapp className="my-float"/>
-        </Link>
+        {session?.user ? (
+            <></>
+        ) : ( 
+            <Link href="https://api.whatsapp.com/send?phone=673589999&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." className="float" target="_blank">
+                <FaWhatsapp className="my-float"/>
+            </Link>
+        )}
     </div>
   )
 }

@@ -40,7 +40,7 @@ export const login = async (
   }
 
   if (existingUser.deviceId && existingUser.deviceId !== deviceId) {
-    return { error: "Access denied from unrecognized device." };
+    return { error: "Access denied. use thesame browser you registered with." };
   }
 
   if (!existingUser.emailVerified) {
@@ -53,7 +53,7 @@ export const login = async (
       verificationToken.token,
     );
 
-    return { success: "Confirmation email sent!" };
+    return { success: "Confirmation email will be sent to your email Shortly!" };
   }
 
   if (existingUser.isTwoFactorEnabled && existingUser.email) {

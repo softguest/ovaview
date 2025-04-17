@@ -37,19 +37,6 @@ export const RegisterForm = () => {
     },
   });
 
-  // const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
-  //   setError("");
-  //   setSuccess("");
-    
-  //   startTransition(() => {
-  //     register(values)
-  //       .then((data) => {
-  //         setError(data.error);
-  //         setSuccess(data.success);
-  //       });
-  //   });
-  // };
-
   const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
     setError("");
     setSuccess("");
