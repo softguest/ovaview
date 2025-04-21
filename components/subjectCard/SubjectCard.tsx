@@ -25,7 +25,7 @@ export default function SubjectCard({
 }: SubjectCardProps) {
   return (
     <Card className="w-full transition">
-      <div className="relative w-full h-48 overflow-hidden">
+      <div className="relative bg-white shadow-lg w-full h-48 overflow-hidden">
         {imageUrl ? (
           <Image
             src={imageUrl}

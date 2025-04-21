@@ -22,50 +22,49 @@ const Dashboard = () => {
       link: "/ict",
       bgColor: "slate"
     },
-    {
-      imageUrl: "",
-      // subjectTitle: "Information and Communication Technology",
-      subjectTitle: "Mathematics",
-      subjectDescription: "Explore Information and Communication Technology.",
-      classTitle: "A Levels",
-      link: "/ict",
-      bgColor: "orange"
-    },
-    {
-      imageUrl: "",
-      subjectTitle: "History",
-      subjectDescription: "Dive into world history and significant events.",
-      classTitle: "A Levels",
-      link: "/ict",
-      bgColor: "#fff"
-    },
-    {
-      imageUrl: "",
-      subjectTitle: "Geography",
-      subjectDescription: "Understand maps, climate, and the earth’s structure.",
-      classTitle: "A Levels",
-      link: "/ict",
-      bgColor: "#fff"
-    },
-    {
-      imageUrl: "",
-      subjectTitle: "Computer Science",
-      subjectDescription: "Learn programming, algorithms, and technology basics.",
-      classTitle: "A Levels",
-      link: "/ict",
-      bgColor: "slate-"
-    },
+    // {
+    //   imageUrl: "",
+    //   subjectTitle: "Mathematics",
+    //   subjectDescription: "Explore Information and Communication Technology.",
+    //   classTitle: "A Levels",
+    //   link: "/ict",
+    //   bgColor: "orange"
+    // },
+    // {
+    //   imageUrl: "",
+    //   subjectTitle: "History",
+    //   subjectDescription: "Dive into world history and significant events.",
+    //   classTitle: "A Levels",
+    //   link: "/ict",
+    //   bgColor: "#fff"
+    // },
+    // {
+    //   imageUrl: "",
+    //   subjectTitle: "Geography",
+    //   subjectDescription: "Understand maps, climate, and the earth’s structure.",
+    //   classTitle: "A Levels",
+    //   link: "/ict",
+    //   bgColor: "#fff"
+    // },
+    // {
+    //   imageUrl: "",
+    //   subjectTitle: "Computer Science",
+    //   subjectDescription: "Learn programming, algorithms, and technology basics.",
+    //   classTitle: "A Levels",
+    //   link: "/ict",
+    //   bgColor: "slate-"
+    // },
   ];
 
   return ( 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 min-h-[80vh] gap-6 p-4">
     {subjects.map((subject, index) => (
       <motion.div
         key={index}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: index * 0.1 }}
-        className="bg-white rounded-2xl shadow-lg overflow-hidden"
+        className="rounded-2xl"
       >
         <SubjectCard
           imageUrl={subject.imageUrl}
