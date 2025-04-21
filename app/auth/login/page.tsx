@@ -13,8 +13,8 @@ export default function LoginPage() {
     <main className="flex flex-col">
         <section className=''>
           <div className=''>
-              <div className=' bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-white to-slate-200 flex justify-center items-center py-16'>
-                  <div className="space-y-6 text-center py-4 md:px-20">
+              <div className=' bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-white to-slate-200 flex justify-center items-center py-10 md:py-16'>
+                  <div className="space-y-4 text-center md:py-4 md:px-20">
                       <LoginForm />
                   </div> 
               </div>

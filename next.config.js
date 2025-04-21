@@ -3,7 +3,8 @@ const nextConfig = {
     
     images: {
         domains: [
-            "res.cloudinary.com"
+            // "res.cloudinary.com",
+            "www.gmercyu.edu"
         ]
     }
 }

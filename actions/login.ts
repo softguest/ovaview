@@ -53,7 +53,7 @@ export const login = async (
       verificationToken.token,
     );
 
-    return { success: "Confirmation email will be sent to your email Shortly!" };
+    return { success: "Your account has been created but still to be activated. To activate your account, contact +237 6 73 58 99 99, on Whatsapp!" };
   }
 
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
