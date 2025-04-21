@@ -12,7 +12,7 @@ const Dashboard = () => {
       subjectDescription: "Learn algebra, geometry, calculus, and more.",
       classTitle: "A Levels",
       link: "/ict",
-      bgColor: "slate-"
+      bgColor: "slate"
     },
     {
       imageUrl: "",
@@ -20,7 +20,7 @@ const Dashboard = () => {
       subjectDescription: "Improve your grammar, vocabulary, and writing skills.",
       classTitle: "A Levels",
       link: "/ict",
-      bgColor: "slate-"
+      bgColor: "slate"
     },
     {
       imageUrl: "",

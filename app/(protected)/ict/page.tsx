@@ -3,7 +3,7 @@ import React from 'react'
 
 const ICT = () => {
   return (
-    <div>
+    <div className='bg-neutral-100'>
       <ChatForm /> 
     </div>
   )

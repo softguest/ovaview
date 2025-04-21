@@ -10,10 +10,13 @@ const ChatForm = () => {
     });
 
   return (
-    <div className="flex min-h-[80vh] flex-col bg-neutral-100 dark:bg-[#0d0d0d] text-lg text-neutral-900 dark:text-neutral-100">
+    <div className="flex min-h-[80vh] flex-col dark:bg-[#0d0d0d] text-lg text-neutral-900 dark:text-neutral-100">
       {messages.length === 0 ? (
         <div className="flex-1 flex items-center justify-center">
           <div className="w-full max-w-3xl px-2 md:px-4">
+            <div className="text-2xl text-center text-slate-400 font-bold">
+              Ask any Question on this Subject.
+            </div>
             <InputForm
               input={input}
               handleInputChange={handleInputChange}
