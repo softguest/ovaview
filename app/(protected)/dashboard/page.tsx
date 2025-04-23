@@ -22,30 +22,30 @@ const Dashboard = () => {
       link: "/ict",
       bgColor: "slate"
     },
-    // {
-    //   imageUrl: "",
-    //   subjectTitle: "Mathematics",
-    //   subjectDescription: "Explore Information and Communication Technology.",
-    //   classTitle: "A Levels",
-    //   link: "/ict",
-    //   bgColor: "orange"
-    // },
-    // {
-    //   imageUrl: "",
-    //   subjectTitle: "History",
-    //   subjectDescription: "Dive into world history and significant events.",
-    //   classTitle: "A Levels",
-    //   link: "/ict",
-    //   bgColor: "#fff"
-    // },
-    // {
-    //   imageUrl: "",
-    //   subjectTitle: "Geography",
-    //   subjectDescription: "Understand maps, climate, and the earth’s structure.",
-    //   classTitle: "A Levels",
-    //   link: "/ict",
-    //   bgColor: "#fff"
-    // },
+    {
+      imageUrl: "",
+      subjectTitle: "Deep Learning with TensorFlow 2 and Keras",
+      subjectDescription: "Explore Information and Communication Technology.",
+      classTitle: "Masters",
+      link: "/tensor-flow-two",
+      bgColor: "orange"
+    },
+    {
+      imageUrl: "",
+      subjectTitle: "Introduction to Deep Learning Course code:CEC424",
+      subjectDescription: "Dive into world history and significant events.",
+      classTitle: "Masters",
+      link: "/intro-deep-learning",
+      bgColor: "#fff"
+    },
+    {
+      imageUrl: "",
+      subjectTitle: "Mastering Deep Learning",
+      subjectDescription: "Understand maps, climate, and the earth’s structure.",
+      classTitle: "Masters",
+      link: "/master-deep-learning",
+      bgColor: "#fff"
+    },
     // {
     //   imageUrl: "",
     //   subjectTitle: "Computer Science",
@@ -57,7 +57,7 @@ const Dashboard = () => {
   ];
 
   return ( 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 min-h-[80vh] gap-6 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 min-h-[80vh] gap-6 p-4">
     {subjects.map((subject, index) => (
       <motion.div
         key={index}
@@ -71,7 +71,6 @@ const Dashboard = () => {
           subjectTitle={subject.subjectTitle}
           subjectDescription={subject.subjectDescription}
           classTitle={subject.classTitle}
-          // onExplore={() => console.log(`Exploring ${subject.subjectTitle}...`)}
           link={subject.link}
           bgColor={subject.bgColor}
         />

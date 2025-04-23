@@ -80,7 +80,7 @@ const InputForm = ({
       />
       <input
         type="text"
-        placeholder={isLoading ? "Generating . . ." : "ask something . . . "}
+        placeholder={isLoading ? "🤔💭. . ." : "ask something . . . "}
         value={input}
         disabled={isLoading}
         onChange={handleInputChange}
