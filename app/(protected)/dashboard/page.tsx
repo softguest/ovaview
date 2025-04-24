@@ -46,14 +46,30 @@ const Dashboard = () => {
       link: "/master-deep-learning",
       bgColor: "#fff"
     },
-    // {
-    //   imageUrl: "",
-    //   subjectTitle: "Computer Science",
-    //   subjectDescription: "Learn programming, algorithms, and technology basics.",
-    //   classTitle: "A Levels",
-    //   link: "/ict",
-    //   bgColor: "slate-"
-    // },
+    {
+      imageUrl: "",
+      subjectTitle: "Virtual Instrumentation Pr Moffo",
+      subjectDescription: "Learn programming, algorithms, and technology basics.",
+      classTitle: "Masters",
+      link: "/virtual-instrumentation",
+      bgColor: "slate"
+    },
+    {
+      imageUrl: "",
+      subjectTitle: "Virtual Instrumentation Janani",
+      subjectDescription: "Learn programming, algorithms, and technology basics.",
+      classTitle: "Masters",
+      link: "/virtual-instrumentation-janani",
+      bgColor: "slate"
+    },
+    {
+      imageUrl: "",
+      subjectTitle: "Artificial Intelligence Modified",
+      subjectDescription: "Learn programming, algorithms, and technology basics.",
+      classTitle: "Masters",
+      link: "/artificial-intelligence-modified",
+      bgColor: "slate"
+    },
   ];
 
   return ( 

@@ -1,0 +1,2760 @@
+export const initailMessage = {
+    role: 'system',
+    contents: [
+        {
+        text: 
+            `
+            You are a Student assistant. Only answer questions based on the topics in the content provided below.
+            Do not use your own knowledge or external information.
+            If the answer is not in the content, respond with "I don't have that information.".
+
+           VIRTUALINSTRUMENTATION
+ Pr Moffo Lonla Bertrand
+   
+VIRTUALINSTRUMENTATION 1/61 Pr Moffo Lonla B
+ Associate Professor
+ Industrial Computing and Automation
+ Unit-1IntroductiontoLabVIEW
+ 1 Unit-1IntroductiontoLabVIEW
+ Objective
+ Pre-requisite
+ GraphicalSystemDesignModel
+ Hardware,Software,DesigninVirtual Instrumentation
+ SoftwareEnvironment,FrontPanel,BlockDiagram
+ Summary
+ Examples/Work-Out
+ AssignmentQuestions
+ VIRTUALINSTRUMENTATION 2/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ TableofContents
+ 1 IntroductiontoGraphicalSystemDesign(GSD)model
+ 2 Virtual InstrumentandTraditional Instrument
+ 3 HardwareandSoftwareinVirtual Instrumentation
+ 4 DesignandVirtual InstrumentationAdvantages
+ 5 ComparisonofGraphicalProgrammingwithTextualProgramming
+ 6 SoftwareEnvironment :CreatingandSavingaVI
+ 7 FrontpanelToolbar,BlockdiagramToolbar,Palettes,Controlsand
+ Indicators.
+ 8 Blockdiagram-Terminals,nodes,Functions,wires,DatatypesandDataflow
+ program.
+ VIRTUALINSTRUMENTATION 3/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ IntroductiontoLabVIEW
+ Objective:Themainaimofthischaptertoknowgraphical systemdesign
+ model,howGSDisdi er fromTextualProgramming,howtocreate, savea
+ LabVIEWprogram.
+ Pre-requisite:
+ IBasicEngineeringMathematics
+ IBasicProgrammingLanguage
+ Introduction
+ IThetermscientificcomputinghasbeenusedformanyyearsdefinetheuseof
+ computersforsolvingproblemsrelatedtoscienceandengineering,usually
+ involvingexperimentalorappliedresearch,modelingandsimulation.
+ I Insimpleitreferstotheuseofcomputers insolvingscientificproblems.
+ IScientificcomputingapplicationsusuallyfollowathree-stepprocess :data
+ acquisition,dataanalysisanddatavisualisation
+ IThisthreestepapproachhasbeenusedbyNational Instrumentsand
+ developedVirtual InstrumentationModel,whichhasbeenthenexpandedinto
+ amorecomprehensivemodelknownasGraphicalSystemDesignshowninFig.
+ VIRTUALINSTRUMENTATION 4/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ Introduction
+ Virtual InstrumentationModel
+ Figure–Virtual InstrumentationModel
+ GraphicalSystemDesignModel
+ Figure–GraphicalSystemDesignModel
+ VIRTUALINSTRUMENTATION 5/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ What isGSDModel
+ I InthisGraphicalSystemDesignmodel, thefocus istoacceleratetheresearch
+ anddevelopmentcycle,deliveringmathematicalmodelstoembeddedreal time
+ computersfasterandeasier.
+ IThisdesignflowaccelerationisachievedbyusingNILABVIEWsoftwareand
+ itsGprogramminglanguageasacommonsystemleveldesigntool forall the
+ di erentphases inthedesign-to-deploymentflow.
+ I Inrealitythevirtual instrumentationmodel isappliedineachof thethree
+ phasesofthegraphical systemdesignmodelasshowninFig.becausedata
+ acquisition,analysisandpresentationfunctionsareusedinthedesign,
+ prototypinganddeploymentphases.
+ VIRTUALINSTRUMENTATION 6/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ Figure–GraphicalSystemDesignModelandVirtual Instrumentation
+ VIRTUALINSTRUMENTATION 7/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ Design(Model)
+ I Inthedesignphaseasshowninfig. theresearcherdevelopsamathematical
+ modelof thesystem, includingsensors,actuators,plantsandcontrollers,and
+ simulatesthemunderavarietyof initialconditionsandconstraints.
+ ITheresearcherusesdi erentnumericalmethodswiththeobjectiveof
+ validatingtheperformanceof themodelandoptimizingit.
+ Inthisphase, researcherscanacquirereferencedatafromfilesordatabasesand
+ incorporateit intothemodel.
+ A"Virtualplant/process"iscreated,whichcanbeusedlater for
+ hardware-in-the-loop(HIL)tests.
+ Resultsfromthesimulationprocessaresavedforpostanalysisandvisualization
+ andcanbeusedtointroducechanges intothemodels.
+ This isusuallyasoftware-centricprocesswithastrongfocusonnumerical
+ methods/analysisandmathematics
+ VIRTUALINSTRUMENTATION 8/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ Design(Model)
+ Figure–Thedesignphaseof thegraphical systemdesignmodel
+ VIRTUALINSTRUMENTATION 9/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ PrototypeLab:
+ I Ifexperimentalvalidationof themodel isrequired, researchersdevelopand
+ testaprototypeinthelaboratory.Signalprocessingandanalysisaswellas
+ visualizationcanbeimplementedonlinewhiledataisbeingmeasuredand
+ acquired,orwhiletheprocess isbeingcontrolled.
+ IThisprocessasshowninFigureisusuallymoresoftware/hardware-centric
+ becausesensors,actuators,dataacquisitiondevices,controllers,andthe
+ controlled/analyzedplant itselfareallkeyelements intheexperimental setup.
+ VIRTUALINSTRUMENTATION 10/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ Prototype(Lab)
+ Figure–Theprototypingphaseof thegraphical systemdesignmodel
+ VIRTUALINSTRUMENTATION 11/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ Deployment-Field:
+ IFinally, themodel (controller,analyzerorboth) isdeployedinthefieldor lab
+ usingeitheraPC(desktop, serveror industrial)orPXI,or itcanbe
+ downloadedtoadedicatedembeddedcontrollersuchasCompactRIO,which
+ usuallyoperates instand-alonemodeandinreal-time(deterministic)modeas
+ showninFigure
+ IWhenusingtheLabVIEWReal-TimeModule, symmetricmultiprocessing
+ (SMP)techniquescanbeeasilyapplied.
+ I Inmanycases, thesystemisdeployedasaheadlesssystem(nomonitorsor
+ interfacestotheuser),executingtheanalysis/controlalgorithms inreal time
+ asadedicateddevice. Ifon-the-fieldgraphicaluser interfaces(GUIs)or
+ operator interfaces(OIs)areneeded, theLabVIEWTouchPanelModuleand
+ industrial-grademonitorswithtouch-sensitivescreenscanbeusedlocally
+ VIRTUALINSTRUMENTATION 12/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ Deployment(Field)
+ Figure–Thedeploymentphaseof thegraphical systemdesignmodel
+ VIRTUALINSTRUMENTATION 13/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ DesignFlowwithGSD
+ TypicalEmbeddedSystemsoftwareandhardwaredesignflows isshown
+ below.
+ Figure–TypicalEmbeddedSystemSoftwareandHardwareDesignFlow
+ VIRTUALINSTRUMENTATION 14/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ GraphicalSystemDesignModel
+ DesignFlowwithGSD
+ Figure–Stream-linesdevelopmentflowwithgraphical systemdesign
+ VIRTUALINSTRUMENTATION 15/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentandTraditional Instrument
+ Virtual Instrument
+ IAtraditional instrument isdesignedtocollectdatafromanenvironment,or
+ fromaunitundertest,andtodisplayinformationtoauserbasedonthe
+ collecteddata.
+ ISuchaninstrumentmayemployatransducertosensechanges inaphysical
+ parametersuchastemperatureandtoconvertthesensedinformationinto
+ electrical signals.
+ ITheterm“instrument”mayalsocoveraphysicalorsoftwaredevicethat
+ performsananalysisondataacquiredfromanother instrumentandthen
+ outputstheprocesseddatatodisplayorrecordingmeans.
+ IThissecondcategoryof instruments includesoscilloscopes, spectrumanalyzers
+ anddigitalmillimeters.
+ IThetypesofsourcedatacollectedandanalyzedbyinstrumentsvarywidely,
+ includingbothphysicalparameters liketemperature,pressure,distance,and
+ alsoelectricalparameters likevoltage
+ VIRTUALINSTRUMENTATION 16/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentandTraditional Instruments
+ Virtual Instrument
+ IAvirtual instrument(VI) isdefinedasanindustry-standardcomputer
+ equippedwithuserfriendlyapplicationsoftware,cost-e ectivehardwareand
+ driversoftwarethattogetherperformthefunctionsoftraditional instruments.
+ IWithvirtual instrumentation,engineersandscientistsreducedevelopment
+ time,designhigherqualityproducts,andlowertheirdesigncosts.
+ IVirtual instrumentationisnecessarybecauseit isflexible. Itdelivers
+ instrumentationwiththerapidadaptabilityrequiredfortoday’sconcept,
+ productandprocessdesign,developmentanddelivery.
+ IOnlywithvirtual instrumentation,engineersandscientistscancreatethe
+ user-definedinstrumentsrequiredtokeepupwiththeworld’sdemands.
+ IVirtual instrumentsaredefinedbytheuserwhiletraditional instrumentshave
+ fixedvendor-definedfunctionality.
+ VIRTUALINSTRUMENTATION 17/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentandTraditional Instruments
+ Virtual Instrument
+ IEveryvirtual instrumentconsistsof twoparts—softwareandhardware.
+ IAvirtual instrumenttypicallyhasastickerpricecomparabletoandmanytimes
+ lessthanasimilartraditional instrumentforthecurrentmeasurementtask.
+ IAtraditional instrumentprovidesthemwithall softwareandmeasurement
+ circuitrypackagedintoaproductwithafinitelistoffixed-functionalityusing
+ theinstrumentfrontpanel.
+ IAvirtual instrumentprovidesall thesoftwareandhardwareneededto
+ accomplishthemeasurementorcontrol task.
+ I Inaddition,withavirtual instrument,engineersandscientistscancustomize
+ theacquisition,analysis, storage, sharingandpresentationfunctionalityusing
+ productive,powerful software.
+ VIRTUALINSTRUMENTATION 18/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentsandTraditional Instruments
+ Virtual Instrument
+ IWithoutthedisplays,knobsandswitchesofaconventional,external
+ box-basedinstrumentationproducts,avirtual instrumentusesapersonal
+ computer foralluser interactionandcontrol.
+ I Inmanycommonmeasurementapplications,adataacquisitionboardorcard,
+ withapersonalcomputerandsoftware,canbeusedtocreateaninstrument.
+ I Infact,amultiple-purposevirtual instrumentcanbemadebyusingasingle
+ dataacquisitionboardorcard.
+ ITheprimarybenefitsofapplydataacquisitiontechnologytoconfigurevirtual
+ instrumentationincludecosts, size,andflexibilityandeaseofprogramming
+ VIRTUALINSTRUMENTATION 19/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentsandTraditional Instruments
+ Traditional Instruments
+ ITraditional instrumentsandsoftware-basedvirtual instruments largelyshare
+ thesamearchitecturalcomponents,butradicallydi erentphilosophiesas
+ showninFigure.
+ IConventional instrumentsascomparedtoavirtual instrumentationcanbe
+ verylargeandcumbersome.
+ ITheyalsorequirealotofpower,andoftenhaveexcessiveamountsof features
+ thatarerarely, ifeverused.
+ IMostconventional instrumentsdonothaveanycomputationalpoweras
+ comparedtoavirtual instrument.
+ IVirtual instrumentsarecompatiblewithtraditional instrumentsalmostwithout
+ exception.
+ VIRTUALINSTRUMENTATION 20/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentsandTraditional Instruments
+ Traditional Instruments
+ Figure–Traditional InstrumentsBlockDiagram
+ VIRTUALINSTRUMENTATION 21/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Virtual InstrumentsandTraditional Instruments
+ Virtual Instruments
+ Figure–SoftwarebasedVirtual Instruments
+ VIRTUALINSTRUMENTATION 22/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Traditional InstrumentsandVirtual Instruments
+ Thegeneralarchitectureofstand-aloneinstruments isverysimilartothatof
+ aPC-basedvirtual instrument.
+ Bothrequireoneormoremicroprocessors,communicationports(forexample,
+ serialandGPIB),anddisplaycapabilities,aswellasdataacquisitionmodules.
+ Atraditional instrumentmightcontainanintegratedcircuittoperforma
+ particularsetofdataprocessingfunctions; inavirtual instrument, these
+ functionswouldbeperformedbysoftwarerunningonthePCprocessor.
+ Byemployingvirtual instrumentationsolutions,wecanlowercapitalcosts,
+ systemdevelopmentcosts,andsystemmaintenancecosts,whileimproving
+ timetomarketandthequalityofourownproducts.
+ VIRTUALINSTRUMENTATION 23/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Traditional InstrumentsandVirtual Instruments
+ Virtual instrumentstakeadvantageofPCperformanceincreasebyanalyzing
+ measurementsandsolvingnewapplicationchallengeswitheach
+ new-generationPCprocessor,harddrive,displayandI/Obus.
+ Theserapidadvancementscombinedwiththegeneral trendthattechnical
+ andcomputer literacystartsearlyinschool,contributetosuccessful
+ computer-basedvirtual instrumentationadoption.
+ Virtual instrumentationhardwareuseswidelyavailablesemiconductorsto
+ deliverhigh-performancemeasurement frontends.
+ VIRTUALINSTRUMENTATION 24/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ Traditional InstrumentsandVirtual Instruments
+ Various interfacestandardsareusedtoconnectexternaldevicestothe
+ computer.PCisthedominantcomputersystemintheworldtoday.
+ VI issupportedonthePCunderWindows,Linux,Macintosh,Sun,andHP
+ operatingsystems.
+ AllVIplatformsprovidepowerfulGraphicalUser Interfaces(GUIs)for
+ developmentandimplementationof thesolutions.
+ VIRTUALINSTRUMENTATION 25/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ HardwareandSoftwareinVirtual Instrumentation
+ RoleofHardware
+ I Input/Outputplaysacritical roleinvirtual instrumentation.Toaccelerate
+ test,controlanddesign,I/Ohardwaremustberapidlyadaptabletonew
+ conceptsandproducts.
+ IVirtual instrumentationdeliversthiscapabilityintheformofmodularitywithin
+ scalablehardwareplatforms.
+ IVirtual instrumentationissoftware-based; ifwecandigitizeit,wecan
+ measureit.
+ IStandardhardwareplatformsthathousetheI/OareimportanttoI/O
+ modularity.
+ ILaptopsanddesktopcomputersprovideanexcellentplatformwherevirtual
+ instrumentationcanmakethemostofexistingstandardssuchastheUSB,
+ PCI,Ethernet,andPCMCIAbuses.
+ VIRTUALINSTRUMENTATION 26/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ HardwareandSoftwareinVirtual Instrumentation
+ RoleofSoftware
+ ISoftwareisthemost importantcomponentofavirtual instrument.
+ IWiththerightsoftwaretool,engineersandscientistscane cientlycreate
+ theirownapplicationsbydesigningandintegratingtheroutinesthata
+ particularprocessrequires.
+ IYoucanalsocreateanappropriateuser interfacethatbestsuitsthepurpose
+ of theapplicationandthosewhowill interactwithit.
+ IYoucandefinehowandwhentheapplicationacquiresdatafromthedevice,
+ howitprocesses,manipulatesandstoresthedata,andhowtheresultsare
+ presentedtotheuser.
+ IWhendealingwithalargeproject,engineersandscientistsgenerallyapproach
+ thetaskbybreakingitdownintofunctional solvableunits.
+ VIRTUALINSTRUMENTATION 27/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ HardwareandSoftwareinVirtual Instrumentation
+ RoleofSoftware
+ IAvirtual instrument isnot limitedorconfinedtoastand-alonePC.
+ I Infact,withrecentdevelopments innetworkingtechnologiesandtheInternet,
+ it ismorecommonfor instrumentstousethepowerofconnectivityforthe
+ purposeof tasksharing.
+ IEveryvirtual instrument isbuiltuponflexible,powerful softwarebyan
+ innovativeengineerorscientistapplyingdomainexpertisetocustomizethe
+ measurementandcontrolapplication.
+ IVirtual instrumentationsoftwarecanbedividedintoseveraldi erent layers like
+ theapplicationsoftware, testanddatamanagementsoftware,measurement
+ andcontrol servicessoftwareasshowninFigure
+ VIRTUALINSTRUMENTATION 28/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ HardwareandSoftwareinVirtual Instrumentation
+ LayersofVirtual InstrumentationSoftware
+ Figure–LayersofVirtual InstrumentationSoftware
+ VIRTUALINSTRUMENTATION 29/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Text-basedprogrammingandGraphicalprogramming
+ Comparison
+ Text-basedprogramming GraphicalProgramming
+ 1 Syntaxmustbeknown Syntax isknowledge
+ todoprogramming but it isnotrequiredfor
+ programming.
+ 2 Theexecutionof theprogram Theexecutionofprogram
+ isfromtoptobottom isfromlefttoright
+ 3 Tocheckfortheerror Errorsareindicatedaswe
+ theprogramshastobe wiretheblocks
+ compiledorexecuted
+ 4 FrontPanel designneedsextra FrontPanel designisapart
+ codingorneedsextrawork ofprogramming
+ 5 Textbasedprogramming GraphicalProgrammingis
+ isnoninteractive highlyinteractive
+ VIRTUALINSTRUMENTATION 30/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Text-basedprogrammingandGraphicalprogramming
+ Comparison
+ Text-basedprogramming GraphicalProgramming
+ 6 This istext-basedprogramming TheprogrammingisData
+ wheretheprogrammingisa Flowprogramming
+ conventionalmethod
+ 7 LogicalError findingiseasy LogicalError findinginlarge
+ inlargeprograms programs iscomplicated
+ 8 Programflowisnotvisible Dataflowisvisible
+ 9 It istest-basedprogramming It is iconbased
+ programmingandwiring
+ 10 PassingparameterstoSub PassingparameterstoSub
+ routine isdi cult VI iseasy
+ VIRTUALINSTRUMENTATION 31/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ AdvantagesofLabVIEW
+ Advantages
+ IGraphicalUser Interface
+ IDrag-and-Dropbuilt-infunctions
+ IModulardesignandhierarchicaldesign
+ IMultiplehighleveldevelopmenttools
+ IProfessionalDevelopmentTools
+ IMultiplatforms
+ IReducescostandpreserves investment
+ IFlexibilityandscalability
+ IConnectivityandinstrumentcontrol
+ VIRTUALINSTRUMENTATION 32/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ AdvantagesofLabVIEW
+ Advantages
+ IOpenenvironment
+ IDistributeddevelopment
+ IVisualizationcapabilities
+ IRapiddevelopmentwithexpresstechnology
+ ICompiledlanguagefor fastexecution
+ ISimpleapplicationdistribution
+ ITargetmanagement
+ IObject-orienteddesign
+ IAlgorithmdesign
+ VIRTUALINSTRUMENTATION 33/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ SoftwareEnvironment
+ SoftwareEnvironment
+ IThreestepstocreateourapplication
+ Designauser interface.
+ Drawourgraphicalcode.
+ Runourprogram.
+ IAVirtual instrument(VI)hasthreemaincomponents-thefrontpanel, the
+ blockdiagramandtheicon/connectorpane.
+ IThetwoLabVIEWwindowsarethefrontpanel (containingcontrolsand
+ indicators)andblockdiagram(containingterminals,connectionsand
+ graphicalcode).
+ IThefrontpanel istheuser interfaceof thevirtual instrument.
+ IThecodeisbuiltusinggraphical representationsof functionstocontrol the
+ frontpanelobjects.
+ ITheblockdiagramcontainsthisgraphical sourcecode.
+ VIRTUALINSTRUMENTATION 34/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ SoftwareEnvironment
+ SoftwareEnvironment
+ I InLabVIEW,youbuildauser interfaceor frontpanelwithcontrolsand
+ indicators.
+ IControlsareknobs,pushbuttons,dialsandother inputdevices.
+ I Indicatorsaregraphs,LEDsandotherdisplays.
+ IAfteryoubuildtheuser interfaceyoucanaddcodeusingVIsandstructuresto
+ control thefrontpanelobjects.
+ VIRTUALINSTRUMENTATION 35/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ SoftwareEnvironment
+ LaunchLabVIEW
+ Figure–LaunchLabVIEw
+ VIRTUALINSTRUMENTATION 36/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ SoftwareEnvironment
+ LaunchLabVIEW
+ Figure–CreateProject
+ VIRTUALINSTRUMENTATION 37/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ CreatingaVI
+ LaunchLabview
+ Figure–BlankVI
+ VIRTUALINSTRUMENTATION 38/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ CreatingaVI
+ LaunchLabview
+ Figure–LabVIEWWindows
+ VIRTUALINSTRUMENTATION 39/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ CreatingaVI
+ LaunchLabview
+ Figure–LabVIEWWindows
+ VIRTUALINSTRUMENTATION 40/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ FrontPanelToolbar
+ ListofFrontpanel toolbarsbutton
+ RunButton:TorunaVIanditappearsasasolidwhite
+ arrow.
+ RunContinuouslyButton:ToruntheVIuntilyouabortor
+ pauseexecution.Clickthebuttonagaintodisable
+ continuousrunning.
+ BrokenRunArrow:meansanon-executableVIandtheVI
+ youarecreatingoreditingcontainserrors.Clickthis
+ buttontodisplaytheError listwindow,whichlistsall
+ errorsandwarnings.
+ AbortExecutionButton:TostoptheVI immediatelyif
+ thereisnootherwaytostoptheVI
+ VIRTUALINSTRUMENTATION 41/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ FrontPanelToolbar
+ ListofFrontPanel toolbarsbutton
+ TextSettings :Tochangethefontsettings
+ includingsize, style,colour.
+ AlignObjects :Toalignobjectsalongaxes,
+ includingvertical, topedge, left.
+ DistributeObjects :Tospaceobjectsevenly,
+ includinggaps,compression
+ ResizeObjects :Toresizemultiplefrontpanel
+ objectstothesamesize.
+ VIRTUALINSTRUMENTATION 42/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ FrontPanelToolbar
+ ListofFrontPanelToolbarsbutton
+ Reorder :Whenyouhaveobjectsthatoverlapeachother
+ andyouwanttodefinewhichoneis infrontorbackof
+ another, selectoneoftheobjectswiththepositioningtool
+ Pause:TopausearunningVI.
+ ShowContextHelpWindowbutton:Totogglethedisplay
+ oftheContextHelpwindow.
+ VIRTUALINSTRUMENTATION 43/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ BlockDiagramToolbar
+ ListofBlockDiagramToolbarbuttons
+ VIRTUALINSTRUMENTATION 44/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ BlockDiagramToolbar
+ ListofBlockDiagramToolbarbuttons
+ HighlightExecutionbutton:Todisplayananimationofthe
+ blockdiagramexecutionwhenyouclicktheRunbutton.
+ Seetheflowofdatathroughtheblockdiagram.
+ Clickthebuttonagaintodisableexecutionhighlighting.
+ RetainWireValues :Tosavethewirevaluesateachpoint in
+ theflowofexecutionsothatwhenyouplaceaprobeon
+ thewire,youcanimmediatelyretainthemostrecentvalue
+ ofthedatathatpassedthroughthewire.Youmust
+ successfullyruntheVIat leastoncebeforeyouareable
+ toretainthewirevalues.
+ Clean-Up-Diagram:Specifieswhethertocleanupthewires
+ onthesubsystemVI.
+ VIRTUALINSTRUMENTATION 45/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ BlockDiagramToolbar
+ ListofBlockDiagramToolbarbuttons
+ StepInto:Toopenanodeandpause.Whenyouclickthe
+ StepIntobuttonagain, itexecutesthefirstactionand
+ pausesatthenextactionofthesubVIorstructure.Youalso
+ canpressCtrlanddownarrowkeys.Single-steppingthrough
+ aVI stepsthroughtheVInodebynode.Eachnodeblinksto
+ denotewhenit isreadytoexecute.Bysteppingintothenode,
+ youarereadytosingle-stepinsidethenode.
+ StepOver :Toexecuteanodeandpauseatthenextnode.
+ YoualsocanpressCtrlandrightarrowkeys.Bystepping
+ overthenode,youexecutethenodewithoutsingle-stepping
+ throughthenode
+ VIRTUALINSTRUMENTATION 46/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ FrontPanelControlsandIndicators
+ ControlsandIndicators
+ IControlsareknobs,pushbuttons,dialsandother inputdevices.
+ I Indicatorsaregraphs,LEDsandotherdisplays.
+ IControlssimulateinstrument inputdevicesandsupplydatatotheblock
+ diagramoftheVI.
+ I Indicatorssimulateinstrumentoutputdevicesanddisplaydatatheblock
+ diagramacquiresorgenerates.
+ IEverycontrolor indicatorhasadatatypeassociatedwithit.Theyarenumeric
+ datatype,booleandatatype, stringdatatype
+ VIRTUALINSTRUMENTATION 47/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ FrontPanelControlsandIndicators
+ DataTypes
+ INumericdatatypeareof integerorreal.Thetwomostcommonlyused
+ numericobjectsarethenumericcontrol,numericindicator
+ IBooleandatatyperepresentsdatathatonlyhastwoparts,suchasTRUEand
+ FALSEorONandOFF.Booleanobjectssimulateswitchesmpushbuttons
+ andLEDs.
+ IStringdatatypewhichisasequenceofASCIIcharacters.Usestringcontrols
+ toreceivetextfromtheusersuchasapasswordorusernameandindicators
+ todisplaytexttotheuser.
+ VIRTUALINSTRUMENTATION 48/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ BlockDiagram
+ Blockdiagramobjects include
+ ITerminals
+ IFunctions
+ IWires
+ IConstants.
+ VIRTUALINSTRUMENTATION 49/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ BlockDiagram
+ Terminals
+ IFrontpanelobjectappearasterminalsontheblockdiagram.
+ ITerminalsareentryandexitportsthatexchangeinformationbetweenthe
+ frontpanelandblockdiagram.
+ ITerminalsareanalogoustoparametersandconstants intext-based
+ programminglanguages.Typesof terminals includecontrolor indicator
+ terminalsandnodeterminals.
+ IControlandindicatorterminalsbelongtofrontpanelcontrolsandindicators.
+ IDatayouenter intothefrontpanelcontrolsentertheblockdiagramthrough
+ thecontrol terminals.
+ ITheterminalsrepresentthedatatypeof thecontrolor indicator.
+ IYoucanconfigurefrontpanelcontrolsor indicatorstoappearas iconordata
+ typeterminalsontheblockdiagram.
+ IBydefault, frontpanelobjectsappearas iconterminals.
+ ITodisplayaterminalasadatatypeontheblockdiagram, right-clickthe
+ terminalandselectViewAs Iconfromtheshortcutmenu
+ VIRTUALINSTRUMENTATION 50/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ BlockDiagram
+ Functions
+ IFunctionsarethefundamentaloperatingelementsofLabVIEW.
+ IFunctionsdonothavefrontpanelsorblockdiagramsbutdohaveconnector
+ panes.
+ IDouble-clickingafunctiononlyselectsthefunction.
+ IAfunctionhasapaleyellowbackgroundonits icon.
+ VIRTUALINSTRUMENTATION 51/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ BlockDiagram
+ Wires
+ IYoucantransferdataamongblockdiagramobjectsthroughwires.
+ IEachwirehasasingledatasource,butyoucanwireittomanyVIsand
+ functionsthatreadthedata.
+ IWiresaredi erentcolors, stylesandthicknesses,dependingontheirdata
+ types.
+ IAbrokenwireappearsasadashedblacklinewitharedXinthemiddle.
+ IBrokenwiresoccur foravarietyof reasons, suchaswhenyoutrytowiretwo
+ objectswithincompatibledatatypes.
+ IYoumustconnectthewirestoinputsandoutputsthatarecompatiblewith
+ thedatathat istransferredwiththewire.
+ IYoucannotwireanarrayoutputtoanumericinput.
+ I Inaddition, thedirectionofthewiresmustbecorrect.Youmustconnectthe
+ wirestoonlyoneinputandat leastoneoutput.
+ IYoucannotwiretwoindicatorstogether
+ I<Ctrl+B>todeleteallbrokenwiresorrightclickandselectCleanUpWire
+ toreroutethewire.
+ VIRTUALINSTRUMENTATION 52/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ DataFlowProgram
+ DataFlowProgram
+ ILabVIEWfollowsadataflowmodel forrunningVIs.
+ IAblockdiagramnodeexecuteswhenall its inputsareavailable.
+ IWhenanodecompletesexecution, itsuppliesdatatoitsoutputterminalsand
+ passestheoutputdatatothenextnodeinthedataflowpath.
+ IVisualBasic,C++,JAVA,andmostothertext-basedprogramminglanguages
+ followacontrolflowmodelofprogramexecution.
+ VIRTUALINSTRUMENTATION 53/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ KeyboardShortcuts
+ Frequentlyusesmenuoptionsandkeyboardshortcuts
+ <Crtl+S> SaveaVI
+ <Crtl+R> RunaVI
+ <Crtl+E> Togglebetweenthefrontpanelandblockdiagram
+ <Crtl+H> ActivateContextHelpwindow.
+ <Crtl+B> Removeallbrokenwires
+ <Crtl+F> Findobject
+ Pressthe<Crtl>keywhileusingthepositioningtool toclickanddraga
+ selectiontoduplicateanobject
+ VIRTUALINSTRUMENTATION 54/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Summary
+ Summary
+ IVirtual instruments(VIs)havethreemainparts—thefrontpanel, theblock
+ diagram,andtheiconandconnectorpane.
+ IThefrontpanel istheuser interfaceofaLabVIEWprogramandspecifiesthe
+ inputsanddisplaystheoutputsof theVI.
+ IPlacecontrols(inputs)andindicators(outputs) inthefrontpanelwindow.
+ IControl terminalshavethickerbordersthanindicatorterminals.
+ IAll frontpanelobjectshavepropertypagesandshortcutmenus.
+ ITheblockdiagramcontainstheexecutablegraphical sourcecodecomposedof
+ nodes, terminals,wires,andfunctionsontheblockdiagramtocreate
+ measurementcode.
+ IUsetheWiringtool toconnectdiagramobjects.
+ VIRTUALINSTRUMENTATION 55/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Summary
+ Summary
+ ITochangeacontrol toanindicatorortochangeanindicatortoacontrol,
+ right-clicktheobjectandselectChangetoIndicator orChangetoControl
+ fromtheshortcutmenu.ThebrokenRunbuttonappearsonthetoolbarto
+ indicatetheVI isnonexecutable.ClickthebrokenRunbuttontodisplaythe
+ Error listwindow,whichlistsall theerrors.
+ IVariousdebuggingtoolsandoptionssuchassettingprobesandbreakpoints,
+ executionhighlighting,andsinglesteppingareavailable.
+ IUsetheSearchbuttonontheControlsandFunctionspalettestosearchfor
+ controls,VIsandfunctions.
+ IAllLabVIEWobjectsandemptyspaceonthefrontpanelandblockdiagram
+ haveassociatedshortcutmenus,whichyouaccessbyright-clickinganobject,
+ thefrontpanelortheblockdiagram.
+ IUseexecutionhighlighting, single-stepping,probesandbreakpointstodebug
+ VIsbyanimatingtheflowofdatathroughtheblockdiagram.
+ IUsetheHelpmenutodisplaytheContextHelpwindowandtheLabVIEW
+ Help,whichdescribesmostpalettes,menus, tools,VIs, functionsandfeatures.
+ VIRTUALINSTRUMENTATION 56/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ Problems
+ 1 Checkcontrolsandindicators.
+ INumericControlandIndicator
+ IBooleanControlandIndicator
+ IStringControlandIndicator
+ IDialconnectedtoGaugeandMeter
+ IThermometertoNumericIndicator
+ ITanktoNumericIndicator
+ IVerticalSlideControl toHorizontalSlideControl
+ VIRTUALINSTRUMENTATION 57/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Problems
+ 2 Add,multiply, subtractanddividetwonumericinputs.
+ Solution:ThefrontpanelhascontrolsAandBandfour indicators. the
+ blockdiagramhastherespectiveterminalsandfunctions.
+ 3 Findwhetherthegivennumber isoddoreven
+ VIRTUALINSTRUMENTATION 58/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Problems
+ 4 Addandmultiplymorethantwonumericinputs.
+ Solution:Thefrontpanelhasthreenumericinputswhiletheblockdiagram
+ containscompoundarithmeticfunctions.
+ 5 Dividetwonumbersandfindtheremainderandquotient.
+ Solution:UsingthefunctionQuotientandRemainder.
+ VIRTUALINSTRUMENTATION 59/61 Pr Moffo Lonla B
+ Unit-1IntroductiontoLabVIEW
+ Problems
+ 6 Computetheexpressions
+ Y=(AúBúC)+(DúE)
+ .
+ Y=mx+C
+ 7 ConvertCelsiustoFahrenheit
+ F=(1.8úC+32)
+ 8 PerformvariousBooleanOperations(AND,OR,NAND,NORmXOR)
+ VIRTUALINSTRUMENTATION 60/61 Pr Moffo Lonla B
+Unit-1IntroductiontoLabVIEW
+ Assignment
+ 1 DividetwonumbersandglowanLEDiftheresultofthedivisionis infinity
+ (i.ethedivisor iszero)
+ 2 CreateNOT,AND,ORgatesusingNANDgateandverifytheirtruthtable.
+ 3 Thepopulationofatownis80,000andthepercentageofmenis52.The
+ percentageoftotal literacyis48. Ifthetotalpercentageof literatemenis35
+ ofthetotalpopulation,buildaVI tofindthetotalnumberof illiteratemen
+ andwomen.
+ 4 FindtheequivalentgraycodeforagivenBCD.
+ 5 FindtheequivalentBCDofaninputbinaryvalue.
+ 6 Designa4x1multiplexerwithenableandselectoptions.
+ 7 Fromthegiventwonumericinputs,findthemaximumvalueandminimum
+ value.
+ VIRTUALINSTRUMENTATION 61/61 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ 1 Unit-2ModularProgrammingandLoops
+ Objective
+ Pre-requisite
+ Summary
+ Examples/Work-Out
+ AssignmentQuestions
+ VIRTUALINSTRUMENTATION 1/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ TableofContents
+ 1 Introduction
+ 2 ModularProgramminginLabview
+ 3 CreatinganIcon,Buildingaconnectorpane
+ 4 DisplayingSUBVIs,CreatingSUBVIs,EditingSUBVIs.
+ 5 RepetitionandLoops
+ 6 ShiftRegisters
+ 7 Feedbacknodes
+ 8 LocalandGlobalVariables
+ VIRTUALINSTRUMENTATION 2/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Introduction-ModularProgramming
+ Objective:
+ Pre-requisite:
+ ICreateNumericControls
+ ICreateNumericIndicators
+ IBasicDataTypes
+ IBasicFunctionsandLogic
+ Introduction
+ IModularprogrammingreferstotheideathatprogramsareeasiertoread, to
+ write, todebug,andtomaintainif theyaredividedintosmallersubprograms.
+ IBenefitsofModularProgramming
+ 1 Itmakesourprogramseasiertowritebecauseindividualcomponentscanbe
+ independentlywrittenandtested.
+ 2 Itmakesthemainpartofthecodeeasiertoreadsincelongcodesectionsare
+ replacedwithsimplefunctions(whoseinternalcodeishiddeninanotherfile)
+ 3 Individualcomponentscanbereusedinotherprograms
+ IThemainprogramsimplyactsasanoutlineordriver, triggeringexecutionof
+ theprogramunitsthataccomplishthetasks.
+ VIRTUALINSTRUMENTATION 3/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ ModularProgramminginLabVIEW
+ ModularProgramming
+ IModularprogramminghelpsmanagechangesanddebugtheblockdiagram
+ quickly.
+ IModularitydefinesthedegreetowhichyourVI iscomposedofdiscrete
+ componentssuchthatachangetoonecomponenthasminimal impacton
+ othercomponents.
+ IThesecomponentsarecalledmodulesorsubVIs.
+ IModularityincreasesthereadabilityandreusabilityofyourVIs.
+ IAVIwithinanotherVI iscalledasubVI.
+ IAsubVIcorrespondstoasubroutineintext-basedprogramminglanguages.
+ IYoucanreuseasubVI inotherVIs. IfyouuseaVIasasubVI, theicon
+ identifiesthesubVIwhenit iscalledfromtheblockdiagramofanotherVI.
+ VIRTUALINSTRUMENTATION 4/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ CreatinganIconandBuildingaconnectorpane
+ CreatinganIcon
+ IThedefault iconofaVIcontainsanumberthat indicateshowmanynewVIs
+ youhaveopenedsincelaunchingLabVIEW.Youcancreatecustomiconsto
+ replacethedefault iconbycompletingthefollowingsteps :
+ 1 Right-clickingtheiconintheupper-rightcornerofthefrontpanelorblock
+ diagramandselectEdit IconfromtheshortcutmenutodisplaytheIconEditor
+ dialogbox.
+ 2 Double-clickthehatchedboxwhichwill selecttheentireicon.Deletethe
+ selectedportion.
+ 3 Double-clicktherectangularboxwhichwillcreateaborder fortheicon.
+ 4 Usetheline/pencil tool todraw.
+ 5 Double-clicktheEditText tool ‘A’ toedittherequiredtext.
+ 6 ChoosetheTextTool Fonttoeditfont, fontsize,colorandalignmentofthe
+ text.
+ 7 UsetheSelectColor tool tochoosethebackgroundcoloroftheicon.
+ 8 UsetheFillWithColor tool tochangethebackgroundcoloroftheicon.
+ 9 ClickOKtosavetheicon.
+ VIRTUALINSTRUMENTATION 5/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ CreatinganIconandBuildingaconnectorpane
+ CreatinganIcon
+ IUsetheEditmenutocut,copyandpasteimagesfromandtotheicon.
+ IWhenyouselectaportionoftheiconandpasteanimage,LabVIEWresizes
+ theimagetofit intotheselectionarea.
+ IYoualsocandragagraphicfromanywhereinthefilesystemandplaceit in
+ theupper-rightcornerof thefrontpanel.
+ ILabVIEWconvertsthegraphictoa32◊32pixel icon.Dependingonthetype
+ ofmonitoryouuse,youcandesignaseparateiconformonochrome,16-color
+ and256-colormode.
+ IUsetheCopyfromoptionontherightsideof theIconEditordialogboxto
+ copyfromacolor icontoablack-and-whiteiconandviceversa.
+ IAfteryouselectaCopyfromoption,clicktheOKbuttontocompletethe
+ change.
+ VIRTUALINSTRUMENTATION 6/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ CreatinganIconandBuildingaconnectorpane
+ BuildingaConnectorPane
+ ITheconnectorpaneisasetof terminalsthatcorrespondtothecontrolsand
+ indicatorsof thatVI.
+ ITheconnectorpanedefinestheinputsandoutputsyoucanwiretotheVI so
+ thatyoucanuseitasasubVI.
+ IAconnectorpanereceivesdataat its inputterminalsandpassesthedatato
+ theblockdiagramcodethroughthefrontpanelcontrolsorreceivestheresults
+ at itsoutputterminalsfromthefrontpanel indicators.
+ ITodefineaconnectorpane, right-clicktheiconintheupper-rightcornerof
+ thefrontpanelandselectShowConnector fromtheshortcutmenutodisplay
+ theconnectorpane.
+ ITheconnectorpaneappears inplaceof theicon.youviewtheconnectorpane
+ forthefirsttime,youseeadefaultconnectorpattern.
+ IYoucanselectanappropriatepatternbyright-clickingtheconnectorpaneand
+ selectingPatterns fromtheshortcutmenu.
+ IAfteryouselectaconnectorpanepattern,youcancustomizeittosuittheVI
+ byadding, removingorrotatingtheterminals.
+ VIRTUALINSTRUMENTATION 7/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ CreatinganIconandBuildingaconnectorpane
+ BuildingaConnectorPane
+ IToaddaterminal tothepattern,placethecursorwhereyouwanttoaddthe
+ terminal, right-click,andselectAddTerminal fromtheshortcutmenu.
+ IToremoveanexistingterminal fromthepattern, right-clicktheterminaland
+ selectRemoveTerminal fromtheshortcutmenu.
+ ITochangethespatialarrangementof theconnectorpanepatterns, right-click
+ theconnectorpaneandselectFlipHorizontal,FlipVertical,orRotate90
+ Degreesfromtheshortcutmenu.
+ VIRTUALINSTRUMENTATION 8/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Buildingaconnectorpane
+ AssigningTerminalstoControlsandIndicators
+ IAfteryouselectapatterntousefortheconnectorpane,youmustassigna
+ frontpanelcontrolor indicatortoeachof theconnectorpaneterminals.
+ ITolinkcontrolsandindicatorstotheconnectorpane,placeinputsontheleft
+ andoutputsontherighttopreventcomplicatedorconfusingwiringpatterns.
+ VIRTUALINSTRUMENTATION 9/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Buildingaconnectorpane
+ Completethefollowingstepstoassignterminalstocontrolsandindicators in
+ aconnectorpane
+ IEnsurethatyouhaveselectedapatternsu cient forthenumberofcontrols
+ andindicatorsyouwanttoassigntotheconnectorpane.
+ IRight-clicktheiconintheupper-rightcornerof thefrontpanelandselect
+ ShowConnector fromtheshortcutmenutodisplaytheconnectorpane.The
+ connectorpaneappears inplaceoftheicon.
+ IClickaterminaloftheconnectorpane.Thetoolautomaticallychangestothe
+ wiringtoolandtheterminal turnsblack.
+ IClickthefrontpanelcontrolor indicatoryouwanttoassigntotheterminal.A
+ marqueehighlightstheobject.
+ IClickanopenspaceof thefrontpanel.Themarqueedisappears,andthe
+ terminalchangestothedatatypecolorofthecontrol toindicatethatyou
+ connectedtheterminal. If theconnectorpaneterminal turnswhite,a
+ connectionwasnotmade
+ I Ifyouneedtochangethecontrolor indicatorassignedtoaterminal,youmust
+ firstdeletetheconnectionandassignanothercontrolor indicatortothe
+ terminal.
+ I Ifnecessary,confirmeachterminalconnection.Youcanspecifywhich
+ terminalsarerequired, recommendedandoptional.
+ VIRTUALINSTRUMENTATION 10/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Buildingaconnectorpane
+ ConfirmingTerminalConnections
+ IToconfirmwhichcontrolor indicator isassignedtoaconnectorpaneterminal,
+ clicktheterminal intheconnectorpane.
+ IAmarqueehighlightstheassignedobject.Youalsocanusethewiringtool to
+ clickthecontrolor indicator.
+ IThecoloroftheassignedterminal intheconnectorpanedarkens.
+ DeletingTerminalConnections
+ Youcandeleteconnectionsbetweenterminalsandthecorrespondingcontrols
+ or indicators individuallyorallatonce.Completethefollowingstepstodelete
+ aterminalconnection.
+ IRight-clicktheterminalyouwanttodisconnectontheconnectorpaneand
+ selectDisconnectThisTerminal fromtheshortcutmenu.
+ ITheterminal turnswhitetoindicatethattheconnectionnolongerexists.
+ IDisconnectThisTerminal isdi erentfromRemoveTerminal, inthat
+ DisconnectthisTerminal doesnotremovetheterminal fromthepattern.
+ ITodeleteallconnectionsontheconnectorpane, right-clickanywhereonthe
+ connectorpaneandselectDisconnectAllTerminals fromtheshortcutmenu.
+ VIRTUALINSTRUMENTATION 11/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ Displaying,Creating,EditingSubVIs
+ DisplayingSubVIs
+ IYoucanconvertasectionofaVI intoasubVIbyusingthepositioningtool to
+ selectthesectionoftheblockdiagram.
+ IThenselectEdit»CreateSubVI asfromthemenutoconverttheselected
+ portionintoasubVI.SubVIcreatedwithdefault icon.
+ IAniconforthenewsubVI replacestheselectedsectionoftheblockdiagram.
+ ILabVIEWcreatescontrolsandindicatorsforthenewsubVI,automatically
+ configurestheconnectorpanebasedonthenumberofcontrolandindicator
+ terminalsyouselected,andwiresthesubVI totheexistingwires.
+ VIRTUALINSTRUMENTATION 12/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Displaying,Creating,EditingSubVIs
+ OpeningandEditingSubVIs
+ IWhenyoudouble-clickasubVI,afrontpanelandablockdiagramappear,
+ ratherthanadialogboxinwhichyoucanconfigureoptions.
+ IThesubVIcontrolsandindicatorsreceivedatafromandreturndatatothe
+ blockdiagramofthecallingVI.ClicktheSelectaVI iconortextonthe
+ Functionspalette,navigatetoanddouble-clickaVI,andplacetheVIona
+ blockdiagramtocallacreatedsubVI.Completethefollowingstepstoopena
+ subVIandedit it.
+ 1 Usetheoperatingorpositioningtool todouble-clickthesubVIontheblock
+ diagram.
+ 2 LabVIEWdisplaysthefrontpanelofthesubVI.
+ 3 Youalsocanpressthe<Ctrl>keyandusetheoperatingorpositioningtool to
+ double-clickthesubVIontheblockdiagramtodisplaytheblockdiagramand
+ frontpanelofthesubVI.
+ 4 EditthesubVI.
+ VIRTUALINSTRUMENTATION 13/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ RepetitionandLoop
+ ILoopsandcasestatementsof text-basedprogramminglanguagesare
+ representedasstructures ingraphicalprogramming.
+ IRepetitionandloopareusedtoperformanactionfrequentlywithvariations in
+ thedetailseachtime.
+ ILabVIEWconsistsofFORLoopandWHILELoop.Theseloopsareusedto
+ control repetitiveoperations.
+ IStructuresontheblockdiagramareusedtorepeatblocksofcodeandto
+ executecodeconditionallyor inaspecificorder.
+ ILabVIEWincludesstructures liketheWhileLoop,ForLoop,Casestructure,
+ StackedSequencestructure,FlatSequencestructure,Eventstructure,and
+ FormulaNode.
+ VIRTUALINSTRUMENTATION 14/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ FORLoops
+ ITheForLoopis locatedontheFunctions»Programming»Structures
+ Palette.SelecttheForLoopfromthepaletteandusethecursortodraga
+ selectionrectangletocreateanewForLooporaroundthesectionofthe
+ blockdiagramyouwanttorepeat.
+ IYoualsocanplaceaWhileLoopontheblockdiagram, right-clicktheborder
+ of theWhileLoop,andselectReplacewithForLoopfromtheshortcutmenu
+ tochangeaWhileLooptoaForLoop.
+ INThevalueisthecountterminal ’N’ indicateshowmanytimestorepeatthe
+ subdiagram.AVIwillnotrunif itcontainsaForLoopthatdoennothavea
+ numericvaluewiredtothecountterminal
+ I iTheiterationterminal ’i’containsthenumberofcompletediterations.The
+ iterationcountalwaysstartsatzero.
+ I Ifyouwire0oranegativenumbertothecountterminal, theloopdoesnot
+ executeandtheoutputscontainthedefaultdataforthatdatatype
+ VIRTUALINSTRUMENTATION 15/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ WHILELoops
+ IAWhileLoopexecutesasubdiagramuntilaconditionismet.
+ ITheWhileLoopissimilartoaDoLooporaRepeat-UntilLoopintext-based
+ programminglanguages.
+ ITheWhileLoopalwaysexecutesat leastonce.
+ ITheForLoopdi ersfromtheWhileLoopinthattheForLoopexecutesaset
+ numberof times.
+ IAWhileLoopstopsexecutingthesubdiagram,onlyif theexpectedvalueat
+ theconditional terminalexists.
+ I InLabVIEW, theWHILELoopis locatedontheFunctions»Programming»
+ Structurespalette.
+ IYoualsocanplaceaForLoopontheblockdiagram, right-clicktheborderof
+ theForLoop,andselectReplacewithWhileLoopfromtheshortcutmenuto
+ changeaForLooptoaWhileLoop.
+ ITheWhileLoopcontainstwoterminals,namelyConditionalTerminaland
+ IterationTerminal.
+ ITheConditionalTerminal isusedtocontrol theexecutionoftheloop,whereas
+ theIterationTerminal isusedtoknowthenumberofcompletediterations.
+ VIRTUALINSTRUMENTATION 16/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ WHILELoops
+ ITheWhileLoopexecutesthesubdiagramuntil theconditional terminal,and
+ receivesaspecificBooleanvalue.Thedefaultbehaviorandappearanceof the
+ conditional terminal isStopifTrue.
+ IWhenaconditional terminal isStopifTrue, theWhileLoopexecutes its
+ subdiagramuntil theconditional terminal receivesaTRUEvalue.
+ IWhenaconditional terminal isContinueifTrue, theWhileLoopexecutes its
+ subdiagramuntil theconditional terminal receivesaFALSEvalue.
+ ITheiterationterminal ‘i’(anoutputterminal),containsthenumberof
+ completediterations.Theiterationcountalwaysstartsatzero.Duringthefirst
+ iteration, theiterationterminal returns0.
+ VIRTUALINSTRUMENTATION 17/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ StructureTunnels
+ ITunnelsfeeddataintoandoutofstructures.
+ IThetunnelappearsasasolidblockontheborderoftheloop.Theblockisthe
+ colorof thedatatypewiredtothetunnel.
+ IDatapassesoutofaloopaftertheloopterminates.
+ IWhenatunnelpassesdataintoaloop, theloopexecutesonlyafterdata
+ arrivesatthetunnel.
+ ITheiterationterminal isconnectedtoatunnel.
+ IThevalueinthetunneldoesnotpasstotheIterationNumber indicator until
+ theWhileLoophasfinishedexecution.
+ IOnlythelastvalueof theiterationterminaldisplays intheIterationNumber
+ indicator.
+ VIRTUALINSTRUMENTATION 18/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ ShiftRegisters
+ IWhenprogrammingwithloops,youoftenneedtoaccessdatafromprevious
+ iterationsoftheloop.
+ ITwowaysofaccessingthisdataincludetheshiftregisterandthefeedback
+ node.
+ IShiftregistersareusedwithForLoopsandWhileLoopstotransfervalues
+ fromoneloopiterationtothenext.
+ IShiftregistersaresimilartostaticvariables intext-basedprogramming
+ languages.
+ IAshiftregisterappearsasapairof terminals,directlyoppositeeachotheron
+ thevertical sidesoftheloopborder.
+ ITheterminalontherightsideoftheloopcontainsanuparrowandstores
+ dataonthecompletionofaniteration.
+ ILabVIEWtransfersthedataconnectedtotherightsideoftheregistertothe
+ next iteration.
+ IAftertheloopexecutes, theterminalontherightsideoftheloopreturnsthe
+ lastvaluestoredintheshiftregister.
+ ICreateashiftregisterbyright-clickingtheleftorrightborderofaloopand
+ selectingtheAddshiftregister fromtheshortcutmenu
+ VIRTUALINSTRUMENTATION 19/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ ShiftRegisters
+ IAshiftregistertransfersanydatatypeandautomaticallychangestothedata
+ typeofthefirstobjectwiredtotheshiftregister.
+ IThedatayouwiretotheterminalsofeachshiftregistermustbethesame
+ type.
+ IYoucanaddmorethanoneshiftregistertoaloop.
+ I Ifyouhavemultipleoperationsthatuseprevious iterationvalueswithinour
+ loop,youcanusemultipleshiftregisterstostorethedatavaluesfromthose
+ di erentprocesses inthestructure.
+ I InitializingShiftRegisters :
+ Initializeashiftregisterbywiringacontrolorconstanttotheshiftregister
+ terminalontheleftsideoftheloop.
+ Ifyoudonot initializetheshiftregister, theloopusesthevaluewrittentothe
+ shiftregisterwhenthelooplastexecutedorthedefaultvalueforthedatatype
+ iftheloophasneverexecuted.
+ VIRTUALINSTRUMENTATION 20/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ ShiftRegisters
+ IStackedShiftRegisters :
+ Stackedshiftregistersremembervaluesfrommultipleprevious iterationsand
+ carrythosevaluestothenext iterations.
+ Tocreateastackedshiftregister, right-clicktheleftterminalandselectAdd
+ Elementfromtheshortcutmenu.
+ IReplacingTunnelswithShiftRegisters :
+ Tunnelscanbereplacedwithshiftregisterswherevernecessary.Toreplacea
+ tunnel intoashiftregister, right-clickthetunnelandselectReplacewithShift
+ Register.
+ Ifnotunnelexistsontheloopborderoppositeof thetunnelyouright-clicked,
+ LabVIEWautomaticallycreatesapairofshiftregisterterminals.
+ Ifoneormorethanonetunnelexistsontheloopborderoppositeofthetunnel
+ youright-clicked, themousepointerwill turntothesymbolofashiftregister.
+ VIRTUALINSTRUMENTATION 21/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ ShiftRegisters
+ IReplacingShiftRegisterswithTunnels :
+ Replaceshiftregisterswithtunnelswhenyounolongerneedtotransfervalues
+ fromoneloopiterationtothenext.
+ Toreplaceashiftregisterwithatunnel, right-clicktheshiftregisterandselect
+ ReplacewithTunnels.
+ IfyoureplaceanoutputshiftregisterterminalwithatunnelonaForLoop, the
+ wiretoanynodeoutsidetheloopbreaksbecausetheForLoopenables
+ auto-indexingbydefault.
+ Rightclicktheauto-indexedtunnelandselectDisableIndexingonthetunnel to
+ correctthebrokenwire.
+ Thisproblemdoesnotoccur inWhileLoopsbecauseauto-indexingisdisabled
+ bydefault inWhileLoops.
+ VIRTUALINSTRUMENTATION 22/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ RepetitionandLoops
+ FeedbackNodes
+ IWhentheoutputofanodeisconnecteddirectlytotheinput, thefeedback
+ nodeisgeneratedautomatically.Thefeedbacknodeappearsautomaticallyin
+ aForLooporWhileLoopifwewiretheoutputofanodeorgroupofnodesto
+ theinputof thatnodeorgroupofnodes.
+ ILikeashiftregister, thefeedbacknodestoresdatawhentheloopcompletes
+ aniteration, sendsthatvaluetothenext iterationoftheloop,andtransfers
+ anydatatype.
+ IUsethefeedbacknodetoavoidunnecessarilylongwires inloops.
+ IThefeedbacknodearrowindicatesthedirectioninwhichthedataflowsalong
+ thewire.
+ IThearrowautomaticallychangesdirectionif thedirectionofdataflow
+ changes.
+ VIRTUALINSTRUMENTATION 23/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ ControlTimingandCommunicatingamongMultipleLoops
+ ControlTiming
+ IWhenaloopfinishesexecutinganiteration, it immediatelybeginsexecuting
+ thenext iterationunless itreachesastopcondition.
+ IMostapplicationsneedprecisecontrolofthefrequencyortimingof the
+ iterationtobemaintainedbetweensuccessiveoperationsof theloop.
+ IYoucanuseawait functioninthelooptowaitanamountof timein
+ millisecondsbeforetheloopre-executes.
+ ILabVIEWconsistsof twowaitfunctions.
+ IAwait functionisplacedinsidealooptoallowaVI tosleepforasetamount
+ of time.Thisallowsyourprocessortoaddressothertasksduringthewait
+ time.Wait functionsusetheoperatingsystemmillisecondclock.Theyare
+ WaitUntilNextmsMultipleandWait(ms)functions
+ VIRTUALINSTRUMENTATION 24/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ ControlTimingandCommunicatingamongMultipleLoops
+ ControlTiming
+ IWaitUntilNextmsMultiple
+ TheWaitUntilNextmsMultiplefunctionmonitorsamillisecondcounterand
+ waitsuntil themillisecondcounterreachesamultipleofthetimeyouspecify.
+ Youcanplacethisfunctionwithinalooptocontrol theloopexecutionrate.For
+ thisfunctiontobee ective,yourcodeexecutiontimemustbelessthanthe
+ timespecifiedforthisfunction.
+ Theexecutionrateforthefirst iterationof theloopis indeterminate.
+ IWait(ms)
+ TheWait(ms)functionaddsthewaittimetothecodeexecutiontime.
+ TheWait(ms)functionwaitsuntil themillisecondcountercountstoan
+ amountequal totheinputyouspecify.Thisfunctionguaranteesthattheloop
+ executionrateisat leasttheamountoftheinputyouspecify.
+ VIRTUALINSTRUMENTATION 25/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ ControlTimingandCommunicatingamongMultipleLoops
+ CommunicatingamongMultipleLoops
+ ITheflowofdatadeterminestheexecutionorderofblockdiagramelements.
+ IVariablesareblockdiagramelementsthatallowyoutoaccessorstoredatain
+ another location.
+ ITheactual locationofthedatavariesdependinguponthetypeofthevariable.
+ ILocalvariablesstoredatainfrontpanelcontrolsandindicators.
+ IGlobalvariablesandsingleprocess-sharedvariablesstoredatainspecial
+ repositoriesthatyoucanaccessfrommultipleVIs.
+ IFunctionalglobalvariablesstoredatainWhileLoopshiftregisters.
+ VIRTUALINSTRUMENTATION 26/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ ControlTimingandCommunicatingamongMultipleLoops
+ LocalVariables
+ ILocalvariablestransferdatawithinasingleVIandallowdatatobepassed
+ betweenparallel loops.
+ ITwowaystocreatealocalvariableareright-clickonanobject’sterminaland
+ selectCreate»LocalVariable.
+ IAlocalvariableiconfortheobjectappearsontheblockdiagram
+ IAnotherwayistoselecttheLocalVariablefromtheStructurespalette.Create
+ thefrontpanelandselectalocalvariablefromtheFunctionspaletteandplace
+ itontheblockdiagram.
+ IToassociatealocalvariablewithacontrolor indicator, right-clickthelocal
+ variablenodeandselectSelect Itemfromtheshortcutmenu.
+ IYoualsocanconfigureavariabletobehaveasadatasource,orareadlocalor
+ global.Right-clickthevariableandselectChangeToReadfromtheshortcut
+ menutoconfigurethevariabletobehaveasacontrol.
+ IWhenthisnodeexecutes, theVI readsthedataintheassociatedfrontpanel
+ controlor indicator.
+ IWhenyouwritetoalocalvariable,youupdateitscorrespondingfrontpanel
+ objectandwhenyoureadfromalocalvariable,youreadthecurrentvalueof
+ itscorrespondingfrontpanelobject. Initializelocalandglobalvariablesbefore
+ readingthem
+ VIRTUALINSTRUMENTATION 27/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ ControlTimingandCommunicatingamongMultipleLoops
+ GlobalVariables
+ IGlobalvariablesarebuilt-inLabVIEWobjects.Youcanusevariablestoaccess
+ andpassdataamongseveralVIsthatrunsimultaneously.
+ IAlocalvariablesharesdatawithinaVI;aglobalvariablealsosharesdata,but
+ itsharesdatawithmultipleVIs.
+ IWhenyoucreateaglobalvariable,LabVIEWautomaticallycreatesaspecial
+ globalVI,whichhasafrontpanelbutnoblockdiagram.
+ IAddcontrolsandindicatorstothefrontpanelof theglobalVI todefinethe
+ datatypesof theglobalvariables.SelectaglobalvariablefromtheFunctions
+ paletteandplaceitontheblockdiagram.
+ IDouble-clicktheglobalvariablenodetodisplaythefrontpaneloftheglobal
+ VI.Placecontrolsandindicatorsonthisfrontpanel thesamewayyoudoona
+ standardfrontpanel.
+ IAglobalvariablefrontpanelwithanumeric,astring,andaclustercontaining
+ adigitalandaBooleancontrol.ThetoolbardoesnotshowtheRun,Stopor
+ relatedbuttonsasanormal frontpanel.
+ VIRTUALINSTRUMENTATION 28/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ ControlTimingandCommunicatingamongMultipleLoops
+ GlobalVariables
+ IAfteryoufinishplacingobjectsontheglobalVI frontpanel,saveitandreturn
+ totheblockdiagramof theoriginalVI.Youthenmustselectwhichobject in
+ theglobalVI thatyouwanttoaccess.
+ IRight-clicktheglobalvariablenodeandselectafrontpanelobject fromthe
+ Select Itemshortcutmenu.Theshortcutmenulistsall thefrontpanelobjects
+ thathaveownedlabels.
+ IYoualsocanusetheoperatingtoolor labelingtool toclickthelocalvariable
+ nodeandselectthefrontpanelobject fromtheshortcutmenu. Ifyouwantto
+ usethisglobalvariableinotherVIs, selectFunctions»AllFunctions»Select
+ aVI.
+ ITheglobalvariableisassociatedwiththefirst frontpanelobjectwithan
+ ownedlabel thatyouplacedintheglobalVI.
+ IRight-clicktheglobalvariablenodeyouplacedontheblockdiagramand
+ selectafrontpanelobjectfromtheSelectItemshortcutmenutoassociatethe
+ globalvariablewiththedatafromanother frontpanelobject
+ VIRTUALINSTRUMENTATION 29/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Summary
+ ModularProgramming
+ IModularityincreasesthereadabilityandreusabilityofyourVIs.
+ IAVIwithinanotherVI iscalledmodulesorsubVI.
+ ISubVIscorrespondtoasubroutineintext-basedprogramminglanguages.
+ ITheupper-rightcornerofthefrontpanelandblockdiagramdisplaystheicon
+ fortheVI.
+ IAfteryoubuildaVI frontpanelandblockdiagram,buildtheiconandthe
+ connectorpanetousetheVIasasubVI.
+ IRight-clicktheiconintheupper-rightcornerof thefrontpanelorblock
+ diagramandselectingEdit Icon,youcancreatecustomiconstoreplacethe
+ default icon.
+ IRight-clicktheiconintheupper-rightcornerof thefrontpanelandselect
+ ShowConnector.
+ ITheconnectorpaneisasetof terminalsthatcorrespondtothecontrolsand
+ indicatorsof thatVI.Defineconnectionsbyassigningafrontpanelcontrolor
+ indicatortoeachof theconnectorpaneterminalsusingthewiringtool.
+ ILoadsubVIsusingtheSelectaVIoptionintheAllFunctionspaletteor
+ draggingtheiconontoanewdiagram.
+ VIRTUALINSTRUMENTATION 30/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Summary
+ RepetitionandLoops
+ ITheWhileLoopexecutesthesubdiagramuntil theconditional terminal
+ receivesaspecificBooleanvalue.
+ IBydefault, theWhileLoopexecutes itssubdiagramuntil theconditional
+ terminal receivesaTRUEvalue.
+ ITheForLoopexecutesasubdiagramasetnumberof times.
+ ITheWaitUntilNextmsMultiplefunctionmakessurethateachiteration
+ occursatcertainintervals.Usethisfunctiontoaddtimingtoloops.
+ ITheWait(ms)functionwaitsasetamountof time.
+ IUseshiftregistersonForLoopsandWhileLoopstotransfervaluesfromone
+ loopiterationtothenext.
+ ICreateashiftregisterbyright-clickingtheleftorrightborderofaloopand
+ selectingAddShiftRegister fromtheshortcutmenu.
+ IToconfigurestackedshiftregistertoremembervaluesfrommultipleprevious
+ iterationsandcarryovervaluestothenext iteration, right-clicktheleft
+ terminalandselectAddElement fromtheshortcutmenu.
+ IThefeedbacknodestoresdatawhentheloopcompletes iteration, sendsthat
+ valuetothenext iterationof theloopandtransfersanydatatype.
+ VIRTUALINSTRUMENTATION 31/35 Pr Moffo Lonla B
+Unit-2ModularProgrammingandLoops
+ Assignment
+ 1 CreateaVI tocomputefulladder logicusinghalf ladder logicassubVI.
+ 2 CreateaVI tofindthedecimalequivalentofabinarynumberusingsubVI.
+ 3 CreateaVI tofindtheGreycodeequivalentofaBCDnumberusingsubVIs.
+ 4 CreateaVI tofindtheaverageoftwonumbersandconvertasectionofaVI
+ intoasubVI.
+ 5 CreateasubVI tocomputetheaverageoffivestudentsmarks
+ VIRTUALINSTRUMENTATION 32/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Problems
+ 6 FactorialofthegivennumberusingFORLoopandShiftRegister.
+ Solution:Thefrontpanelhasthenumberanditsfactorial,whiletheblock
+ diagramcontainsthecodestosolvethefactorial.
+ 7 SumoffirstnnaturalnumbersusingaWHILELoopwithafeedbacknode..
+ Solution:Givenanumbern, thesumoffirstnnaturalnumbers isobtained
+ whentheprogramisrun.
+ 8 TochangethestateoftheBooleanindicatorntimesbetweenTRUEand
+ FALSE.
+ Solution:BuildthefrontpanelwithBooleanindicatorandnumericindicator.
+ VIRTUALINSTRUMENTATION 33/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Problems
+ 9 Sumoffirst10naturalnumbersusingFORLoop.
+ Solution:Thefrontpanelhasthenumber10anditssum,whiletheblock
+ diagramcontainsthecodestofindthesum.
+ 10 ConvertdecimalnumbertobinarynumberusingFORLoop.
+ Solution:Givenanumbern,anditsbinaryequivalent is intheFrontpanel
+ correspondingprogrammingis inthefrontpanel.
+ 11 TochangethestateoftheBooleanindicatorntimesbetweenTRUEand
+ FALSE.
+ Solution:BuildthefrontpanelwithBooleanindicatorandnumericindicator.
+ VIRTUALINSTRUMENTATION 34/35 Pr Moffo Lonla B
+ Unit-2ModularProgrammingandLoops
+ Assignment
+ 1 Programtodisplayaname27timesusingaFORLoop.
+ 2 Programtofindthesumoffirst100naturalnumbers.
+ 3 Programtodisplaythenumbersfrom1to100instepsof3.
+ 4 Determinethesquareofthenumbersfrom1to100usingFORLoopand
+ WHILELoop
+ 5 ProgramtogenerateaFibonacciSeriesofnnumbers.
+ VIRTUALINSTRUMENTATION 35/35 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ 1 Unit-3ArraysandClusters
+ Objective
+ Pre-requisite
+ ArraysanditsFunctions
+ ClustersanditsFunctions
+ Summary
+ Examples/Work-Out
+ AssignmentQuestions
+ VIRTUALINSTRUMENTATION 1/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ TableofContents
+ 1 CreatingOne-DimensionalArray
+ 2 Deleting, InsertingandReplacingintoArrays
+ 3 Arrayfunctions
+ 4 AutoIndexing
+ 5 CreatingClusterscontrolandconstant
+ 6 ClusterOperations
+ 7 AssemblingandDisassemblingClusters
+ 8 ConversionbetweenArraysandClusters
+ VIRTUALINSTRUMENTATION 2/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Introduction-Arrays
+ Objective:Themainaimofthischaptertoknowaboutvariousfunctionscan
+ beperformedinarraysusingLabVIEWsoftwareenvironment
+ Pre-requisite:
+ ICreateNumericControls
+ ICreateNumericIndicators
+ IntroductiontoArrays
+ IAgroupofhomogeneouselementsofaspecificdatatypeisknownasanarray.
+ IArraysholdasequenceofdataelements,usuallyof thesamesizeandsame
+ datatypeplacedincontiguousmemorylocations.
+ I Individualelementsareaccessedbytheirpositioninthearray.
+ IThepositionisgivenbyanindex,whichisalsocalledassubscript
+ ISomearraysaremulti-dimensional,generallyone-andtwo-dimensionalarrays
+ arethemostcommon.
+ IYoucanbuildarraysofnumeric,boolean,path, stringandclusterdatatypes.
+ IYoucannotcreatearraysofarrays
+ VIRTUALINSTRUMENTATION 3/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ 1DArrayControls, IndicatorsandConstants
+ ICreateanarraycontrolor indicatoronthefrontpanelbyplacinganarrayon
+ thefrontpanelanddraggingadataobjectorelement,whichcanbenumeric,
+ boolean, string.
+ IArrayshellcanbeselectedfrom
+ Controls>Modern>Arrays,MatrixandClusterspalette
+ IThearrayelementsmustbecontrolsor indicators.
+ I Insertanobject inthearrayshellbeforeusethearrayontheblockdiagram.
+ IAfterplacinganelement inthearrayshell,onecanexpandthearrayeither
+ horizontallyorverticallytoseemorenumberofelements.
+ IOnceadatatypeisassignedtothearrayshell, theblockdiagramtakesthe
+ colorandlettering(in[ ]brackets)of thedatatype.
+ VIRTUALINSTRUMENTATION 4/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Arrays
+ 1DArrayControls, IndicatorsandConstants
+ ITheindexrangesfrom0to3.Thefirstelement inthearrayisat index0, the
+ secondelement isat index1,etc..
+ I Inanarraytheelementselectedintheindexdisplayalwaysrefertothe
+ elementshownintheupper leftcorneroftheelementdisplay.
+ ITheelement(9)at index0isnotshowninthearray,becauseindex1is
+ selectedintheindexdisplay.
+ Stepsforcreatinganarrayconstant
+ ISelectanarrayconstantfromFunctions»Programming»Arrays.Arrayshell
+ appearswithanindexdisplayontheleft,anemptyelementdisplayonthe
+ right.
+ IPlaceaconstant inthearrayshell.
+ IThearrayshellautomaticallyresizestoaccommodatetheobjectplaceinthe
+ arrayshell.
+ IAlternativemethodistocopyanexistingarrayonthefrontpanel totheblock
+ diagramtocreateaconstantofsamedatatype.
+ VIRTUALINSTRUMENTATION 5/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ 2DArrays
+ IA2Darraysstoreselements inagrid.
+ I Itrequiresacolumnindexandarowindextolocateanelementbothofwhich
+ arezero-based.
+ ITocreatea2Darrayonthefrontpanel, rightclicktheindexdisplayof the
+ arrayandselectAddDimensionfromtheshortcutmenu.
+ VIRTUALINSTRUMENTATION 6/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ InitializingArrays
+ IWhenanarrayis initialized,definethenumberofelements ineachdimension
+ andcontentsofeachelement.
+ IAnuninitializedarrayhasadimensionbutnoelements.
+ IAnuninitializedarraycontrolwithall theelementsaredimmedindicatingthat
+ thearrayisuninitialized.
+ VIRTUALINSTRUMENTATION 7/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ DeletingElementswithinArrays
+ IOnecandeleteanelementwithina1Darrayandaroworcolumnwithina2D.
+ ITodeleteanelement ina1Darray, right-clickthearrayelementonthefront
+ panelandselectDataOperations»DeleteElement.
+ ITodeletearoworcolumnina2Darray, right-clickthearrayroworcolumn
+ onthefrontpanelandselectDataOperations»DeleteRoworDeleteColumn
+ ICandeleteelements, rows,columnsandpageswithinarrayusingtheDelete
+ FromArray function.
+ VIRTUALINSTRUMENTATION 8/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Arrays
+ InsertingElementswithinArrays
+ IOnecaninsertanelement intoa1Darrayandaroworcolumnintoa2D
+ array.
+ IToaddanelement1D, rightclickthearrayonthefrontpanelandselectData
+ Operation»InsertElementBefore.
+ IToaddaroworcolumntoa2Darray, rightclickthearrayonthefrontpanel
+ andselectDataOperations»InsertRowBeforeor InsertColumnBefore.
+ IOnecaninsertelements, rows,columnintoarraysusingtheInsert IntoArray
+ function.
+ IPlaceanInsert IntoArray functionontheblockdiagram.
+ I theindexinputspecifiestheelement, row,columnwheretoinserttheelement
+ orarraywith0beingthefirst.
+ IElementsareaddedbeforethevaluewiretoindex.
+ VIRTUALINSTRUMENTATION 9/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ ReplacingElementswithinArrays
+ IPlacetheReplaceArraySubset functionontheblockdiagram
+ IWireanarrayofanydimensiontothen-dimensionarrayinputoftheReplace
+ ArraySubset function.
+ IThefunctionautomaticallyresizesbasedonthedimensionsof thearray.
+ ITheindexinputspecifieswhichelement, row,columntoreplace.
+ IThenewelement/subarrayinputspecifiesthevalueyouwanttoreplacean
+ element.
+ IResizetheReplaceArraySubset functiontoreplaceanotherelement, row,
+ columnwithinanarray
+ IRuntheVI
+ VIRTUALINSTRUMENTATION 10/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ ArrayFunctions
+ IArrayfunctionsareusedtocreateandmanipulatearrays.
+ ICommonarrayoperationssuchasExtractingindividualdataelementsfroman
+ array, inserting,deletingorreplacingdataelementsusingarrayfunctions.
+ IArrayfunctions includingIndexArray,ReplaceArraySubset, Insert IntoArray,
+ DeleteFromArrayandArraySubset
+ I IndexArray:Theinputtotheindexarrayfunctionisa1Darray.Byproviding
+ theindexvalueintheoutput,getthearrayelementcorrespondingtothe
+ indexvalue.
+ I IndexArray:Whenconnectinga2Darrayas input, thefunctionautomatically
+ resizestogettwoindexinputsonefortherowindexandother forcolumn
+ index.
+ VIRTUALINSTRUMENTATION 11/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays
+ AutoIndexing
+ IFor loopsandWhileloopscanindexandaccumulatearraysattheir
+ boundaries.This isknownasauto-indexing.
+ I IfyouwireanarraytoaForLooporWhileLoopinputterminal,canreadand
+ processeveryelement inthatarraybyenablingauto-indexing.
+ IWhenyouauto-indexanarrayoutputtunnel, theoutputarrayreceivesanew
+ elementfromeveryiterationof theloop.
+ IThewirefromtheoutputtunnel tothearrayindicatorbecomesthickeras it
+ changestoanarrayattheloopborder.
+ IDisableauto-indexingbyrightclickingthetunnelandselectingDisable
+ Indexing fromthemenu.
+ IDisableauto-indexingifneedonlythelastvaluepassedtothetunnel.
+ IToenableauto-indexing, rightclickatunnelandselectEnableIndexing
+ VIRTUALINSTRUMENTATION 12/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Clusters
+ Introduction
+ IClustersgroupdataelementsofmixedtypes.
+ IExampleofaCluster istheLabVIEWerrorcluster,whichcombinesaBoolean
+ control(status),anumericcontrol (Code)andastringcontrol (source).
+ IAcluster issimilartoarecordorastruct intext-basedprogramming
+ languages.
+ I If frontpanelcontainsmorethan28controlsandindicatorsthatwanttopass
+ toanotherVI, someof themgroupedintoaclusterandassigntheclustertoa
+ terminalontheconnectorpane.
+ VIRTUALINSTRUMENTATION 13/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ CreatingClusterControlsandIndicators
+ IAclustercanbecreatedbyplacingaclustershellonthefrontpanelandthen
+ placingoneof thefrontpanelobjects insidetheclusters.
+ ISelectaclusterontheControls»AllControls»ArraysandCluster palette,
+ placeitonthefrontpanelanddragadataobjectorelementwhichcanbe
+ numeric,boolean, string,controlor indicator, intotheclustershell.
+ IResizetheclustershellbydraggingthecursorwhileyouplacetheclustershell
+ onthefrontpanel
+ VIRTUALINSTRUMENTATION 14/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ CreatingClusterConstants
+ ITocreateaclusterconstantontheblockdiagram,firstselectacluster
+ constantontheFunctionspalette.
+ INextplacetheclustershellontheblockdiagram,andfinallyplaceastring
+ constant,numericconstant,orclusterconstant intheclustershell.
+ IClusterconstantcanbeusedtostoreconstantdataorasbasisforcomparison
+ withanother.
+ I Ifaclustercontrolor indicatorpresent inthefrontpanelandwanttocreatea
+ clusterconstantcontainingthesameelementsontheblockdiagram,can
+ eitherdragthatcluster fromthefrontpanel totheblockdiagramor
+ right-clicktheclusteronthefrontpanelandselectCreate-Constant fromthe
+ shortcutmenu.
+ VIRTUALINSTRUMENTATION 15/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ OrderofClusterelements
+ IClusterelementshavealogicalorderunrelatedtotheirpositionintheshell.
+ IThefirstobjectyouplaceinthecluster iselement0, thesecondiselement1
+ andsoon.
+ I If theelement isdeleted, theorderadjustsautomatically.
+ ITheclusterorderdeterminestheorder inwhichtheelementsappearas
+ terminalsontheBundleandUnbundle functionsontheblockdiagram.
+ IOnecanviewandmodifytheclusterorderbyright-clickingtheclusterborder
+ andselectingReorderControls InCluster fromtheshortcutmenu.
+ ITowireclusterstoeachother,bothclustersmusthavethesamenumberof
+ elements.
+ ICorrespondingelements,determinedbytheclusterorder,musthave
+ compatibledatatypes.
+ VIRTUALINSTRUMENTATION 16/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Clusters
+ OrderofClusterelements
+ IFig. showsthereorderingofaclusterwhichcontainsanumericcontrol
+ (DigitalControl),aBooleancontrol (OKButton)andastringcontrol.
+ IByclickingoverthenumberdisplayedwithablackbackgroundnearthe
+ clusterelement,canchangetheorderof theelements.
+ IOnemustunbundleallclusterelementsatonceorusetheUnbundleByName
+ functiontoaccessspecificclusterelements.
+ ICluster iseitheracontroloranindicator.
+ VIRTUALINSTRUMENTATION 17/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ ClusterOperations
+ IThemainclusteroperationsarebundle,unbundled,bundlebynameand
+ unbundlebyname.
+ IUsethecluster functionstocreateandmanipulateclusters.
+ ISomeofthetaskswhichcanbeperformed
+ Extract individualdataelementsfromacluster.
+ Addindividualdataelementstoacluster
+ Breakaclusterout intoits individualdataelements
+ ITheBundle functionassembles individualcomponents intoasinglenew
+ clusterandallowstoreplaceelements inanexistingorder.
+ ITheUnbundle functionsplitsacluster intoits individualcomponents.
+ IWhenit isrequiredtooperateonafeelementsandnottheentirecluster
+ elements,canusetheBundlebyNamefunction.
+ ITheyarereferencedbynamesratherthanbyposition.
+ ITheUnbundlebyNamefunctionreturnstheclusterelementswhosenamesare
+ specified.
+ VIRTUALINSTRUMENTATION 18/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ AssemblingClusters
+ ITheBundle functionassemblesacluster fromindividualelements.This
+ functioncanalsobeusedtochangethevaluesof individualelements inan
+ existingclusterwithouthavingtospecifynewvaluesforallelements.
+ IWhenyouwireaclustertothisfunction, thefunctionresizesautomaticallyto
+ displayinputsforeachelements inthecluster.
+ PlacetheBundlefunctionontheblockdiagram.
+ Ifnecessary, resizetheBundlefunctiontoincludethenumberof inputsyou
+ intendtouseaselements inthecluster.Onecannot leaveaninputunwired
+ Wirefrontpanelcontrol terminalsoroutputsfromVIsandfunctionstothe
+ elementinputsoftheBundle function.Theorder inwhichyouwiretheinputs
+ determinestheclusterelementorder
+ RightclicktheOutputCluster terminalandselectCreate»Indicator.LabVIEW
+ returnsthebundledcluster intheclusteroutput.
+ VIRTUALINSTRUMENTATION 19/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ AssemblingClusters
+ ITheBundleByName functionisusedtoreplaceoneormoreelements inan
+ existingcluster.
+ IThisfunctionreferstoclusterelementsbynameinsteadofbytheirpositionin
+ thecluster.
+ IAfteryouwirethenodetoaninputcluster, right-clickthenameterminalsto
+ selectelementsfromtheshortcutmenu.
+ IUsetheoperatingtool toclickthenameterminalsandselect fromalistof
+ clusterelements.
+ IAll inputsarerequired.
+ IThenewvalueforboththeelementsmustbegiven,otherwiseLabVIEW
+ showsanerror.
+ VIRTUALINSTRUMENTATION 20/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Clusters
+ DisassemblingClusters
+ ITheUnbundle functionsplitsacluster intoeachof its individualelements.
+ IWhenyouwireaclustertothisfunction, thefunctionresizesautomaticallyto
+ displayoutputsforeachelement intheclusterwired.
+ I theconnectorpanedisplaysthedefaultdatatypesforthispolymorphic
+ function.
+ IUnbundlingelementsfromclustersaccessesandarrangesallelements ina
+ cluster intheirclusterelementorder.
+ IAfterunbundleelementsfromcluster,canwireeachelementtoVIs, functions
+ andindicators.
+ IThismethodofunbundlingacluster isuseful ifyouneedtoaccessall the
+ elements inacluster.
+ IThestepstounbundleelementsfromacluster isplacetheunbundled function
+ ontheblockdiagramandthenwireaclustertotheUnbundle function.
+ IThedatatyperepresentationofeveryelementappearsaselementoutputs.
+ VIRTUALINSTRUMENTATION 21/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ DisassemblingClusters
+ ITheUnbundleByName functionreturnstheclusterelementswhosenames
+ youspecify.
+ IDonothavetokeeptrackof theorderof theelementswithinthecluster.
+ IThisfunctiondoesnotrequirethenumberofelementstomatchthenumber
+ inthecluster.
+ IAfteryouwireaclustertothisfunction,youcanselectanindividualelement
+ fromthefunction.
+ ITheconnectorpanedisplaysthedefaultdatatypesforthispolymorphic
+ function
+ VIRTUALINSTRUMENTATION 22/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ DisassemblingClusters
+ IUnbundlingelementsfromclustersbynameaccessesandarrangesthe
+ elements inaclusterbynameintheirclusterelementorder.
+ IAclusterelementmusthavealabel foryoutounbundletheelementbyname.
+ IAfteryouunbundleanelement(s)fromaclusterbyname,youcanwirethe
+ element(s)toaVI, functionandindicator.Thismethodofunbundlinga
+ cluster isuseful ifyouneedtoaccessoneelementfromaclusterthat includes
+ elementsofthesamedatatype.
+ IYoualsocanunbundleall theelementsfromaclusterwithoutusingthename.
+ IThestepstounbundleelementsfromaclusterbynamearefirstplacethe
+ UnbundleByNamefunctionontheblockdiagram.
+ IThenwireaclustertotheUnbundleByNamefunction.Thefirstelement in
+ theclusterelementorderappearsasanelementoutput
+ VIRTUALINSTRUMENTATION 23/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Clusters
+ ConversionbetweenArrayandClusters
+ IAclustercanbeconvertedintoanarrayfirstandconvertedbacktoacluster
+ afterperformingtherequiredoperationfromtheavailablearrayfunctions.
+ IConvertaclusterwithelementsof thesamedatatypetoanarrayusingthe
+ ClustertoArray functionandusearrayfunctionstomanipulatethecontents.
+ IThisfunctioncannotbeusedonaclusterofarrays
+ ILabVIEWdoesnotallowanyarrayorarraystypeofstructure
+ Placeaclusteronthefrontpanel.
+ PlacetheClustertoArray functionontheblockdiagram.
+ WiretheclustertotheClustertoArray function.
+ RightclicktheClusterToArray functionandselectCreate»Indicator fromthe
+ shortcutmenutocreateanarrayindicator
+ Thearrayindicatordisplaysthevaluesofthecluster.
+ VIRTUALINSTRUMENTATION 24/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Clusters
+ ConversionbetweenArrayandClusters
+ IOnecanconvertanarraytoaclusterusingtheArraytoCluster function.
+ IThisfunctionconvertsannelement,1Darrayintoaclusterofnelementof
+ thesametype.
+ IThisfunctionisusefulwhenyouwouldliketodisplaytheelementsof the
+ sametypeinafrontpanelbutstillwanttomanipulatetheelementsonthe
+ blockdiagrambytheir indexvalues.
+ IClustersdonotsizeautomatically,youneedtospecifytheclustersizeby
+ popinguponfunction.
+ IThedefaultclustersizeis9,andthemaximumsizepermittedis256.
+ ITheBuildClusterArray functionisusedtocreateanarrayofclusterswhere
+ eachclustercontainsanarray.
+ ITheIndexandBuildClusterArray functionindexesasetofarrayandcreates
+ aclusterarrayinwhichtheith elementcontainsthejth elementofeachinput
+ array.
+ IAllarrayinputsneednotbeof thesametypeandthefunctionyieldsacluster
+ arraycontainingoneelementfromeachinputarray.
+ VIRTUALINSTRUMENTATION 25/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Summary
+ Summary
+ IClustersgroupdataelementsofmixedtypes.
+ IElementsofclustersmustbeallcontrolsorall indicatorsorconstants.
+ IThesizeofcomponents inacluster isfixed.
+ IClusterelementsareaccessedthroughtheclusterorder.
+ I Ifafrontpanelcontainsmorethan28controlsandindicatorsthatyouwant
+ tousedprogrammatically,groupsomeof themintoaclusterandassignthe
+ clustertoaterminalontheconnectorpanetoeliminateclusterontheblock
+ diagram.
+ ITocreateaclustercontrolor indicator, selectaclusterontheFunctions»All
+ Functions»ArrayandClusterpalette,placeitonthefrontpanel,anddrag
+ controlsor indicators intotheclustershell.
+ IUsethecluster functions locatedontheFunctions»AllFunctions»Cluster
+ palettetocreateandmanipulateclusters.
+ IArraysandClustersareinter-convertiblebutonlyundercertainconditions.
+ VIRTUALINSTRUMENTATION 26/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays-Clusters
+ 1 Createa1DnumericarrayusingtheBuildArray functionwhichgetsarray
+ elementsfromnumericcontrols.
+ VIRTUALINSTRUMENTATION 27/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays-Clusters
+ 2 Createa1Dnumericarrayfromloops(ForandWhile)usingrandomnumbers
+ andobtainthereverseofthearray
+ VIRTUALINSTRUMENTATION 28/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Arrays-Clusters
+ 3 CreateaVI tofindthedeterminantofa2x2matrixwhichisrepresentedin
+ theformofa2DarrayusingIndexarrayfunction
+ VIRTUALINSTRUMENTATION 29/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays-Clusters
+ 4 Createa1Dnumericarraywhichconsistsoftenelementsandrotateitten
+ times.Foreachrotationdisplaytheequivalentbinarynumberof thefirst
+ arrayelement intheformofaBooleanarray.Alsodisplaythereversed
+ Booleanarray.Providedelaytoviewtherotation
+ VIRTUALINSTRUMENTATION 30/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays-Clusters
+ 1 CreateaVI tocheckwhethertheclusterelementsareinrangeornot.
+ Specifytheupperandlower limits.Displaythecorrectoutputandacluster
+ ofLEDstoindicatewhetheraparticularclusterelement is intherangeornot
+ VIRTUALINSTRUMENTATION 31/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays-Clusters
+ 2 CreateaVI tocompareclustersandSwitchONandLEDintheoutput
+ cluster ifthenthelementofcluster1isgreaterthanthenthelementofthe
+ cluster2.
+ VIRTUALINSTRUMENTATION 32/36 Pr Moffo Lonla B
+Unit-3ArraysandClusters
+ Arrays-Clusters
+ 3 CreateaVI toaddavaluewitheveryelementofanavailablecluster.(Adding
+ anumerictoaclusterresults intheadditionofthenumericatoeachelement
+ inthecluster)
+ VIRTUALINSTRUMENTATION 33/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Arrays-Clusters
+ 3 CreateaVIconsistingoftwoclustersofLEDs.PerformtheANDoperation
+ betweentheclustersanddisplaytheoutput inanotherclusterofLEDs.
+ (Whencomparingclusters, theANDfunctioncompareseachelementwithits
+ correspondingvalueinthesecondcluster
+ VIRTUALINSTRUMENTATION 34/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ Assignment
+ 1 DefineanarrayinLabVIEW?
+ 2 What isanarrayindexing?
+ 3 Howaretheindividualelementsaccessesandprocessedinanarray?
+ 4 Defineauto-indexing
+ 5 What isthefunctionofacluster?
+ 6 Di erentiateanarrayfromacluster.
+ 7 What isclusterorder?Explainwhyit is important
+ 8 What isthedi erencebetweenaBundleandBundleByName functions?
+ 9 Withthehelpofanexampleexplainassemblinganddisassemblingclusters
+ VIRTUALINSTRUMENTATION 35/36 Pr Moffo Lonla B
+ Unit-3ArraysandClusters
+ AssignmentQuestions
+ 1 Createa1DBooleanarrayandobtainthereverseof thearray
+ 2 Createa1Dnumericarrayandcheckwhetherthearrayelementsareoddor
+ even. Intheoutputarraydisplay0sand1sforoddnumbersandeven
+ numbersrespectively.
+ 3 BuildaVI thatgeneratestwo1Darraysandcreateanotherarraywhich
+ consistsall theelementsofthefirsttwoarrays.
+ 4 CreateaVI toreadasetofnumbersandsorttheminascendingorder.
+ 5 CreateaVI toreadasetofnumbersandfindthesumofarrayelements.
+ 6 CreateaVI toreadasetofnumbersupton,wheretheprogrammerdefinesn
+ andprintthecontentsofthearrayinreverseorder.
+ Forexample:n=4theinputare26,46,41,123andtheoutputshouldbe
+ 123,41,46,26
+ VIRTUALINSTRUMENTATION 36/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ 1 Unit-4PlottingDataandStructure
+ Objective
+ Pre-requisite
+ TypesofGraphsandCharts
+ TypesofStructures
+ BasicofFileI/OFormat
+ Summary
+ Examples/Work-Out
+ AssignmentQuestions
+ VIRTUALINSTRUMENTATION 1/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ TableofContents
+ 1 TypesofGraphsandCharts
+ 2 CustomizingGraphsandCharts
+ 3 TypesofStructures
+ 4 BasicofFileI/Oformat.
+ VIRTUALINSTRUMENTATION 2/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingDataandStructure
+ Objective:Themainaimofthischaptertoknowvarioustypesofgraphsand
+ charts, structuresandfileI/Ofunctions.
+ Pre-requisite:
+ IGoodKnowledgeofarraysandclusters.
+ IGoodKnowledgeinForandWhileLoop
+ Introduction:
+ IGraphicaldisplayofdataisanimportantaspectofprogramminginLabVIEW.
+ IVIswithgraphusuallycollectsthedatainanarrayandthenplotsthedatato
+ thegraphtoobtainawaveform.
+ IChartsandgraphs letyoudisplayplotsofdatainagraphical form.
+ ICharts interactivelyplotdata,appendingnewdatatooldsothatyoucansee
+ thecurrentvalueinthecontextofpreviousdata,asthenewdatabecome
+ available.
+ IGraphsplotpre-generatedarraysofvalues inamoretraditional fashion
+ withoutretainingpreviously-generateddata
+ VIRTUALINSTRUMENTATION 3/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ WaveformGraphs
+ IWaveformGraphsandCharts :Displaydatatypicallyacquiredataconstant
+ rate.
+ IXYGraphs :Displaydataacquiredatanon-constantrateanddatafor
+ multivaluedfunctions.
+ I IntensityGraphsandCharts :Display3Ddataona2Dplotbyusingcolorto
+ displaythevaluesof thethirddimension.
+ IDigitalwaveformgraphs :Displaydataaspulsesorgroupsofdigital lines.
+ IWindows3DGraphs :Display3Ddataona3Dplot inanActiveXobjecton
+ thefrontpanel.
+ VIRTUALINSTRUMENTATION 4/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ PlottingData
+ WaveformGraphs
+ ILabVIEWincludesthewaveformgraphandcharttodisplaydatatypically
+ acquiredataconstantrate.
+ IThewaveformgraphdisplaysoneormoreplotsofevenlysampled
+ measurements.
+ IThewaveformgraphplotsonlysingle-valuedfunctions,as iny=f(x),with
+ pointsevenlydistributedalongthex-axis, suchasacquiredtime-varying
+ waveforms.
+ IThewaveformgraphcandisplayplotscontaininganynumberofpoints.
+ IThegraphalsoacceptsseveraldatatypes,whichminimizestheextentto
+ whichyoumustmanipulatedatabeforeyoudisplayit
+ VIRTUALINSTRUMENTATION 5/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ WaveformGraphs
+ 1 DisplayingaSinglePlotonWaveformGraphs :Thewaveformgraphaccepts
+ Severaldatatypesforsingleplotwaveformgraphs
+ Asinglearrayofvalues, interpretsthedataaspointsonthegraphand
+ incrementsthexindexbyonestartingatzero.
+ Aclusterofaninitialxvalue,adeltaxandanarrayofydata.
+ Thewaveformdatatype,whichcarriesthedata, starttimeanddeltatofa
+ waveform.
+ Thedynamicdatatype,whichisforusewithExpressVIs.
+ Whenthedynamicdatatypeincludesasinglenumericvalueorsinglechannel,
+ thegraphplotsthesinglevalueandautomaticallyformatstheplot legendand
+ x-scaletimestamp.
+ 2 DisplayingaMultiplePlotonWaveformGraphs:Thewaveformgraphaccepts
+ Severaldatatypesfordisplayingmultipleplots
+ A2Darrayofvalues,whereeachrowofthearrayisasingleplot.
+ Aclusterofaninitialxvalue,adeltaxanda2Darrayofydata.
+ Aplotarraywherethearraycontainsclusters.Eachclustercontainsa1Darray
+ thatcontainstheydata.
+ Theinnerarraydescribesthepoints inaplot,andtheouterarrayhasone
+ cluster foreachplot.
+ VIRTUALINSTRUMENTATION 6/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ WaveformCharts
+ IThewaveformchart isaspecial typeofnumericindicatorthatdisplaysoneor
+ moreplotsofdatatypicallyacquiredataconstantrate.
+ IWaveformchartscandisplaysingleormultipleplots.
+ IThewaveformchartmaintainsahistoryofdataorbu er fromprevious
+ updates.
+ IDisplayingaSinglePlotonWaveformCharts :
+ 1 Ifyoupassthechartasinglevalueormultiplevaluesatatime,LabVIEW
+ interpretsthedataaspointsonthechartandincrementsthexindexbyone
+ startingatx=0.
+ 2 Thecharttreatstheseinputsasnewdataforasingleplot.Thewaveformchart
+ acceptsthewaveformdatatypewhichcarriesthedata,starttimeanddeltatof
+ awaveform.
+ IDisplayingaMultiplePlotonWaveformCharts :
+ 1 WaveformchartscandisplaymultipleplotstogetherusingtheBundle function
+ locatedontheCluster palette.
+ 2 TheBundle functionbundlestheoutputsofthethreeVIstoplotonthe
+ waveformchart.
+ 3 Topassdataformultipleplotstoawaveformchart,youcanbundlethedata
+ together intoaclusterofscalarnumericvalues,whereeachnumericrepresents
+ asinglepointforeachoftheplots.
+ VIRTUALINSTRUMENTATION 7/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ XYGraphs
+ ITheXYgraphisageneral-purpose,Cartesiangraphingobjectthatplots
+ multivaluedfunctions, suchascircularshapesorwaveformswithavarying
+ timebase.
+ I Itdisplaysanysetofpoints,evenlysampledornot.
+ ITheXYgraphcandisplayplotscontaininganynumberofpoints.
+ I Italsoacceptsseveraldatatypes,whichminimizestheextenttowhichyou
+ mustmanipulatedatabeforeyoudisplayit.
+ IDisplayingasingleplotonXYGraphs :TheXYGraphsaccepts
+ 1 Threedatatypesofsingle-plotXYgraphs.
+ 2 clusterthatcontainsanxarrayandayarray
+ 3 anarrayofpointswhereapoint isaclusterthatcontainsanxvalueanday
+ value
+ 4 anarrayofcomplexdatainwhichtherealpart isplottedonthex-axisandthe
+ imaginarypart isplottedonthey-axis
+ VIRTUALINSTRUMENTATION 8/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ PlottingData
+ XYGraphs
+ IDisplayingaMultipleplotonXYGraphs :TheXYGraphsaccepts
+ 1 Threedatatypesfordisplayingmultipleplots.
+ 2 Anarrayofplotswhereaplot isaclusterthatcontainsanxarrayandayarray.
+ 3 Anarrayofclustersofplotswhereaplot isanarrayofpoints.
+ 4 Apoint isaclusterthatcontainsanxvalueandayvalue.
+ 5 Anarrayofclustersofplotswhereaplot isanarrayofcomplexdata, inwhich
+ therealpart isplottedonthex-axisandtheimaginarypart isplottedonthe
+ y-axis.
+ VIRTUALINSTRUMENTATION 9/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ 3DGraphs
+ IWiththe3Dgraphs,youcanvisualizethree-dimensionaldataandalterthe
+ waythatdataappearsbymodifyingthe3Dgraphproperties.
+ ILabVIEWincludesthefollowingtypesof3Dgraphs :
+ 1 3Dsurfacegraph:Drawsasurfacein3Dspace.
+ 2 3Dparametricsurfacegraph:Drawsaparametricsurfacein3Dspace.
+ 3 3Dcurvegraph:Drawsalinein3Dspace
+ IUsethe3Dgraphs inconjunctionwiththe3DGraphVIstoplotcurvesand
+ surfaces.
+ IAcurvecontains individualpointsonthegraph,eachpointhavinganx,yand
+ zcoordinates.
+ ITheVI thenconnectsthesepointswithaline.Acurveis ideal forvisualizing
+ thepathofamovingobject, suchastheflightpathofanairplane.
+ IAsurfaceplotusesx,yandzdatatoplotpointsonthegraph.
+ IThesurfaceplotthenconnectsthesepointsformingathree-dimensional
+ surfaceviewof thedata.
+ VIRTUALINSTRUMENTATION 10/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ CustomizingGraphsandCharts
+ IEachgraphandchart includesmanyoptionsthatyoucanusetocustomize
+ appearance,conveymoreinformation,orhighlightdata.
+ IAlthoughgraphsandchartsplotdatadi erently, theyhaveseveralcommon
+ optionsthatyouaccessfromtheshortcutmenu.
+ IHowever,someoptionsareavailableonlyforaspecifictypeofgraphorchart.
+ 1 UsingMultipleXandYScales :Allgraphssupportmultiplex-andy-scales,
+ andallchartssupportmultipley-scales.Usemultiplescalesonagraphorchart
+ todisplaymultipleplotsthatdonotshareacommonx-ory-scale.Right-click
+ thescaleof thegraphorchartandselectDuplicateScalefromtheshortcut
+ menutoaddmultiplescalestothegraphorchart.
+ VIRTUALINSTRUMENTATION 11/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ CustomizingGraphsandCharts
+ 2 Autoscaling:Allgraphsandchartscanautomaticallyadjusttheirhorizontal
+ andvertical scalestofitthedatayouwiretothem.Thisbehavior iscalled
+ autoscaling.Right-clickthegraphorchartandselectXScale»AutoScaleXor
+ YScale»AutoScaleY fromtheshortcutmenutoturnautoscalingONor
+ OFF.Bydefault,autoscalingisenabledforthegraphorchart.However,
+ autoscalingcanslowperformance.
+ 3 FormattingX-andY-Scales :UsetheFormatandPrecisionpageof the
+ Propertiesdialogboxtospecifyhowthescalesof thex-axisandy-axisappear
+ onthegraphorchart.Bydefault, thex-scaleisconfiguredtousefloating
+ pointnotationandhavealabelof time,andthey-scaleisconfiguredtouse
+ automaticformattingandhavealabelofamplitude.Toconfigurethescales
+ forthegraphorchart, right-clickthegraphorchartandselectProperties
+ fromtheshortcutmenutodisplaytheGraphPropertiesdialogboxorChart
+ Propertiesdialogbox
+ VIRTUALINSTRUMENTATION 12/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ PlottingData
+ CustomizingGraphsandCharts
+ 2 UsingtheGraphPalette:Withthegraphpalette,youcanmovecursors,zoom
+ andpanthedisplay.Right-clickthegraphorchartandselectVisible
+ Items»GraphPalettefromtheshortcutmenutodisplaythegraphpalette.The
+ graphpaletteappearswiththefollowingbuttons, inorder fromlefttoright :
+ 1 Cursormovementtool (graphonly)—Movesthecursoronthedisplay.
+ 2 Zoom—Zooms inandoutofthedisplay.
+ 3 Panningtool—Picksuptheplotandmoves itaroundonthedisplay.
+ Clickabuttoninthegraphpalettetoenablemovingthecursor,zoomingthe
+ display,orpanningthedisplay.EachbuttondisplaysagreenLEDwhenit is
+ enabled.
+ 3 ExportingImagesofGraphs,Charts,andTables :Youcanincludeblackand
+ whiteimagesofgraphs,charts, tables,anddigitaldataanddigitalwaveform
+ controlsandindicators intopresentations,email, textdocuments,andsoon.
+ Whenyouexportasimplifiedimage,LabVIEWexportsonlythecontrolor
+ indicator,digitaldisplay,plot legend,andindexdisplayanddoesnotexport
+ scrollbars, thescalelegend, thegraphpaletteorthecursorpalette.
+ VIRTUALINSTRUMENTATION 13/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ CustomizingGraphsandCharts
+ 4 CustomizingGraphandChartAppearance:
+ Plot legend—Definesthecolorandstyleofplots.Resizethelegendtodisplay
+ multipleplots.
+ Scalelegend—Defines labelsforscalesandconfiguresscaleproperties.
+ Graphpalette—Allowsyoutomovethecursorandzoomandpanthegraphor
+ chartwhileaVI runs.
+ XscaleandYscale—Formatsthex-andy-scales.
+ Cursor legend(graphonly)—Displaysamarkeratadefinedpointcoordinate.
+ Youcandisplaymultiplecursorsonagraph.
+ Xscrollbar—Scrollsthroughthedatainthegraphorchart.Usethescrollbar
+ toviewdatathatthegraphorchartdoesnotcurrentlydisplay.
+ Digitaldisplay(waveformchartonly)—Displaysthenumericvalueofthechart.
+ VIRTUALINSTRUMENTATION 14/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ PlottingData
+ CustomizingGraphsandCharts
+ 1 UsingGraphCursors :Useacursoronagraphtoreadtheexactvalueofa
+ pointonaplotorapoint intheplotarea.Thecursorvaluedisplays inthe
+ cursor legend.Right-clickthegraphandselectVisibleItems»CursorLegend
+ fromtheshortcutmenutoviewthecursor legend.Addacursortothegraph
+ byright-clickinganywhereinthecursor legend, selectingCreateCursor,and
+ selectingacursormodefromtheshortcutmenu.
+ 2 UsingGraphAnnotations :Useannotationsonagraphtohighlightdata
+ points intheplotarea.Theannotationincludesalabelandanarrowthat
+ identifiestheannotationanddatapoint.Agraphcanhaveanynumberof
+ annotations.Right-clickthegraphandselectDataOperations»Create
+ AnnotationfromtheshortcutmenutodisplaytheCreateAnnotationdialog
+ box.UsetheCreateAnnotationdialogboxtospecifytheannotationname
+ andhowtheannotationsnapstoplots intheplotarea.UsetheLockStyle
+ pull-downmenuintheCreateAnnotationdialogboxtospecifyhowthe
+ annotationsnapstoplots intheplotarea.
+ VIRTUALINSTRUMENTATION 15/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ Casestructures
+ Sequencestructure
+ Customizingstructures
+ TimedstructuresandFormulanodes
+ Eventstructure.
+ CreatingStringcontrolandapplications
+ BasicofFileI/Oformat
+ VIRTUALINSTRUMENTATION 16/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ Structure
+ CaseStructure
+ IStructuresaregraphical representationsof theloopsandcasestatementsof
+ text-basedprogramminglanguages.
+ ITherearecaseswhenadecisionmustbemadeinaprogram.
+ I Intext-basedprograms, thiscanbeaccomplishedwithstatements likeif-else,
+ caseandsoon.
+ ILabVIEWincludesmanydi erentwaysofmakingdecisions.
+ IThesimplestof thesemethods istheselectfunctionlocatedinthefunctions
+ palette.
+ IThisfunctionselectsbetweentwovaluesdependentonaBooleaninput.
+ IUsestructuresontheblockdiagramtorepeatblocksofcodeandtoexecute
+ codeconditionallyor inaspecificorder.
+ ILikeothernodes, structureshaveterminalsthatconnectthemtootherblock
+ diagramnodes,executeautomaticallywheninputdataareavailable,and
+ supplydatatooutputwireswhenexecutioniscomplete.
+ VIRTUALINSTRUMENTATION 17/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ CaseStructure
+ IEachstructurehasadistinctive, resizablebordertoenclosethesectionofthe
+ blockdiagramthatexecutesaccordingtotherulesof thestructure.
+ IThesectionof theblockdiagraminsidethestructureborder iscalleda
+ subdiagram.
+ ITheterminalsthatfeeddataintoandoutofstructuresarecalledtunnels.
+ IAtunnel isaconnectionpointonastructureborder.
+ IUsethefollowingstructures locatedontheStructurespalettetocontrolhowa
+ blockdiagramexecutesprocesses :
+ VIRTUALINSTRUMENTATION 18/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ CaseStructure
+ IForLoop—Executesasubdiagramasetnumberof times.
+ IWhileLoop—Executesasubdiagramuntilaconditionoccurs.
+ ICasestructure—Containsmultiplesubdiagrams,onlyoneofwhichexecutes
+ dependingontheinputvaluepassedtothestructure.
+ ISequencestructure—Containsoneormoresubdiagramsthatexecutein
+ sequentialorder.
+ IEventstructure—Containsoneormoresubdiagramsthatexecutedepending
+ onhowtheuser interactswiththeVI.
+ ITimedStructures—Executeoneormoresubdiagramswithtimeboundsand
+ delays.
+ IDiagramDisableStructure—Hasoneormoresubdiagrams,orcases,of
+ whichonlytheenabledsubdiagramexecutes.
+ IConditionalDisableStructure—Hasoneormoresubdiagrams,orcases,
+ exactlyoneofwhichLabVIEWusesforthedurationofexecution,depending
+ ontheconfiguration
+ VIRTUALINSTRUMENTATION 19/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ CaseStrucure:Acasestructureexecutesonesubdiagramdependingonthe
+ inputvaluepassedtothestructure.Completethefollowingstepstocreatea
+ Casestructure.
+ 1 PlaceaCasestructureontheblockdiagram.
+ 2 Wireaninputvaluetotheselectorterminal todeterminewhichcaseexecutes.
+ Youmustwireaninteger,Booleanvalue, string,orenumeratedtypevalueto
+ theselectorterminal.Youalsocanwireanerrorclustertotheselector
+ terminal tohandleerrors.
+ 3 Placeobjects insidetheCasestructuretocreatesubdiagramsthattheCase
+ structurecanexecute. Ifnecessary,addorduplicatesubdiagrams. Ifthedata
+ typeoftheselectorterminal isBoolean, thestructurehasaTRUEcaseanda
+ FALSEcase. Iftheselectorterminal isaninteger, string,orenumeratedtype
+ value, thestructurecanhaveanynumberofcases.
+ 4 Foreachcase,usetheLabelingtool toenterasinglevalueor listsandranges
+ ofvaluesinthecaseselector labelatthetopof theCasestructure.For lists,
+ usecommastoseparatevalues.Fornumericranges, specifyarangeas10.20,
+ meaningallnumbersfrom10to20inclusively. Ifnecessary(optional), specify
+ adefaultcase.
+ VIRTUALINSTRUMENTATION 20/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ Structure
+ ACasestructure, shown,hastwoormoresubdiagrams,orcases.
+ Onlyonesubdiagramisvisibleatatime,andthestructureexecutesonlyone
+ caseatatime.
+ Aninputvaluedetermineswhichsubdiagramexecutes.
+ TheCasestructureissimilartoswitchstatementsor if...then...else
+ statements intext-basedprogramminglanguages.
+ Thecaseselector labelatthetopoftheCasestructure,containsthenameof
+ theselectorvaluethatcorrespondstothecaseinthecenteranddecrement
+ andincrementarrowsoneachside.
+ Clickthedecrementandincrementarrowstoscroll throughtheavailable
+ cases.
+ Youalsocanclickthedownarrownexttothecasenameandselectacase
+ fromthepull-downmenu.
+ Wireaninputvalue,orselector, totheselectorterminal,shown, todetermine
+ whichcaseexecutes..
+ VIRTUALINSTRUMENTATION 21/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Struture
+ Youmustwireaninteger,Booleanvalue, string,orenumeratedtypevalueto
+ theselectorterminal
+ Youcanpositiontheselectorterminalanywhereontheleftborderofthe
+ Casestructure.
+ Ifthedatatypeoftheselectorterminal isBoolean,thestructurehasaTRUE
+ caseandaFALSEcase.
+ Iftheselectorterminal isaninteger, string,orenumeratedtypevalue, the
+ structurecanhaveanynumberofcases.
+ SpecifyadefaultcasefortheCasestructuretohandleout-of-rangevalues.
+ Otherwise,youmustexplicitlylisteverypossibleinputvalue.
+ VIRTUALINSTRUMENTATION 22/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ 1 CaseSelectorValuesandDataTypes
+ IYoucanenterasinglevalueor listsandrangesofvalues inthecaseselector
+ label.
+ IFor lists,usecommastoseparatevalues.Fornumericranges, specifyarange
+ as10...20,meaningallnumbersfrom10to20inclusively.
+ IYoualsocanuseopen-endedranges.Forexample, ...100representsall
+ numbers lessthanorequal to100,and100.. representsallnumbersgreater
+ thanorequal to100.
+ IWhenyouenterstringandenumeratedvalues inacaseselector label, the
+ valuesdisplayinquotationmarks, forexample“red”,“green”and“blue”.
+ I Ifyouchangethedatatypeofthewireconnectedtotheselectorterminalofa
+ Casestructure, theCasestructureautomaticallyconvertsthecaseselector
+ valuestothenewdatatypewhenpossible.
+ I Ifyouwireafloating-pointvaluetothecase,LabVIEWroundsthevalueto
+ thenearesteveninteger.
+ I Ifyoutypeafloating-pointvalueinthecaseselector label, thevalueappears
+ redtoindicatethatyoumustdeleteoreditthevaluebeforethestructurecan
+ execute.
+ VIRTUALINSTRUMENTATION 23/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ 2 InputandOutputTunnels
+ IYoucancreatemultipleinputandoutputtunnelsforaCasestructure. Inputs
+ areavailabletoallcases,butcasesdonothavetouseeachinput.However,
+ youmustdefineeachoutputtunnel foreachcase.
+ IWhenyoucreateanoutputtunnel inonecase, tunnelsappearatthesame
+ positionontheborder inall theothercases.
+ I Ifevenoneoutputtunnel isnotwired,alloutputtunnelsonthestructure
+ appearaswhitesquares.
+ 3 UsingCaseStructuresforErrorHandling
+ IWhenyouwireanerrorclustertotheselectorterminalofaCasestructure,
+ thecaseselector labeldisplaystwocases—ErrorandNoError—andtheborder
+ of theCasestructurechangescolor—redforErrorandgreenforNoError.
+ I Ifanerroroccurs, theCasestructureexecutestheErrorsubdiagram.
+ VIRTUALINSTRUMENTATION 24/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ Structure
+ SequenceStructure
+ IAsequencestructurecontainsoneormoresubdiagrams,or frames, that
+ executeinsequentialorder.Withineachframeofasequencestructure,as in
+ therestoftheblockdiagram,datadependencydeterminestheexecutionorder
+ ofnodes.
+ IUsethesequencestructurestocontrol theexecutionorderwhennaturaldata
+ dependencydoesnotexistandflow-throughparametersarenotavailable.
+ Therearetwotypesofsequencestructures—theFlatSequencestructureand
+ theStackedSequencestructure.
+ VIRTUALINSTRUMENTATION 25/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ SequenceStructure
+ 1 FlatSequenceStructure
+ TheFlatSequencestructure,displaysall theframesatonceandexecutesthe
+ framesfromlefttorightandwhenalldatavalueswiredtoaframeare
+ available,until thelastframeexecutes.
+ Thedatavalues leaveeachframeastheframefinishesexecuting.
+ Whenyouaddordeleteframes inaFlatSequencestructure, thestructure
+ resizesautomatically.
+ 2 StackedSequenceStructure
+ TheStackedSequencestructure, stackseachframesoyouseeonlyoneframe
+ atatimeandexecutesframe0, thenframe1,andsoonuntil thelastframe
+ executes.
+ TheStackedSequencestructurereturnsdataonlyafterthelastframeexecutes.
+ UsetheStackedSequencestructureifyouwanttoconservespaceontheblock
+ diagram.
+ ToconvertaStackedSequencestructuretoaFlatSequencestructure,
+ right-clicktheStackedSequencestructureandselectReplace»ReplacewithFlat
+ Sequencefromtheshortcutmenu.
+ Topassdatafromoneframetoanysubsequent frameofaStackedSequence
+ structure,useasequencelocal terminal shown
+ VIRTUALINSTRUMENTATION 26/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ CustomizingStructure
+ 1 PlacingStructuresontheBlockDiagram
+ SelectastructureontheStructurespalette.Thecursorbecomesasmall iconof
+ thestructure.
+ Clicktheblockdiagramwhereyouwanttoplacethetopcornerofthestructure
+ andmovethecursordownandtotherightor left.
+ Clicktheblockdiagramagainwhenthestructureisthesizeyouwant.
+ 2 PlacingObjects insideStructures
+ PlacetheCasestructureontheblockdiagram.
+ PlacetheTickCount(ms)functioninsidethestructure.
+ MovetheTickCount(ms)functionclosetotheborderofthestructure.Notice
+ thatwhenyouplaceormoveanobject inastructurenearthestructureborder,
+ thestructureresizestoaddspaceforthatobject.Todisabletheautomatic
+ resizingbehavior forastructure, right-clickthestructureborderandselectAuto
+ Growfromtheshortcutmenutoremovethecheckmark.
+ MovetheTickCount(ms)functionoutsidethestructure.
+ PlaceanotherstructurearoundtheTickCount(ms)function.
+ VIRTUALINSTRUMENTATION 27/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ Selectthesecondstructureanddeleteit.Noticethatyoualsodeletedthe
+ functioninsidethestructure.
+ SelecttheCasestructureanddeleteit.Noticethatyoudidnotdeletethe
+ functionbecauseitwasnot insidethestructure
+ 3 RemovingStructureswithoutDeletingObjects intheStructure
+ IRight-clickthestructureyouwanttoremove.
+ ISelectRemoveForLoopfromtheshortcutmenuorthesimilaroptionforany
+ of theotherstructures
+ 4 ResizingStructures
+ IMovethepositioningtooloverthestructureborder.Resizinghandlesappear
+ atthecornersof thestructureandinthemiddleofeachstructureborder.
+ IMovethecursoroveraresizinghandletochangethecursortotheresizing
+ cursor.
+ IUsetheresizingcursortodragtheresizinghandlesuntil thedashedborder
+ outlinesthesizeyouwant.
+ IReleasethemousebutton.Thestructurereappears initsnewsize
+ VIRTUALINSTRUMENTATION 28/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ Struture
+ TimedStrucutres
+ 1 Usetimedstructuresontheblockdiagramtorepeatblocksofcodeandto
+ executecodeinaspecificorderwithtimeboundsanddelays.
+ 2 Eachtimedstructurehasadistinctive, resizablebordertoencloseasectionof
+ theblockdiagramthatexecutesaccordingtotherulesofthestructure.
+ 3 Thesectionof theblockdiagraminsidethestructureborder iscalleda
+ subdiagram.
+ 4 Atimedstructurehas InputandOutputnodesthatfeeddataintoandoutof
+ thestructuretoprovideconfigurationdataandreturnerrorandtiming
+ information.
+ 5 Timedstructurescanalsohaveterminalsonthestructureborderthatfeed
+ dataintoandoutofthestructuresubdiagrams.
+ TimedLoop—Executesasubdiagramuntilaconditionismetor interminably.
+ TimedSequence—Executesmultiplesubdiagrams insequence.
+ TimedLoopwithFrames—Executesmultiplesubdiagrams insequenceuntila
+ conditionismetor interminably.AddframestoaTimedLooptocreatea
+ TimedLoopwithframes
+ VIRTUALINSTRUMENTATION 29/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Struture
+ FormulaNodes
+ ITheFormulaNodeisaconvenienttext-basednodeyoucanusetoperform
+ mathematicaloperationsontheblockdiagram.
+ I Inadditiontotext-basedequationexpressions, theFormulaNodecanaccept
+ text-basedversionsof Ifstatements,Whileloops,For loops,andDoloops
+ whicharefamiliartoCprogrammers.
+ IFormulaNodesareuseful forequationsthathavemanyvariablesorare
+ otherwisecomplicatedandforusingexistingtext-basedcode.Youcancopy
+ andpastetheexistingtext-basedcodeintoaFormulaNoderatherthan
+ recreatingitgraphically.
+ IFormulaNodesusetypecheckingtomakesurethatarrayindexesarenumeric
+ dataandthatoperandstothebitoperationsareintegerdata.
+ IFormulaNodesalsochecktomakesurearrayindexesareinrange.
+ VIRTUALINSTRUMENTATION 30/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Struture
+ FormulaNodes
+ IWhenyouworkwithvariables, rememberthefollowingpoints :
+ Thereisnolimittothenumberofvariablesorequations inaFormulaNode.
+ Notwoinputsandnotwooutputscanhavethesamename,butanoutputcan
+ havethesamenameasaninput.
+ Declareaninputvariablebyright-clickingtheFormulaNodeborderand
+ selectingAddInput fromtheshortcutmenu.Youcannotdeclareinputvariables
+ insidetheFormulaNode.
+ Declareanoutputvariablebyright-clickingtheFormulaNodeborderand
+ selectingAddOutputfromtheshortcutmenu.Theoutputvariablenamemust
+ matcheitheraninputvariablenameorthenameofavariableyoudeclareinside
+ theFormulaNode.
+ Youcanchangewhetheravariableisaninputoranoutputbyright-clickingit
+ andselectingChangetoInputorChangetoOutputfromtheshortcutmenu.
+ YoucandeclareanduseavariableinsidetheFormulaNodewithoutrelatingit
+ toaninputoroutputwire.
+ Youmustwireall inputterminals.
+ Variablescanbefloating-pointnumericscalarswhoseprecisiondependsonthe
+ configurationofyourcomputer.Youalsocanuseintegersandarraysofnumeric
+ valuesforvariables.
+ Variablescannothaveunits.
+ VIRTUALINSTRUMENTATION 31/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Structure
+ FormulaNodes
+ ICreatingFormulaNodes
+ PlaceaFormulaNodeontheblockdiagram.
+ Reviewtheavailablefunctionsandoperatorsyoucanuse.
+ Usethelabelingtoolortheoperatingtool toentertheequationsyouwantto
+ calculateinsidetheFormulaNode.Eachassignmentmusthaveonlyasingle
+ variableontheleftsideoftheassignment(=).Eachassignmentmustendwith
+ asemicolon(;).ConfirmthatyouareusingthecorrectFormulaNodesyntax.
+ Ifasyntaxerroroccurs,clickthebrokenRunbuttontodisplaytheError list
+ window.LabVIEWmarksthesyntaxerrorwitha symbol.
+ Createaninputterminal foreachinputvariablebyright-clickingtheFormula
+ NodeborderandselectingAddInputfromtheshortcutmenu.Typethevariable
+ nameintheterminal thatappears.Youcaneditthevariablenameatanytime
+ usingthelabelingtoolortheOperatingtool,exceptwhentheVI isrunning.
+ Variableterminalsarecasesensitive.Thereisnolimittothenumberof
+ terminalsorequations inaFormulaNode.Youcanchangeaterminal typeor
+ removeaterminal.
+ Createanoutputterminal foreachoutputvariablebyright-clickingtheFormula
+ NodeborderandselectingAddOutputfromtheshortcutmenu.Typethe
+ variablenameintheterminal thatappears.Youcaneditthevariablenameat
+ anytimeusingthelabelingtoolortheoperatingtool,exceptwhentheVI is
+ running.Outputvariableshavethickerbordersthaninputvariables.
+ VIRTUALINSTRUMENTATION 32/36 Pr Moffo Lonla B
+Unit-4PlottingDataandStructure
+ FileI/OFormat
+ AtypicalfileI/Ooperationinvolvesthefollowingprocess,
+ 1 Createoropenafile. Indicatewhereanexistingfileresidesorwhereyouwant
+ tocreateanewfilebyspecifyingapathorrespondingtoadialogboxtodirect
+ LabVIEWtothefilelocation.Afterthefileopens,arefnumrepresentsthefile.
+ 2 Readfromorwritetothefile.
+ 3 Closethefile.
+ FileI/OVIsandsomeFileI/Ofunctions, suchastheReadfromTextFile
+ andWritetoTextFilefunctions,canperformall threestepsforcommonfile
+ I/Ooperations.
+ TheVIsandfunctionsdesignedformultipleoperationsmightnotbeas
+ e cientasthefunctionsconfiguredordesignedfor individualoperations.
+ ManyFileI/OVIsandfunctionscontainflow-throughparameters, typicallya
+ refnumorpath,whichreturnthesamevalueasthecorrespondinginput
+ parameter.
+ VIRTUALINSTRUMENTATION 33/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Summary
+ ACasestructurehastwoormoresubdiagrams,orcases.Onlyone
+ subdiagramisvisibleatatime,andthestructureexecutesonlyonecaseata
+ time.
+ Ifthecaseselectorterminal isaBooleanvalue, thestructurehasaTRUE
+ caseandaFALSEcase. Iftheselectorterminal isaninteger, string,or
+ enumeratedtypevalue, thestructurecanhaveupto231–1cases.
+ Inputsareavailabletoall subdiagramsofaCasestructure,butsubdiagrams
+ donotneedtouseeachinput. Ifoutputtunnel isnotdefined, inallcases it
+ appearsaswhitesquare.
+ WhencreatingasubVI fromaCasestructure,wiretheerror inputtothe
+ selectorterminal,andplaceall subVIcodeswithintheNoErrorcaseto
+ preventthesubVI fromexecutingif itreceivesanerror.
+ TimedLoop—Executesasubdiagramuntilaconditionismetor interminably.
+ TimedSequence—Executesmultiplesubdiagrams insequence.
+ TimedLoopwithFrames—Executesmultiplesubdiagrams insequenceuntila
+ conditionismetor interminably.AddframestoaTimedLooptocreatea
+ TimedLoopwithframes.
+ FormulaNodesareuseful forequationsthathavemanyvariables.Each
+ equationstatementmustterminatewithasemicolon(;). VIRTUALINSTRUMENTATION 34/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Summary
+ Thewaveformchart isaspecialnumericindicatorthatdisplaysoneormore
+ plots.
+ Thewaveformcharthasthefollowingthreeupdatemodes :
+ 1 Astripchartshowsrunningdatacontinuouslyscrollingfromlefttoright
+ acrossthechart.
+ 2 Ascopechartshowsoneitemofdata, suchasapulseorwave, scrolling
+ partwayacrossthechart fromlefttotheright.
+ 3 AsweepdisplayissimilartoanEKGdisplay.Asweepworkssimilarlytoa
+ scopeexcept itshowstheolddataontherightandthenewdataontheleft
+ separatedbyavertical line.
+ WaveformgraphsandXYgraphsdisplaydatafromarrays.
+ Right-clickawaveformchartorgraphor itscomponentstosetattributesof
+ thechartanditsplots.
+ YoucandisplaymorethanoneplotonagraphusingtheBuildArray
+ functionlocatedontheFunctions»AllFunctions»Arraypaletteandthe
+ BundlefunctionlocatedontheFunctions»AllFunctions»Clusterpalettefor
+ chartsandXYgraphs.Thegraphbecomesamultiplotgraphwhenyouwire
+ thearrayofoutputstotheterminal.
+ VIRTUALINSTRUMENTATION 35/36 Pr Moffo Lonla B
+ Unit-4PlottingDataandStructure
+ Summary
+ UsetheFileI/OVIsandfunctions locatedontheFunctions»FileI/Opalette
+ tohandleallaspectsoffileI/O.
+ Whenwritingtoafile,youopen,create,orreplaceafile,writethedataand
+ closethefile.Similarly,whenyoureadfromafile,youopenanexistingfile,
+ readthedataandclosethefile.
+ Toaccessafilethroughadialogbox,donotwirefilepathinthe
+ Open/Create/ReplaceFileVI.
+ Towritedatatoaspreadsheetfile,youmustformatthestringasa
+ spreadsheetstring,whichisastringthat includesdelimiters, suchastabs.
+ UsetheFormat IntoFilefunctiontoformatstring,numeric,pathand
+ Booleandataastextandwritethetexttoafile.
+ VIRTUALINSTRUMENTATION 36/36 Pr Moffo Lonla B
+Unit-5DataAcquisition
+ 1 Unit-5DataAcquisition
+ Objective
+ Pre-requisite
+ Introduction
+ DAQhardware
+ Analog,Digital InputsandOutputs
+ DAQsoftwareArchitecture
+ DAQAssistant
+ SelectingandConfiguringaDataAcquisitiondevice
+ Summary
+ Examples/Work-Out
+ AssignmentQuestions
+ VIRTUALINSTRUMENTATION 1/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ TableofContents
+ 1 IntroductiontoAnalogandDigitalSignals
+ 2 DAQhardware
+ 3 AnalogandDigital InputsandOutputs
+ 4 DAQSoftwareArchitecture
+ 5 DAQAssistant
+ 6 SelectingandConfiguringaDataAcquistiondevice
+ 7 CaseStudy
+ VIRTUALINSTRUMENTATION 2/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ Objective:Themainaimofthischaptertoknowaboutmethodsof
+ acquiringdigitalandanalogsignals,configurethedataacquisitiondevices.
+ Pre-requisite:
+ IBasicLabVIEWEnvironment
+ ILoopsandArrays
+ IGraphsandCharts
+ IntroductiontoDataAcquisition
+ IThefundamental taskofaDAQ(DataAcquisition)systemistomeasureor
+ generatereal-worldphysical signals.
+ IDataacquisitioninvolvesgatheringsignalsfrommeasurementsourcesand
+ digitizingthesignal forstorage,analysisandpresentationonapersonal
+ computer(PC).
+ IThefivecomponentstobeconsideredwhenbuildingabasicDAQsystemare
+ Transducers
+ Signals
+ SignalConditioning
+ DAQHardware
+ Driverandapplicationsoftware.
+ VIRTUALINSTRUMENTATION 3/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ Transducers
+ IAtransducer isadevicethatconvertsaphysicalphenomenonintoa
+ measurableelectrical signal, suchasvoltageorcurrent.
+ ITheabilityofaDAQsystemtomeasuredi erentphenomenadependsonthe
+ transducerstoconvertthephysicalphenomenaintosignalsmeasurablebythe
+ DAQhardware.
+ ITransducersaresynonymouswithsensors inDAQsystems.
+ ITherearespecifictransducersformanydi erentapplications, suchas
+ measuringtemperature,pressureorfluidflow.
+ IDi erenttransducershavedi erentrequirementsforconvertingphenomena
+ intoameasurablesignal.
+ ISometransducersmayrequireexcitationintheformofvoltageorcurrent.
+ IOthertransducersmayrequireadditionalcomponentsandevenresistive
+ networkstoproduceasignal.
+ VIRTUALINSTRUMENTATION 4/23 Pr Moffo Lonla B
+Unit-5DataAcquisition
+ DataAcquisition
+ Signals
+ ITheappropriatetransducerconvertsthephysicalphenomenaintomeasurable
+ signals.Signalscanbecategorizedintotwogroups.AnalogandDigital signals.
+ IAnalogsignals
+ Ananalogsignalcanbeatanyvaluewithrespecttotime.Afewexamplesof
+ analogsignals includeVoltage,Temperature,Pressure,SoundandLoad.
+ Thethreeprimarycharacteristicsofananalogsignal includelevel, shapeand
+ frequency.
+ Levelgivesvital informationaboutthemeasuredanalogsignal sinceanalog
+ signalscantakeonanyvalue.Theintensityofalightsource, thetemperature
+ inaroom,andthepressureinsideachamberareallexamplesthatdemonstrate
+ theimportanceofthelevelofasignal.
+ Somesignalsarenamedaftertheirspecificshape—sine, square, sawtoothand
+ triangle.Theshapeofananalogsignalcanbeas importantasthelevel,
+ becausemeasuringtheshapeofananalogsignalallowsfurtheranalysisofthe
+ signal, includingpeakvalues,DCvaluesandslope.
+ Unlikethelevelorshapeof thesignal, frequencycannotbedirectlymeasured.
+ Thesignalmustbeanalyzedusingsoftwaretodeterminethefrequency
+ information.Thisanalysis isusuallydoneusinganalgorithmknownasthe
+ Fouriertransform.
+ VIRTUALINSTRUMENTATION 5/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ Signals
+ IDigitalSignals
+ Adigital signalcannottakeonanyvaluewithrespecttotime. Instead,adigital
+ signalhastwopossiblelevels :HighandLow.
+ Digital signalsgenerallyconformtocertainspecificationsthatdefinethe
+ characteristicsofthesignal.
+ Thestateofadigital signal isessentiallythelevelofthesignal—onoro ,high
+ or low.
+ Monitoringthestateofaswitch—openorclosed—isacommonapplication
+ showingtheimportanceofknowingthestateofadigital signal.
+ Therateofadigital signaldefineshowthedigital signalchangesstatewith
+ respecttotime.
+ VIRTUALINSTRUMENTATION 6/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ SignalConditioning
+ ISignalconditioningistheprocessofmeasuringandmanipulatingsignalsto
+ improveaccuracy, isolation,filtering,andsoon.
+ IManystand-aloneinstrumentsandDAQdeviceshavebuilt-insignal
+ conditioning.
+ ISignalconditioningalsocanbeappliedexternally,bydesigningacircuitto
+ conditionthesignalorbyusingdevicesspecificallymadeforsignal
+ conditioning.
+ ISignalconditioningaccessoriesamplifylow-level signalsandthenisolateand
+ filterthemformoreaccuratemeasurements.
+ ICommontypesofsignalconditioningareamplification, isolation,multiplexing,
+ filtering, transducerexcitationandlinearization.
+ ISignalconditioningmaximizestheaccuracyofasystem,allowssensorsto
+ operateproperlyandguaranteessafety.
+ ISignalconditioningaccessoriescanbeusedinavarietyofapplications
+ includingamplification,attenuation, isolation,bridgecompletion, simultaneous
+ sampling, sensorexcitation,multiplexing,etc.
+ VIRTUALINSTRUMENTATION 7/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ SignalConditioning
+ IAmplification
+ Amplificationisthemostcommontypeofsignalconditioning.
+ Amplifyingelectrical signals improvesaccuracyintheresultingdigitizedsignal
+ andreducesthee ectsofnoise.
+ Byamplifyingasignalnearthedevice,anynoisethatattachedtothesignal is
+ alsoamplified.
+ Amplifyingnearthesignal sourceresults inthelargestsignal-to-noiseratio
+ (SNR).
+ I Isolation
+ Anothercommonsignalconditioningapplicationis isolatingthetransducer
+ signalsfromthecomputer forsafetypurposes.
+ Thesystembeingmonitoredmaycontainhigh-voltagetransientsthatcould
+ damagethecomputerwithoutsignalconditioning.
+ Anadditional reasonfor isolationisensuringthatthereadingsfromtheplug-in
+ DAQdeviceareuna ectedbydi erences ingroundpotentialsorcommon-mode
+ voltages.
+ WhentheDAQdeviceinputandthesignalbeingacquiredareeachreferenced
+ to‘ground’,problemsoccur ifthereisapotentialdi erenceinthetwogrounds.
+ VIRTUALINSTRUMENTATION 8/23 Pr Moffo Lonla B
+Unit-5DataAcquisition
+ DataAcquisition
+ SignalConditioning
+ IMultiplexing
+ Acommontechniqueformeasuringseveral signalswithasinglemeasuring
+ deviceismultiplexing.
+ Signalconditioninghardwareforanalogsignalsoftenprovidesmultiplexingfor
+ usewithslowlychangingsignals liketemperature.
+ TheADCsamplesonechannel, switchestothenextchannel, samples it,
+ switchestothenextchannel,andsoon.
+ IFiltering
+ Thepurposeofafilter istoremoveunwantedsignalsfromthesignal thatyou
+ aretryingtomeasure.
+ Anoisefilter isusedonDC-classsignals, suchastemperature, toattenuate
+ higher frequencysignalsthatcanreduceyourmeasurementaccuracy.
+ AC-classsignals, suchasvibration,oftenrequireadi erenttypeoffilterknown
+ asanantialiasingfilter.
+ Likethenoisefilter, theantialiasingfilter isalsoalowpassfilter;however, it
+ requiresaverysteepcuto rate, soitalmostcompletelyremovesall signal
+ frequenciesthatarehigherthantheinputbandwidthofthedevice.
+ VIRTUALINSTRUMENTATION 9/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ SignalConditioning
+ ITransducerExcitation
+ Signalconditioningsystemscangenerateexcitation,whichsometransducers
+ requireforoperation.
+ StraingaugesandRTDsrequireexternalvoltageandcurrents, respectively, to
+ excitetheircircuitryintomeasuringphysicalphenomena.
+ Thistypeofexcitationissimilartoaradiothatneedspowertoreceiveand
+ decodeaudiosignals.
+ Signalconditioningmodulesforthesetransducersusuallyprovidethesesignals.
+ ILinearization
+ Anothercommonsignalconditioningfunctionis linearization.Many
+ transducers,suchasthermocouples,haveanonlinearresponsetochanges inthe
+ physicalphenomenayoumeasure.
+ LabVIEWcanlinearizethevoltagelevelsfromtransducerssoyoucanscalethe
+ voltagestothemeasuredphenomena.
+ LabVIEWprovidesscalingfunctionstoconvertvoltagesfromstrain
+ gauges,RTDs, thermocouples,andthermistors.
+ VIRTUALINSTRUMENTATION 10/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ SelectingandConfiguringaDataAcquisitionDevice
+ IDependingontheapplicationneeds,youmustdeterminetheminimum
+ numberofanaloginputchannels,analogoutputchannels,anddigital I/Olines
+ thatyourdataacquisitionboardrequires.
+ IOther importantfactorstoconsiderarethesamplingrate,theinputrange,the
+ inputmodeandtheaccuracy.
+ IWhenyouconnectanyelectrical signal toyourdataacquisitiondevice,you
+ expectyourreadingstomatchtheelectricalvalueoftheinputsignal.
+ SignalSources :Analoginputacquisitionsusegroundedandfloatingsignal
+ sources
+ Signal sourcescanbegroundedorungrounded.Thegroundedsignal sourcesare
+ signalsreferencedtoasystemgroundlikeearthgroundandbuildingground.
+ Becausesuchsourcesusethesystemground, theyshareacommongroundwith
+ themeasurementdevice.
+ Thegroundsoftwoindependentlygroundedsignal sourcesgenerallyarenotat
+ thesamepotential.
+ Thedi erenceingroundpotentialbetweentwoinstrumentsconnectedtothe
+ samebuildinggroundsystemistypicallyfrom10mVto200mV.
+ VIRTUALINSTRUMENTATION 11/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ SelectingandConfiguringaDataAcquisitionDevice
+ IMeasurementSystems :Youconfigureameasurementsystembasedonthe
+ hardwareyouuseandthemeasurementyoutake.Threemodesofgrounding
+ foryourMeasurementSystemareDi erential,ReferencedSingle-Ended(RSE)
+ andNon-ReferencedSingle-Ended(NRSE).
+ IDi erentialmeasurementsystemsaresimilartofloatingsignal sources inthat
+ youmakethemeasurementwithrespecttoafloatinggroundthat isdi erent
+ fromthemeasurementsystemground.
+ IReferencedandnon-referencedsingle-endedmeasurementsystemsaresimilar
+ togroundedsources inthatyoumakethemeasurementwithrespecttoa
+ ground.Areferencedsingle-endedmeasurementsystemmeasuresvoltagewith
+ respecttotheground,AIGND(analoginputground),whichisdirectly
+ connectedtothemeasurementsystemground
+ VIRTUALINSTRUMENTATION 12/23 Pr Moffo Lonla B
+Unit-5DataAcquisition
+ DataAcquisition
+ SelectingandConfiguringaDataAcquisitionDevice
+ I IncreasingMeasurementQuality:Whenyoudesignameasurementsystem,
+ youmayfindthatthemeasurementqualitydoesnotmeetyourexpectations.
+ Youmightwanttorecordthesmallestpossiblechangeinavoltagelevel.
+ IThefollowingreasonsa ectachievingthesmallestdetectablechangein
+ voltage:
+ 1 TheresolutionandrangeoftheADC.
+ 2 Thegainappliedbytheinstrumentationamplifier.
+ 3 Thecombinationoftheresolution, rangeandgaintocalculateapropertycalled
+ thecodewidthvalue.
+ IResolution is important.Thenumberofbitsusedtorepresentananalog
+ signaldeterminestheresolutionof theADC.
+ ITheresolutiononaDAQdeviceissimilartothemarksonaruler.
+ IThemoremarksarulerhas, themoreprecisethemeasurementsare.
+ IThehighertheresolutionisonaDAQdevice, thehigherthenumberof
+ divisions intowhichasystemcanbreakdowntheADCrange,andtherefore,
+ thesmallerthedetectablechange.
+ VIRTUALINSTRUMENTATION 13/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ SelectingandConfiguringaDataAcquisitionDevice
+ IRange referstotheminimumandmaximumanalogsignal levelsthatthe
+ ADCcandigitize.
+ IManyDAQdevicesfeatureselectableranges(typically0to10Vor–10to10
+ V), soyoucanmatchtheADCrangetothatofthesignal totakebest
+ advantageoftheavailableresolutiontoaccuratelymeasurethesignal.
+ IAmplificationorAttenuation ofasignalcanoccurbeforethesignal is
+ digitizedtoimprovetherepresentationof thesignal.Byamplifyingor
+ attenuatingasignal,youcane ectivelydecreasetheinputrangeofanADC
+ andthusallowtheADCtouseasmanyof theavailabledigitaldivisionsas
+ possibletorepresentthesignal.
+ ITherange, resolution,andamplificationavailableonaDAQdevicedetermine
+ thesmallestdetectablechangeintheinputvoltage
+ ICodewidthisthesmallestchangeinasignal thatasystemcandetect.
+ VIRTUALINSTRUMENTATION 14/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQAssistant
+ ITheDAQAssistant isagraphical interfacefor interactivelycreating,editing,
+ andrunningNIDAQmxvirtualchannelsandtasks.
+ IANI-DAQmxtaskisacollectionofvirtualchannels, timingandtriggering
+ information,andotherpropertiesregardingtheacquisitionorgeneration.
+ IDAQAssistantprovidesaninteractiveguidetoconfiguring, testingand
+ acquiringmeasurementdata.
+ IDAQAssistant iscompletelymenu-drivenandyouwillencounter fewererrors.
+ Itdrasticallydecreasesthetimetoyourfirstmeasurement
+ VIRTUALINSTRUMENTATION 15/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQAssistant
+ ILaunchtheDAQAssistant
+ 1 OpenLabVIEWandcreateaNewVI.Switchtotheblockdiagram(Ctrl+E).
+ 2 DAQAssistantExpressVI is locatedintheInputsubpaletteoftheFunctions
+ palette.PlacetheDAQAssistantontheblockdiagrambydraggingand
+ droppingitfromtheFunctionspalette.TheAssistantshouldautomatically
+ launchwhenyoudroptheVIonthediagram.
+ 3 It isalsoavailableatExpress»Output»DAQAssistant. IntheAdvanced
+ Functionspalette, theDAQAssistantExpressVI is locatedintheNI
+ Measurements»DAQmxsub-palette.TheCreateNewwindowopensupfor
+ taskconfigurationwhentheDAQAssistant isplacedontheblockdiagram.
+ MeasurementtypecanbeAnalogInput,AnalogOutput,Counter Input,
+ CounterOutputandDigital I/O.
+ 4 OnceyouhavelocatedtheDAQAssistantExpressVI intheappropriate
+ location, select itfromthepaletteanddropitontheblockdiagramofyourVI.
+ Bydefault, thepropertiespageshouldpopup,allowingyoutoconfigureyour
+ task.Thefirststepistoselectyourtypeofmeasurement.
+ VIRTUALINSTRUMENTATION 16/23 Pr Moffo Lonla B
+Unit-5DataAcquisition
+ DataAcquisition
+ DAQAssistant
+ ICreateaTask
+ 1 Onthefirstscreen, selectAnalogInput foryourMeasurementType.
+ 2 Next, selectVoltage.
+ 3 Thenextscreenletsyouselectthephysicalchannel (orchannels)forwhichyou
+ arecreatingthistask.All supporteddataacquisitionhardwaredevicesshould
+ appear inthetreecontrolandyoucanexpandthemtoviewalistofthe
+ physicalchannelsthatyoucanselectforyourtask.Toselectmorethanone
+ channel,holddowntheCtrlbuttonwhileclickingonthechannelnames.
+ 4 ClickFinishtomoveontotheconfigurationstage
+ VIRTUALINSTRUMENTATION 17/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQAssistant
+ IConfigureaTask
+ Afteryoucreateatask,youcanconfigurechannel-specificsettingssuchas
+ scaling, input limitsandterminalconfiguration.Youalsocanconfigure
+ task-specificsettingssuchastimingandtriggering.
+ 1 Specifytheinput limits.Youcanusethedefaultvaluesof5forMaxand–5for
+ Minifyoudonotknowthetheoretical limitsforthesignalyouaremeasuring.
+ 2 Selecttheterminalconfigurationyouusedforthesignal.
+ 3 OntheTaskTimingtab, selectAcquireNSamples.Enter100forSamplesTo
+ Readand-enter1000.00forRate(Hz).
+ ITestthetask
+ 1 Launchthetestpanel foryourtaskbyclickingtheTestbuttonatthetopofthe
+ screen.
+ 2 Thetestrunsonceautomatically.ClicktheStartbuttontorunthetestagain.
+ Noticethatthegraphdisplaystheacquiredsignal.
+ 3 ClicktheClosebuttonwhenyouaredone. Ifnecessary,modifythesettingsfor
+ thetaskandretestthetask.
+ 4 Afterthetestpanelcloses,clicktheOKbutton.TheDAQAssistantsavesthe
+ voltagetask,containingall theconfigurationinformationyouentered, toMAX.
+ Youhavecreatedyourvoltagetask.
+ VIRTUALINSTRUMENTATION 18/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQHardware
+ ITheDAQhardwareactsastheinterfacebetweenthecomputerandthe
+ outsideworld. Itprimarilyfunctionsasadevicethatdigitizes incominganalog
+ signalssothatthecomputercaninterpretthem.
+ IOtherdataacquisitionfunctionalityincludesAnalogInput/Output,Digital
+ Input/Output,Counter/TimersandMultifunctionwhichisacombinationof
+ analog,digital,andcounteroperationsonasingledevice.
+ IAtypicaldesktopDAQsystemhasthreebasictypesofhardwareaterminal
+ block,acableandaDAQdevice
+ IAfteryouhaveconvertedaphysicalphenomenonintoameasurablesignalwith
+ orwithoutsignalconditioning,youneedtoacquirethatsignal.
+ IToacquireasignal,youneedaterminalblock,acable,aDAQdeviceanda
+ computer.
+ IThishardwarecombinationcantransformastandardcomputer intoa
+ measurementandautomationsystem.
+ VIRTUALINSTRUMENTATION 19/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQHardware
+ ITerminalBlockandCable
+ Aterminalblockprovidesaplacetoconnectsignals. Itconsistsofscrewor
+ springterminalsforconnectingsignalsandaconnector forattachingacableto
+ connecttheterminalblocktoaDAQdevice.
+ Thetypeofterminalblockyoushouldchoosedependsontwofactors—the
+ deviceandthenumberofsignalsyouaremeasuring.
+ Aterminalblockwith68terminalso ersmoregroundterminalstoconnecta
+ signal tothanaterminalblockwith50terminals.
+ Havingmoregroundterminalspreventstheneedtooverlapwirestoreacha
+ groundterminal,whichcancauseinterferencebetweenthesignals.
+ VIRTUALINSTRUMENTATION 20/23 Pr Moffo Lonla B
+Unit-5DataAcquisition
+ DataAcquisition
+ DAQHardware
+ IDAQSignalAccessory
+ TheDAQSignalAccessoryisacustomizedterminalblockdesignedfor learning
+ purposes.
+ Ithas3Connectors,QuadratureEncoder,Relay,DigitalTrigger,4LEDs
+ (reverselogic),Counter I/O,FunctionGenerator,FunctionGeneratorFrequency
+ Control,TemperatureSensor,TemperatureSensorNoiseControl,AnalogInput
+ andAnalogOutput.
+ Thethreedi erentcableconnectorsaccommodatemanydi erentDAQdevices
+ andspringterminalstoconnectsignals.
+ Youcanaccessthreeanaloginputchannels,oneofwhichisconnectedtothe
+ temperaturesensorandtwoanalogoutputchannels.
+ TheDAQSignalAccessoryincludesafunctiongeneratorwithaswitchtoselect
+ thefrequencyrangeofthesignal,andafrequencyknob.
+ Thefunctiongeneratorcanproduceasinewaveorasquarewave.Aconnection
+ togroundis locatedbetweenthesinewaveandsquarewaveterminal.
+ TheDAQSignalAccessoryalsohasarelay,athermocoupleinputanda
+ microphonejack.
+ VIRTUALINSTRUMENTATION 21/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQHardware
+ IDAQDevice
+ Beforeacomputer-basedmeasurementsystemcanmeasureaphysical signal
+ suchastemperature,asensorortransducer,mustconvertthephysicalorreal
+ worldsignal intoanelectricalonesuchasvoltageorcurrent.
+ Youmustusesignalconditioningaccessoriestoconditionthesignalsbeforethe
+ plug-inDAQdeviceconvertsthemtodigital information.
+ ThecomputerreceivesrawdatathroughtheDAQdevice.Theapplicationyou
+ writepresentsandmanipulatestherawdatainaformyoucanunderstand.
+ ThesoftwarealsocontrolstheDAQsystembycommandingtheDAQdevice
+ whenandfromwhichchannelstoacquiredata.
+ Typically,DAQsoftwareincludesdriversandapplicationsoftware.
+ MostDAQdeviceshavefourstandardelements :analoginput,analogoutput,
+ digital I/O,andcounters.
+ YoucantransferthesignalyoumeasurewiththeDAQdevicetothecomputer
+ throughavarietyofdi erentbusstructures.
+ VIRTUALINSTRUMENTATION 22/23 Pr Moffo Lonla B
+ Unit-5DataAcquisition
+ DataAcquisition
+ DAQHardware
+ IDAQDevice
+ AnalogInputCircuitryhasamultiplexer(mux).Thisswitchhasmultipleinput
+ channelsbutonlyletsoneatatimethroughtotheinstrumentationamplifier.
+ Theinstrumentationamplifiereitheramplifiesorattenuatesyoursignal.
+ Analog-to-DigitalConverter(ADC)convertsananalogsignal toadigital
+ numberandisusedforanaloginput.
+ Theapplicationsarecircuittesting,powersupplytesting,dynamometertesting,
+ weatherstation,geophysical studiesandfilteranalysis.
+ Digital-to-AnalogConverter(DAC)convertsadigitalnumbertoananalog
+ signalandisusedforanalogoutput.Theapplicationsarecontrol systems,
+ functiongenerator, tonegeneratorandservomotorcontrol.
+ Dependingonyourapplication, thereareseveraldi erentclassesofPC-based
+ dataacquisitiondevicesthatyoucanuse:
+ AnalogInput/Output
+ Digital Input/Output
+ Counter/Timers
+ Multifunction—acombinationofanalog,digitalandcounteroperations
+ VIRTUALINSTRUMENTATION 23/23 Pr Moffo Lonla B
+            
+            `
+        }
+    ]
+}; 
