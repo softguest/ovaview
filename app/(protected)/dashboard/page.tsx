@@ -40,7 +40,7 @@ const Dashboard = () => {
     },
     {
       imageUrl: "",
-      subjectTitle: "Artificial Intelligence Modified",
+      subjectTitle: "Artificial Intelligence",
       subjectDescription: "Understanding any topic in Artificial Intelligence Modified.",
       classTitle: "Bachelor's Degree",
       link: "/artificial-intelligence-modified",
