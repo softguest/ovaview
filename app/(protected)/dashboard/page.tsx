@@ -24,22 +24,6 @@ const Dashboard = () => {
     },
     {
       imageUrl: "",
-      subjectTitle: "Deep Learning with TensorFlow 2 and Keras",
-      subjectDescription: "Explore Information and Communication Technology.",
-      classTitle: "Masters",
-      link: "/tensor-flow-two",
-      bgColor: "orange"
-    },
-    {
-      imageUrl: "",
-      subjectTitle: "Introduction to Deep Learning Course code:CEC424",
-      subjectDescription: "Dive into world history and significant events.",
-      classTitle: "Masters",
-      link: "/intro-deep-learning",
-      bgColor: "#fff"
-    },
-    {
-      imageUrl: "",
       subjectTitle: "Mastering Deep Learning",
       subjectDescription: "Understand maps, climate, and the earth’s structure.",
       classTitle: "Masters",
@@ -48,20 +32,13 @@ const Dashboard = () => {
     },
     {
       imageUrl: "",
-      subjectTitle: "Virtual Instrumentation Pr Moffo",
+      subjectTitle: "Virtual Instrumentation",
       subjectDescription: "Learn programming, algorithms, and technology basics.",
       classTitle: "Masters",
       link: "/virtual-instrumentation",
       bgColor: "slate"
     },
-    {
-      imageUrl: "",
-      subjectTitle: "Virtual Instrumentation Janani",
-      subjectDescription: "Learn programming, algorithms, and technology basics.",
-      classTitle: "Masters",
-      link: "/virtual-instrumentation-janani",
-      bgColor: "slate"
-    },
+
     {
       imageUrl: "",
       subjectTitle: "Artificial Intelligence Modified",
