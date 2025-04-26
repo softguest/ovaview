@@ -35,7 +35,13 @@ export default function SubjectCard({
           />
         ) : (
           <div className="w-full h-full flex justify-center items-center bg-slate-400 text-2xl text-center text-white font-bold">
-            {subjectTitle}
+            <h1 className="text-x8 font-semibold">
+              {subjectTitle
+                .split(' ')
+                .slice(0, 3)
+                .map(word => word.charAt(0).toUpperCase()) 
+                .join(' ')}
+            </h1>
           </div>
         )}
       </div>
@@ -51,7 +57,7 @@ export default function SubjectCard({
       <CardFooter className="p-4 pt-0">
         <Link href={link}>
           <Button 
-            className="w-full border-"
+            className="w-full border"
           >
             Explore
           </Button>

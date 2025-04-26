@@ -38,13 +38,20 @@ const Dashboard = () => {
       link: "/virtual-instrumentation",
       bgColor: "slate"
     },
-
     {
       imageUrl: "",
       subjectTitle: "Artificial Intelligence Modified",
       subjectDescription: "Learn programming, algorithms, and technology basics.",
       classTitle: "Masters",
       link: "/artificial-intelligence-modified",
+      bgColor: "slate"
+    },
+    {
+      imageUrl: "",
+      subjectTitle: "Pest And Disease Management",
+      subjectDescription: "Learn programming, algorithms, and technology basics.",
+      classTitle: "Masters",
+      link: "/agriculture-masters",
       bgColor: "slate"
     },
   ];

@@ -1,10 +1,10 @@
-import ChatArtificialIntelligenceModified from '@/components/chat-virtual/ChatArtificialIntelligenceModified';
+import ChatAgricultureMasters from '@/components/chat-agriculture/ChatAgricultureMasters';
 import React from 'react'
 
 const ChatVirtualJanani = () => {
   return (
     <div className='bg-neutral-100'>
-      <ChatArtificialIntelligenceModified /> 
+      <ChatAgricultureMasters /> 
     </div>
   )
 }
