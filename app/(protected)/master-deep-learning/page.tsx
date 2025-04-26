@@ -1,4 +1,4 @@
-import ChatMasterDeepLearning from '@/components/chat-master/ChatIntroDeepLearning';
+import ChatMasterDeepLearning from '@/components/chat-master/ChatMasterDeepLearning';
 import React from 'react'
 
 const ChatMasterDeep = () => {

@@ -6,7 +6,7 @@ import InputForm from "../chat-components/inputForm";
 const ChatMasterDeepLearning = () => {
     const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
     useChat({
-      api: "api/introdeeplearning",
+      api: "api/masteringdeeplearning",
     });
 
   return (

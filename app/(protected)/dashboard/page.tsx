@@ -9,7 +9,7 @@ const Dashboard = () => {
     {
       imageUrl: "https://www.gmercyu.edu/images/learn_pages/learn_cisheader.jpg",
       subjectTitle: "I.C.T",
-      subjectDescription: "Learn algebra, geometry, calculus, and more.",
+      subjectDescription: "Understanding any topic in Information Communication Technology.",
       classTitle: "A Levels",
       link: "/ict",
       bgColor: "slate"
@@ -17,7 +17,7 @@ const Dashboard = () => {
     {
       imageUrl: "",
       subjectTitle: "Geography",
-      subjectDescription: "Improve your grammar, vocabulary, and writing skills.",
+      subjectDescription: "Improve your understanding on Alevels Geography.",
       classTitle: "A Levels",
       link: "/ict",
       bgColor: "slate"
@@ -25,32 +25,32 @@ const Dashboard = () => {
     {
       imageUrl: "",
       subjectTitle: "Mastering Deep Learning",
-      subjectDescription: "Understand maps, climate, and the earth’s structure.",
-      classTitle: "Masters",
+      subjectDescription: "Understanding any topic you want in Deep Learning.",
+      classTitle: "Bachelor's Degree",
       link: "/master-deep-learning",
       bgColor: "#fff"
     },
     {
       imageUrl: "",
       subjectTitle: "Virtual Instrumentation",
-      subjectDescription: "Learn programming, algorithms, and technology basics.",
-      classTitle: "Masters",
+      subjectDescription: "Understanding any topic in Virtual Instrumentation.",
+      classTitle: "Bachelor's Degree",
       link: "/virtual-instrumentation",
       bgColor: "slate"
     },
     {
       imageUrl: "",
       subjectTitle: "Artificial Intelligence Modified",
-      subjectDescription: "Learn programming, algorithms, and technology basics.",
-      classTitle: "Masters",
+      subjectDescription: "Understanding any topic in Artificial Intelligence Modified.",
+      classTitle: "Bachelor's Degree",
       link: "/artificial-intelligence-modified",
       bgColor: "slate"
     },
     {
       imageUrl: "",
       subjectTitle: "Pest And Disease Management",
-      subjectDescription: "Learn programming, algorithms, and technology basics.",
-      classTitle: "Masters",
+      subjectDescription: "Understanding any topic in Pest And Disease Management.",
+      classTitle: "Bachelor's Degree",
       link: "/agriculture-masters",
       bgColor: "slate"
     },

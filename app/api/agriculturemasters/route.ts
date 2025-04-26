@@ -1,6 +1,6 @@
 import { Message } from "ai";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { initailMessage } from "@/lib/agricalturemasters";
+import { initailMessage } from "@/lib/agriculturemasters";
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
