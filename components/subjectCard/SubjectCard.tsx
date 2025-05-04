@@ -6,21 +6,21 @@ import Link from "next/link"
 
 interface SubjectCardProps {
   imageUrl: string
-  subjectTitle: string
-  subjectDescription: string
-  classTitle: string
-  link:      string
-  bgColor:   string
+  title: string
+  content: string
+  // classTitle: string
+  // link:      string
+  // bgColor:   string
   // onExplore: () => void
 }
 
 export default function SubjectCard({
   imageUrl,
-  subjectTitle,
-  subjectDescription,
-  classTitle,
-  link,
-  bgColor
+  title,
+  content,
+  // classTitle,
+  // link,
+  // bgColor
   // onExplore,
 }: SubjectCardProps) {
   return (
@@ -29,14 +29,14 @@ export default function SubjectCard({
         {imageUrl ? (
           <Image
             src={imageUrl}
-            alt={subjectTitle}
+            alt={title}
             fill
             className="object-cover"
           />
         ) : (
           <div className="w-full h-full flex justify-center items-center bg-slate-400 text-2xl text-center text-white font-bold">
             <h1 className="text-x8 font-semibold">
-              {subjectTitle
+              {title
                 .split(' ')
                 .slice(0, 3)
                 .map(word => word.charAt(0).toUpperCase()) 
@@ -47,21 +47,21 @@ export default function SubjectCard({
       </div>
 
       <CardContent className="p-4 space-y-2">
-        <h2 className="text-xl font-semibold">{subjectTitle}</h2>
+        <h2 className="text-xl font-semibold">{title}</h2>
         <div className="flex items-center justify-between"> 
-          <div className="text-sm font-medium text-primary">Level:</div> <div className="font-bold">{classTitle}</div>
+          {/* <div className="text-sm font-medium text-primary">Level:</div> <div className="font-bold">{classTitle}</div> */}
         </div>
-        <p className="text-gray-600 text-sm">{subjectDescription}</p>
+        <p className="text-gray-600 text-sm">{content}</p>
       </CardContent>
 
       <CardFooter className="p-4 pt-0">
-        <Link href={link}>
+        {/* <Link href={link}>
           <Button 
             className="w-full border"
           >
             Explore
           </Button>
-        </Link>  
+        </Link>   */}
       </CardFooter>
     </Card>
   )

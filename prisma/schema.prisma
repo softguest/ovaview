@@ -15,6 +15,8 @@ enum FollowType {
 }
 
 enum UserRole {
+  WRITER
+  READER
   ADMIN
   USER
   STUDENT
@@ -55,6 +57,7 @@ model User {
   accounts                          Account[]
   challenges                        Challenge[]
   project                           Project[]
+  post                              Post[]
 
   examsTaken                        UserExam[]
   badges                            UserBadge[]
@@ -64,6 +67,10 @@ model User {
   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  ChatMessage ChatMessage[]
+
+  Chat Chat[]
 }
 
 
@@ -234,4 +241,41 @@ model UserBadge {
   userId     String
   badge      Badge    @relation(fields: [badgeId], references: [id])
   badgeId    String
+}
+
+model Post {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  image     String?
+  title     String
+  content   String
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String
+  createdAt DateTime @default(now())
+
+  ChatMessage ChatMessage[]
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  role      String   // 'user' or 'ai'
+  content   String
+  createdAt DateTime @default(now())
+
+  author    User?    @relation(fields: [userId], references: [id])
+  userId    String
+  
+  post      Post?     @relation(fields: [postId], references: [id])
+  postId    String
+}
+
+model Chat {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  postId    String
+  messages  Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, postId]) 
 }

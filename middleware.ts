@@ -57,6 +57,12 @@ export default auth((req) => {
     }
   }
 
+  // if (req.nextUrl.pathname.startsWith("/admin")) {
+  //   if (!isLoggedIn ||  !== "ADMIN") {
+  //     return NextResponse.redirect(new URL("/unauthorized", req.url));
+  //   }
+  // }
+
   return NextResponse.next()
   // return null;
 })

@@ -62,7 +62,7 @@ const BlogDetailedPage: FC<BlogDetailPageProps> = async ({ params }) => {
                 </div> */}
                 <div className="grid  md:grid-cols-2 mt-2 p-4 bg-slate-100 rounded-md">
                   <h4 className='my-2 font-bold text-1xl'>challenge Description: </h4>
-                  {/* <p className='h-4'><em>{challenge?.challengeDesc}</em></p> */}
+                  {/* <p className='h-4'><em>{challenge?.}</em></p> */}
                   <Button className='my-2'>challenge Details</Button>
                 </div>
             </div>

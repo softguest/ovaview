@@ -4,7 +4,7 @@ const nextConfig = {
     images: {
         domains: [
             // "res.cloudinary.com",
-            "www.gmercyu.edu"
+            "http://localhost:3000"
         ]
     }
 }
