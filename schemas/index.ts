@@ -22,7 +22,7 @@ export const SettingsSchema = z.object({
     email:        z.optional(z.string().email()),
     password:     z.optional(z.string().min(6)),
     newPassword:  z.optional(z.string().min(6)),
-    role:         z.enum([UserRole.ADMIN, UserRole.USER, UserRole.TEACHER, UserRole.STUDENT]),
+    role:         z.enum([UserRole.ADMIN, UserRole.USER, UserRole.TEACHER, UserRole.STUDENT,UserRole.WRITER,UserRole.READER]),
     
     typeOfIdentificationCard: z.optional(z.string()),
     identificationCardNumber: z.optional(z.string()),

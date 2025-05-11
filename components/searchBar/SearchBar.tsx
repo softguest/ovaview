@@ -19,6 +19,7 @@ import {
 import { useOnClickOutside } from '@/hooks/use-on-click-outside'
 import { Users } from 'lucide-react'
 import { FaBuilding } from 'react-icons/fa6'
+import { FaUser } from 'react-icons/fa'
 
 interface SearchBarProps {}
 
@@ -75,7 +76,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
         }}
         value={input.toLowerCase()}
         className='outline-none border-none focus:border-none focus:outline-none ring-0'
-        placeholder='Search Schools...'
+        placeholder='Search Profile...'
 
       />
 
@@ -92,8 +93,8 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
                   }}
                   key={user.id}
                   value={user.username as string || user.firstName as string || user.middleName as string || user.lastName as string}>
-                  <FaBuilding className='mr-2 h-4 w-4 text-sky-600' />
-                  <a href={`/schools/${user.id}`} className="py-1"><span className="text-sky-600">{user.username}</span> Located in <span className="text-[#faa635]">{user.country}</span></a>
+                  <FaUser className='mr-2 h-4 w-4 text-sky-600' />
+                  <a href={`/schools/${user.id}`} className="py-1"><span className="text-sky-600">{user.firstName} {user.lastName}</span> ... <span className="text-[#faa635]">{user.country}</span></a>
                 </CommandItem>
               ))}
             </CommandGroup>

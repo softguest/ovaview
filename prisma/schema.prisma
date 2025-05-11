@@ -61,6 +61,7 @@ model User {
 
   examsTaken                        UserExam[]
   badges                            UserBadge[]
+  subscriptions                     Subscription[]
 
   isTwoFactorEnabled Boolean        @default(false)
   twoFactorConfirmation             TwoFactorConfirmation?
@@ -244,7 +245,7 @@ model UserBadge {
 }
 
 model Post {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id             String      @id @default(cuid()) @map("_id")
   image     String?
   title     String
   content   String
@@ -252,11 +253,12 @@ model Post {
   authorId  String
   createdAt DateTime @default(now())
 
-  ChatMessage ChatMessage[]
+  subscriptions      Subscription[]
+  ChatMessage        ChatMessage[]
 }
 
 model ChatMessage {
-  id        String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id             String      @id @default(cuid()) @map("_id")
   role      String   // 'user' or 'ai'
   content   String
   createdAt DateTime @default(now())
@@ -264,12 +266,12 @@ model ChatMessage {
   author    User?    @relation(fields: [userId], references: [id])
   userId    String
   
-  post      Post?     @relation(fields: [postId], references: [id])
+  post      Post?    @relation(fields: [postId], references: [id])
   postId    String
 }
 
 model Chat {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  id             String      @id @default(cuid()) @map("_id")
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   postId    String
@@ -278,4 +280,16 @@ model Chat {
   updatedAt DateTime @updatedAt
 
   @@unique([userId, postId]) 
+}
+
+model Subscription {
+  id        String      @id @default(cuid()) @map("_id")
+  userId    String
+  postId    String
+  createdAt DateTime @default(now())
+  
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+
+  @@unique([userId, postId])
 }

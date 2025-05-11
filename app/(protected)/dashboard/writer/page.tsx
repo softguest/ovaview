@@ -32,14 +32,16 @@ export default async function WriterDashboard() {
 
       <ul className="space-y-4">
         {posts.map((post) => (
-          <Link href={`/posts/${post.id}`} className="my-1">
-            <Card key={post.id} className="p-4 border rounded">
+          <li key={post.id}>
+            <Card className="p-4 border rounded">
               <div className="flex justify-between items-center">
-                <div className="flex space-x-4">
-                  <img
-                    src={post.image} 
-                    className="w-[50px] h-[50px] object-cover"
+                <Link href={`/posts/${post.id}`} className="flex space-x-4">
+                  <Image
+                    src={post?.image ?? "/course/subject.jpg"}
                     alt="Post image"
+                    width={50}
+                    height={50}
+                    className="object-cover"
                   />
                   <div>
                     <h2 className="text-xl font-medium">{post.title}</h2>
@@ -47,7 +49,7 @@ export default async function WriterDashboard() {
                       {new Date(post.createdAt).toLocaleDateString()}
                     </p>
                   </div>
-                </div>
+                </Link>
                 <Link
                   href={`/dashboard/writer/edit/${post.id}`}
                   className="text-blue-500 hover:underline"
@@ -56,7 +58,8 @@ export default async function WriterDashboard() {
                 </Link>
               </div>
             </Card>
-          </Link>
+          </li>
+
         ))}
       </ul>
     </div>
