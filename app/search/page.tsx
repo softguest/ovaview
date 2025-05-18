@@ -5,11 +5,11 @@ import Spinner from "./Spinner";
 import useSWR from "swr";
 
 
-const fetchPosts = async (url: string) => {
+const fetchSubjects = async (url: string) => {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Failed to fetch posts");
+    throw new Error("Failed to fetch subjects");
   }
 
   return response.json();
@@ -24,7 +24,7 @@ const SearchPage = () => {
 
   const { data, isLoading } = useSWR(
     `/api/search?q=${encodedSearchQuery}`,
-    fetchPosts,
+    fetchSubjects,
     { revalidateOnFocus: false }
   );
 
@@ -36,7 +36,7 @@ const SearchPage = () => {
     return <Spinner />;
   }
 
-  if (!data?.posts) {
+  if (!data?.subjects) {
     return null;
   }
 

@@ -2,21 +2,21 @@
 
 import { useState } from "react";
 
-export default function PostSearch() {
+export default function SubjectSearch() {
   const [query, setQuery] = useState("");
-  const [posts, setPosts] = useState([]);
+  const [subjects, setSubjects] = useState([]);
 
   async function handleSearch() {
-    const res = await fetch(`/api/posts/search?q=${encodeURIComponent(query)}`);
+    const res = await fetch(`/api/subjects/search?q=${encodeURIComponent(query)}`);
     const data = await res.json();
-    setPosts(data);
+    setSubjects(data);
   }
 
   return (
     <div>
       <input
         type="text"
-        placeholder="Search posts..."
+        placeholder="Search Subjects..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="border p-2"
@@ -26,8 +26,8 @@ export default function PostSearch() {
       </button>
 
       <ul>
-        {posts.map((post: any) => (
-          <li key={post.id}>{post.title}</li>
+        {subjects.map((subject: any) => (
+          <li key={subject.id}>{subject.title}</li>
         ))}
       </ul>
     </div>

@@ -5,7 +5,7 @@ import PostList from "@/components/postList/PostList";
 const Dashboard = async () => {
   const session = await auth();
 
-  const posts = await db.post.findMany({
+  const subjects = await db.subject.findMany({
     orderBy: { createdAt: "desc" },
     include: {
       author: true,
@@ -21,7 +21,7 @@ const Dashboard = async () => {
     },
   });
 
-  return <PostList posts={posts} sessionUserId={session?.user?.id || null} />;
+  return <PostList subjects={subjects} sessionUserId={session?.user?.id || null} />;
 };
 
 export default Dashboard;

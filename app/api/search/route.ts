@@ -13,8 +13,7 @@ export async function GET(req: Request) {
       },
     },
     include: {
-      challenges: true,
-      project: true,
+      subject: true,
     },
     take: 8,
   })
