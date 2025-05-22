@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     // <SessionProvider session={session}>
       <html lang="en">
-        <body className={inter.className}>
+        <body className="min-h-[80vh]">
           <Providers>
             <HeaderTwo />
             <Toaster />

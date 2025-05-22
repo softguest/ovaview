@@ -20,6 +20,7 @@ import { useOnClickOutside } from '@/hooks/use-on-click-outside'
 import { Users } from 'lucide-react'
 import { FaBuilding } from 'react-icons/fa6'
 import { FaUser } from 'react-icons/fa'
+import Image from 'next/image'
 
 interface SearchBarProps {}
 
@@ -88,13 +89,30 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
               {queryResults?.map((user) => (
                 <CommandItem
                   onSelect={(e) => {
-                    router.push(`/users/${e}`)
+                    router.push(`/user-profile/${e}`)
                     router.refresh()
                   }}
                   key={user.id}
                   value={user.username as string || user.firstName as string || user.middleName as string || user.lastName as string}>
-                  <FaUser className='mr-2 h-4 w-4 text-sky-600' />
-                  <a href={`/schools/${user.id}`} className="py-1"><span className="text-sky-600">{user.firstName} {user.lastName}</span> ... <span className="text-[#faa635]">{user.country}</span></a>
+                  {/* <Image src={user.profileImage ?? ""} alt="user's Image" width={30} height={30} className="mr-4 rounded-full" /> */}
+                    {user?.profileImage ? (
+                      <Image
+                        src={user.profileImage}
+                        alt="User"
+                        width={30}
+                        height={30}
+                        className="rounded-full object-cover mr-2"
+                      />
+                    ) : (
+                      <div className="w-3 h-5 bg-slate-500 p-5 text-white flex items-center justify-center rounded-full font-bold mr-2">
+                        {user?.firstName
+                          ?.split(" ")
+                          ?.slice(0, 1)
+                          ?.map((word: string) => word.charAt(0).toUpperCase())
+                          ?.join("")}
+                      </div>
+                    )}
+                  <a href={`/user-profile/${user.id}`} className="py-1"><span className="text-slate-500">{user.firstName} {user.lastName}</span> ... <span className="text-[#faa635]">{user.country}</span></a>
                 </CommandItem>
               ))}
             </CommandGroup>

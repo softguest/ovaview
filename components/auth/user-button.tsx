@@ -18,6 +18,7 @@ import { useCurrentUser } from "@/hooks/use-current-user";
 import { LogoutButton } from "@/components/auth/logout-button";
 import { FcSettings } from "react-icons/fc";
 import Link from "next/link";
+import Image from "next/image";
 
 export const UserButton = () => {
   const user = useCurrentUser();
@@ -27,8 +28,10 @@ export const UserButton = () => {
       <DropdownMenuTrigger>
         <Avatar>
           <AvatarImage src={user?.image || ""} />
-          <AvatarFallback className="bg-slate-700">
-            <div className="text-sm text-white">{user?.firstName}</div>
+          <AvatarFallback className="bg-slate-700 border">
+            <Image  src={user?.profileImage ?? "/run.png"}
+              alt="User" fill 
+            />
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>

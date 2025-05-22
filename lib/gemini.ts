@@ -31,11 +31,6 @@ export async function getGeminiResponse(context: string, question: string) {
   }
   
 
-// lib/gemini.ts
-// import { GoogleGenerativeAI } from "@google/generative-ai";
-
-// const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
-
 export async function getGeminiCompletion(
   context: string,
   messages: { role: "user" | "ai"; content: string }[]
@@ -64,8 +59,24 @@ export async function GeminiChat(messages: Message[], context: string): Promise<
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
   
     // Create a system-level preamble using the post content
-    const prompt = `You are an assistant answering questions based ONLY on the post content below:\n\n"${context}"`;
-  
+    const prompt = `You are a friendly, knowledgeable virtual teacher available 24/7 to help a student understand a subject they are currently studying.
+
+                You must only answer questions using the information from the student's current subject content.
+
+                Do not provide answers based on outside knowledge or guesswork.
+                If the information is not available in the provided subject content, politely tell the student and encourage them to explore other related subtopics.
+
+                 Your goal is to:
+                 - Explain clearly based on the subject material
+                 - Answer questions step-by-step
+                 - Guide the student toward deeper understanding
+
+                 When answering, follow this format:
+                 1. Clear Explanation based only on the subject content.
+                 2. Step-by-Step Breakdown or Examples (if relevant).
+                 3. Encourage Understanding by asking a follow-up question or suggesting a related point in the material below:\n\n"${context}"`;
+    // `You are an assistant answering questions based ONLY on the post content below:\n\n"${context}"`
+
     const chatMessages = [
       { role: "user", parts: [{ text: prompt }] },
       ...messages.map((msg) => ({

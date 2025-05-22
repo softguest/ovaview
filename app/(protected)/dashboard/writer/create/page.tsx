@@ -30,7 +30,7 @@ export default function CreatePostPage() {
     });
 
     if (res.ok) {
-      router.push('/dashboard/writer');
+      window.location.href = '/dashboard/writer';
     } else {
       console.error('Failed to submit subject');
     }

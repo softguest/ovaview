@@ -11,13 +11,13 @@ const Footer = () => {
     <div className='bg-slate py-8'>
         <div className='flex justify-between items-center px-4 md:px-32'>
             <Link href='/' className='text-slate-500 text-1xl md:text-1xl font-bold'>
-                Weekly Challenge
+                SubjectSpot
             </Link>
             <ul className='flex justify-between items-center space-x-6'>  
                 <li>
                     <Link href='/aboutus'> 
                         <Button size="lg">
-                            About Weekly!
+                            About SubjectSpot!
                         </Button>
                     </Link> 
                 </li>

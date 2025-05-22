@@ -106,6 +106,52 @@ const SettingsPage = () => {
               onSubmit={form.handleSubmit(onSubmit)}
             >
               <div className="space-y-4">
+
+                <FormField
+                  control={form.control}
+                  name="profileImage"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Profile Image</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="file"
+                          accept="image/*"
+                          disabled={isPending}
+                          onChange={async (e) => {
+                            const file = e.target.files?.[0];
+                            if (!file) return;
+
+                            const formData = new FormData();
+                            formData.append("file", file);
+
+                            const res = await fetch("/api/upload/user-upload", {
+                              method: "POST",
+                              body: formData,
+                            });
+
+                            const data = await res.json();
+
+                            if (res.ok) {
+                              field.onChange(data.filePath); // Update the form state with the path
+                            } else {
+                              setError(data.error || "Failed to upload image");
+                            }
+                          }}
+                        />
+                      </FormControl>
+                      {form.watch("profileImage") && (
+                        <img
+                          src={form.watch("profileImage")}
+                          alt="Profile Preview"
+                          className="w-24 h-24 rounded-full mt-2"
+                        />
+                      )}
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="firstName"
@@ -421,11 +467,14 @@ const SettingsPage = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value={UserRole.STUDENT}>
-                            Student
+                          <SelectItem value={UserRole.WRITER}>
+                            Writer
                           </SelectItem>
-                          <SelectItem value={UserRole.USER}>
-                            User
+                          <SelectItem value={UserRole.READER}>
+                            Reader
+                          </SelectItem>
+                          <SelectItem value={UserRole.TEACHER}>
+                            Teacher
                           </SelectItem>
                         </SelectContent>
                       </Select>
