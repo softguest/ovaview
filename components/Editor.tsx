@@ -1,4 +1,3 @@
-// components/Editor.tsx
 'use client';
 
 import React, { useEffect, useRef } from 'react';
@@ -13,6 +12,7 @@ interface EditorProps {
 const Editor: React.FC<EditorProps> = ({ data, onChange }) => {
   const editorRef = useRef<EditorJS | null>(null);
   const holderId = 'editorjs-container';
+  const hasRenderedRef = useRef(false); // to avoid re-rendering the same content again
 
   useEffect(() => {
     if (!editorRef.current) {
@@ -30,27 +30,25 @@ const Editor: React.FC<EditorProps> = ({ data, onChange }) => {
       editorRef.current = editor;
     }
 
-    // useEffect(() => {
-    //     const interval = setInterval(async () => {
-    //         if (editorRef.current) {
-    //         const output = await editorRef.current.save();
-    //         onChange(output);
-    //         console.log("Autosaved");
-    //         }
-    //     }, 10000); // Autosave every 10 seconds
-
-    //     return () => clearInterval(interval);
-    //     }, []);
-
-        
-
     return () => {
-      if (editorRef.current && typeof editorRef.current.destroy === 'function') {
+      if (editorRef.current?.destroy) {
         editorRef.current.destroy();
         editorRef.current = null;
       }
     };
-  }, [data]); // Reinitialize if data changes
+  }, []);
+
+  // Re-render content only once after initial mount (if needed)
+  useEffect(() => {
+    if (editorRef.current && data && !hasRenderedRef.current) {
+      editorRef.current.isReady
+        .then(() => {
+          editorRef.current?.render(data);
+          hasRenderedRef.current = true;
+        })
+        .catch((e) => console.error("EditorJS render failed", e));
+    }
+  }, [data]);
 
   return <div id={holderId} className="border p-4 rounded min-h-[300px]" />;
 };

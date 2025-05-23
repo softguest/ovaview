@@ -21,22 +21,27 @@ export default function EditPostPage() {
     const fetchPost = async () => {
       try {
         const res = await fetch(`/api/subjects/${id}`);
-        if (!res.ok) {
-          const errText = await res.text();
-          console.error("Fetch failed", res.status, errText);
-          throw new Error("Failed to fetch subject");
-        }
+        if (!res.ok) throw new Error("Failed to fetch subject");
+
         const data = await res.json();
         setTitle(data.title);
-        setContent(JSON.parse(data.content)); // assuming content is stored as JSON string
         setImageUrl(data.image);
+
+        // Only setContent if it's still null
+        setContent((prevContent) => {
+          if (prevContent) return prevContent;
+          return typeof data.content === "string" ? JSON.parse(data.content) : data.content;
+        });
       } catch (error) {
         console.error("fetchPost error:", error);
       }
     };
 
-    if (id) fetchPost();
-  }, [id]);
+    if (id && content === null) {
+      fetchPost();
+    }
+  }, [id, content]);
+
 
   const handleEditorChange = (data: OutputData) => {
     setContent(data);
@@ -81,7 +86,7 @@ export default function EditPostPage() {
 
         {imageUrl && (
           <div>
-            <p className="text-sm text-gray-500 mb-1">Current Image:</p>
+            <p className="text-sm text-gray-500 mb-1">Featured Image:</p>
             <img src={imageUrl} alt="Current Post" className="w-full max-h-60 object-contain rounded border" />
           </div>
         )}
@@ -93,7 +98,11 @@ export default function EditPostPage() {
           className="block"
         />
 
-        {content && <Editor data={content} onChange={handleEditorChange} />}
+        {content ? (
+          <Editor data={content} onChange={handleEditorChange} />
+        ) : (
+          <p className="text-sm text-gray-500">Loading editor...</p>
+        )}
 
         <button
           type="submit"
