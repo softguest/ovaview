@@ -19,7 +19,7 @@ const HeaderTwo = () => {
             <div className="px-4 md:px-8 lg:px-32 flex flex-wrap items-center justify-between p-4">
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <Link href="/dashboard">
-                        <div className='text-slate-500 block font-bold text-2xl border border-slate-400 py-1 px-2 rounded-sm h-full'>SP<span className='text-slate-300'>O</span>T</div>
+                        <div className='text-slate-500 block font-bold text-2xl border border-slate-400 py-1 px-2 rounded-sm h-full'>S<span className='text-slate-300'>S</span></div>
                     </Link>
                     <SearchBar />
                 </div>
