@@ -16,7 +16,7 @@ const HeaderTwo = () => {
     const pathname = usePathname();
   return (
         <nav className="bg-slate border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-            <div className="px-4 md:px-8 lg:px-32 flex flex-wrap items-center justify-between p-4">
+            <div className="px-6 md:px-8 lg:px-32 flex flex-wrap items-center justify-between p-1">
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                     <Link href="/dashboard">
                         <div className='text-slate-500 block font-bold text-2xl border border-slate-400 py-1 px-2 rounded-sm h-full'>S<span className='text-slate-300'>S</span></div>

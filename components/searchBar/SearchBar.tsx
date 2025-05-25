@@ -104,7 +104,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
                         className="rounded-full object-cover mr-2"
                       />
                     ) : (
-                      <div className="w-3 h-5 bg-slate-500 p-5 text-white flex items-center justify-center rounded-full font-bold mr-2">
+                      <div className="w-3 h-4 bg-slate-500 p-2 text-white flex items-center justify-center rounded-full font-bold mr-2">
                         {user?.firstName
                           ?.split(" ")
                           ?.slice(0, 1)
@@ -112,7 +112,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
                           ?.join("")}
                       </div>
                     )}
-                  <a href={`/user-profile/${user.id}`} className="py-1"><span className="text-slate-500">{user.firstName} {user.lastName}</span> ... <span className="text-[#faa635]">{user.country}</span></a>
+                  <a href={`/user-profile/${user.id}`} className=""><span className="text-slate-500">{user.firstName} {user.lastName}</span> ... <span className="text-[#faa635]">{user.country}</span></a>
                 </CommandItem>
               ))}
             </CommandGroup>
